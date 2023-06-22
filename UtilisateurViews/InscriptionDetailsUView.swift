@@ -8,8 +8,43 @@
 import SwiftUI
 
 struct InscriptionDetailsUView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    @State var photoprofil: UIImage?
+    @State var prénom : String
+    @State var nom : String
+    @State var age : Int
+    @State var body: some View {
+        Color("Neutre")
+            .edgesIgnoringSafeArea(.top)
+        ZStack{
+            ScrollView{
+                VStack{
+                    
+                    HStack{
+                        
+                        Text("Nom")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                        TextField("methni", text: $nom)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+                        
+                    }
+                    HStack{
+                        Text("Prenom")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                        TextField("Mouna", text: $prénom)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+                    
+                    
+                }
+            }
+        }
+        
     }
 }
 
