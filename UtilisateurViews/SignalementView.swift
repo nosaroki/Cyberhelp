@@ -9,7 +9,17 @@ import SwiftUI
 
 struct SignalementView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color("Neutre")
+                .edgesIgnoringSafeArea(.top)
+            VStack{
+            Text("Selectionne le type de harcèlement")
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom)
+                Text("Type de signalement")
+            }
+        }
     }
 }
 
