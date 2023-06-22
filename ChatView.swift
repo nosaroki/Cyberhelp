@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ChatView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color("Neutre")
+                .edgesIgnoringSafeArea(.top)
+            VStack{
+                Text("Chat")
+                    .font(.title)
+                    .fontWeight(.bold)
+            
+                Spacer()
+            }
+            .padding()
+        }
     }
 }
 
