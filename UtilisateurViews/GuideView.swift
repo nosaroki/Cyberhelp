@@ -9,7 +9,23 @@ import SwiftUI
 
 struct GuideView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color("Neutre")
+            VStack{
+                Text("Guide")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                VStack{
+                    Image("non")
+                        .resizable()
+                        .frame(height: 250)
+                    Text("blablabla")
+                }
+                .background(.white)
+                .cornerRadius(8)
+                .padding()
+            }
+        }
     }
 }
 
