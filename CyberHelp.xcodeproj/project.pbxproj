@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8333C6BF2A45DC400053E6CE /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333C6BE2A45DC400053E6CE /* ChatVM.swift */; };
+		833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833BA5A42A458245000B41D9 /* StructureChat.swift */; };
 		8349A0132A448167006E1701 /* StreamChatSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8349A0122A448167006E1701 /* StreamChatSwiftUI */; };
 		83BFF8382A43322600DF498E /* CyberHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8372A43322600DF498E /* CyberHelpApp.swift */; };
 		83BFF83A2A43322600DF498E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8392A43322600DF498E /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8333C6BE2A45DC400053E6CE /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
+		833BA5A42A458245000B41D9 /* StructureChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureChat.swift; sourceTree = "<group>"; };
 		83BFF8342A43322600DF498E /* CyberHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyberHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BFF8372A43322600DF498E /* CyberHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberHelpApp.swift; sourceTree = "<group>"; };
 		83BFF8392A43322600DF498E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				83BFF8562A43355900DF498E /* UtilisateurViews */,
 				83BFF8552A43349600DF498E /* Professionnels Views */,
 				83BFF8512A43340700DF498E /* ChatDetailsView.swift */,
+				8333C6BE2A45DC400053E6CE /* ChatVM.swift */,
 				83BFF84F2A4333B000DF498E /* ChatView.swift */,
 				83BFF85D2A43368500DF498E /* AccueilViews */,
 				83BFF8452A43325D00DF498E /* TabviewP.swift */,
@@ -162,6 +167,7 @@
 			children = (
 				83BFF86D2A4338D500DF498E /* Bouton.swift */,
 				83BFF86F2A4338F200DF498E /* StructureProfil.swift */,
+				833BA5A42A458245000B41D9 /* StructureChat.swift */,
 			);
 			path = Bibliotheque;
 			sourceTree = "<group>";
@@ -249,7 +255,9 @@
 				83BFF8522A43340700DF498E /* ChatDetailsView.swift in Sources */,
 				83BFF8632A43375C00DF498E /* TabviewU.swift in Sources */,
 				83BFF8542A43343200DF498E /* InscriptionView.swift in Sources */,
+				833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */,
 				83BFF84C2A43338300DF498E /* SignalementView.swift in Sources */,
+				8333C6BF2A45DC400053E6CE /* ChatVM.swift in Sources */,
 				83BFF84E2A43339D00DF498E /* ProfilPView.swift in Sources */,
 				83BFF8692A43381000DF498E /* EventsDetailsView.swift in Sources */,
 				83BFF83A2A43322600DF498E /* ContentView.swift in Sources */,

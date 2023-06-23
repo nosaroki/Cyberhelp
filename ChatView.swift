@@ -6,26 +6,30 @@
 //
 
 import SwiftUI
+import StreamChat
 
 struct ChatView: View {
+    @EnvironmentObject var ChatVM: ChatViewModel
     var body: some View {
-        ZStack{
+        ZStack {
             Color("Neutre")
                 .edgesIgnoringSafeArea(.top)
-            VStack{
+            VStack {
                 Text("Chat")
                     .font(.title)
                     .fontWeight(.bold)
-            
+//                List(ChatVM.messages) { conversation in
+                    
+                }
+                
                 Spacer()
             }
-            .padding()
         }
     }
-}
-
-struct ChatView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatView()
+    
+    
+    struct ChatView_Previews: PreviewProvider {
+        static var previews: some View {
+            ChatView()
+        }
     }
-}
