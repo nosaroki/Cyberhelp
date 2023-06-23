@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct CyberHelpApp: App {
+    
+    @StateObject var guideVM = GuideClass()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(guideVM)
         }
     }
 }

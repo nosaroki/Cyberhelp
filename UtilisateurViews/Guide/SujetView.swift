@@ -36,6 +36,6 @@ struct SujetView: View {
 
 struct SujetView_Previews: PreviewProvider {
     static var previews: some View {
-        SujetView(guideInView: listeDeConseil[0])
+        SujetView(guideInView: GuideClass().guides[0])
     }
 }
