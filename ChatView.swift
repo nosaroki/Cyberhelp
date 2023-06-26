@@ -21,7 +21,7 @@ struct ChatView: View {
                 ScrollView{
                     List (ChatVM.conversations){ message in
                         HStack{
-                            Image("bellFilled")
+//                            Image("bellFilled")
 //                            Text(conversation.userP.nom)
 //                            if let lastMessage = conversation.conversation.last {
 //                                Text(lastMessage.chat)
