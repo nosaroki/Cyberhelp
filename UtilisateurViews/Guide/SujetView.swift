@@ -13,9 +13,15 @@ struct SujetView: View {
     var body: some View {
         
         VStack{
-                guideInView.image
+            AsyncImage(url: URL(string: guideInView.image)) { image in
+                image
                     .resizable()
+                    .scaledToFit()
                     .frame(height: 250)
+                    
+            } placeholder: {
+                ProgressView()
+            }
             VStack(alignment: .leading){
                 Text(guideInView.titre)
                     .foregroundColor(Color("Primaire"))
@@ -26,16 +32,16 @@ struct SujetView: View {
                     .foregroundColor(Color("DeepBlue"))
             }
             .padding()
-            }
-            .background(.white)
-            .cornerRadius(8)
-            .padding()
         }
+        .background(.white)
+        .cornerRadius(8)
+        .padding()
+    }
 }
 
 
 struct SujetView_Previews: PreviewProvider {
     static var previews: some View {
-        SujetView(guideInView: GuideClass().guides[0])
+        SujetView(guideInView: Guide(titre: "", image: "", description: ""))
     }
 }

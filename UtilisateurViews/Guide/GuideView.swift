@@ -26,6 +26,11 @@ struct GuideView: View {
                 }
             }
         }
+        .onAppear{
+            Task {
+                await guideVM.fetchGuides()
+            }
+        }
     }
 }
 
@@ -35,5 +40,3 @@ struct GuideView_Previews: PreviewProvider {
             .environmentObject(GuideClass())
     }
 }
-
-

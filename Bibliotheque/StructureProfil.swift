@@ -50,10 +50,34 @@ struct Actu : Identifiable {
     var description : String
 }
 
-struct Guide : Identifiable {
-    var id = UUID()
+struct Guide : Identifiable, Codable {
+    var id : String = ""
     var titre : String
-    var image : Image
+    var image : String
     var description : String
+    
+    enum CodingKeys: String, CodingKey {
+        case titre
+        case image
+        case description
+    }
 }
 
+// MARK: - GuideCollect
+struct GuideCollect: Codable {
+    let records: [Record]
+    
+var guides : [Guide] {
+    return records.map { rec in
+        var guide = rec.fields
+        guide.id = rec.id
+        return guide
+    }
+}
+}
+
+// MARK: - Record
+struct Record: Codable {
+    let id, createdTime: String
+    let fields: Guide
+}
