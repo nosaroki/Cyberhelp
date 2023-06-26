@@ -11,27 +11,36 @@ import StreamChat
 struct ChatDetailsView: View {
     
     @EnvironmentObject var ChatVM: ChatViewModel
+    @ State var messageText = ""
     
     var body: some View {
         ZStack{
             Color("Neutre")
                 .edgesIgnoringSafeArea(.top)
             VStack {
-//                List(ChatVM.messages) { conversation in
-                    //                    Text(conversation)
-                    //                        .padding()
-                    //                        .background(Color("Primaire"))
-                    //                        .foregroundColor(Color("Neutre"))
-                    //                        .clipShape(RoundedRectangle(cornerRadius: 16.0,style: .continuous))
-                    //                        .listRowSeparator(.hidden)
-                    ////                        .overlay(alignment:.bottomLeading)
-                    //                    Image(systemName: "arrowtriangle.down.fill")
-                    //                        .font(.title)
-                    //                        .rotationEffet(.degrees(45))
-                    //                        .offset(x: -10, y: 10)
-                    //                        .foregroundColor(Color("Primaire"))
-                    //                }
-                    //                .listStyle(.plain)
+            ScrollView{
+                Text("Chat")
+                    .font(.title)
+                    .fontWeight(.bold)
+                //                List(ChatVM.messages) { conversation in
+            }
+            HStack{
+                TextField("Ecrivez ici", text: $messageText)
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(10)
+                    .onSubmit {
+//                            sendMessage
+                    }
+                Button {
+//                        sendMessage
+                } label: {
+                    Image("send")
+                }
+                .font(.system(size:26))
+                .padding(.horizontal,10)
+            }
+            .padding()
                 }
                 .padding()
             }
@@ -41,7 +50,7 @@ struct ChatDetailsView: View {
     
     struct ChatDetailsView_Previews: PreviewProvider {
         static var previews: some View {
-            ChatDetailsView()
+            ChatDetailsView().environmentObject(ChatViewModel())
         }
     }
     

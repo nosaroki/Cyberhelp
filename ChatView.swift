@@ -18,11 +18,22 @@ struct ChatView: View {
                 Text("Chat")
                     .font(.title)
                     .fontWeight(.bold)
-//                List(ChatVM.messages) { conversation in
-                    
+                ScrollView{
+                    List (ChatVM.conversations){ message in
+                        HStack{
+                            Image("bellFilled")
+//                            Text(conversation.userP.nom)
+//                            if let lastMessage = conversation.conversation.last {
+//                                Text(lastMessage.chat)
+//                            }
+//                            Text(conversation.user.nom)
+//                            if let lastMessage = conversation.conversation.last {
+//                                Text(lastMessage.date)
+//                            }
+                        }
+                    }
                 }
-                
-                Spacer()
+                }
             }
         }
     }
@@ -30,6 +41,7 @@ struct ChatView: View {
     
     struct ChatView_Previews: PreviewProvider {
         static var previews: some View {
-            ChatView()
+            ChatView().environmentObject(ChatViewModel())
         }
     }
+
