@@ -31,6 +31,11 @@ struct GuideView: View {
                 await guideVM.fetchGuides()
             }
         }
+        .refreshable {
+            Task{
+                await guideVM.fetchGuides()
+            }
+        }
     }
 }
 

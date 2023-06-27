@@ -11,6 +11,7 @@ import SwiftUI
 struct CyberHelpApp: App {
     
     @StateObject var guideVM = GuideClass()
+    @StateObject var alerteVM = AlertClass()
     
     var body: some Scene {
         WindowGroup {

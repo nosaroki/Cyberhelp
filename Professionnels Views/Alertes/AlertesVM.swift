@@ -1,18 +1,17 @@
 //
-//  GuideVm.swift
+//  AlertesVM.swift
 //  CyberHelp
 //
-//  Created by apprenant68 on 23/06/2023.
+//  Created by apprenant68 on 27/06/2023.
 //
 
 import Foundation
 import SwiftUI
 
-class GuideClass:ObservableObject {
-    
-    @Published var guides : [Guide] = []
-    
-    func fetchGuides() async {
+class AlertClass: ObservableObject {
+    @Published var signalements: [Signalement] = []
+        
+    func fetchAlertes() async {
         let apikey = "keyEYFu7vnvje4WGZ"
         if let url = URL(string: "https://api.airtable.com/v0/appI1pmjlNk6RRdZ2/tblvrijCWtqVhmEPh") {
             do {
@@ -22,7 +21,7 @@ class GuideClass:ObservableObject {
                 let (data, _) = try await URLSession.shared.data(for: request)
                 if let decodedResponse = try? JSONDecoder().decode(GuideCollect.self, from: data) {
                     
-                    guides = decodedResponse.guides
+                    signalements = decodedResponse.signalements
                     
                 }
             } catch {

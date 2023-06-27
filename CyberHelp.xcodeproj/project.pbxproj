@@ -11,6 +11,8 @@
 		833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833BA5A42A458245000B41D9 /* StructureChat.swift */; };
 		6339811B2A4496DE00555803 /* SujetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6339811A2A4496DE00555803 /* SujetView.swift */; };
 		6353D2E72A45DD3F004FE3EF /* GuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353D2E62A45DD3F004FE3EF /* GuideVM.swift */; };
+		63F1FFD22A4ADAE3006E2D90 /* AlertesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FFD12A4ADAE3006E2D90 /* AlertesVM.swift */; };
+		63F1FFD42A4ADB02006E2D90 /* AlertesGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FFD32A4ADB02006E2D90 /* AlertesGlobalView.swift */; };
 		83BFF8382A43322600DF498E /* CyberHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8372A43322600DF498E /* CyberHelpApp.swift */; };
 		83BFF83A2A43322600DF498E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8392A43322600DF498E /* ContentView.swift */; };
 		83BFF83C2A43322700DF498E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BFF83B2A43322700DF498E /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		833BA5A42A458245000B41D9 /* StructureChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureChat.swift; sourceTree = "<group>"; };
 		6339811A2A4496DE00555803 /* SujetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SujetView.swift; sourceTree = "<group>"; };
 		6353D2E62A45DD3F004FE3EF /* GuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideVM.swift; sourceTree = "<group>"; };
+		63F1FFD12A4ADAE3006E2D90 /* AlertesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertesVM.swift; sourceTree = "<group>"; };
+		63F1FFD32A4ADB02006E2D90 /* AlertesGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertesGlobalView.swift; sourceTree = "<group>"; };
 		83BFF8342A43322600DF498E /* CyberHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyberHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BFF8372A43322600DF498E /* CyberHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberHelpApp.swift; sourceTree = "<group>"; };
 		83BFF8392A43322600DF498E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,16 @@
 			path = Guide;
 			sourceTree = "<group>";
 		};
+		63F1FFD02A4ADAB8006E2D90 /* Alertes */ = {
+			isa = PBXGroup;
+			children = (
+				63F1FFD12A4ADAE3006E2D90 /* AlertesVM.swift */,
+				63F1FFD32A4ADB02006E2D90 /* AlertesGlobalView.swift */,
+				83BFF8492A43337400DF498E /* AlertesView.swift */,
+			);
+			path = Alertes;
+			sourceTree = "<group>";
+		};
 		83BFF82B2A43322600DF498E = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				83BFF8492A43337400DF498E /* AlertesView.swift */,
+				63F1FFD02A4ADAB8006E2D90 /* Alertes */,
+				83BFF85B2A43362800DF498E /* InscriptionDetailsPView.swift */,
+				83BFF84D2A43339D00DF498E /* ProfilPView.swift */,
 			);
 			path = "Professionnels Views";
 			sourceTree = "<group>";
@@ -325,8 +342,11 @@
 				B8E89D202A4D906E005ADD8D /* ListActu.swift in Sources */,
 				B8E89D1F2A4D906E005ADD8D /* ListTemoignages.swift in Sources */,
 				83BFF8482A4332CF00DF498E /* AccueilView.swift in Sources */,
+				63F1FFD42A4ADB02006E2D90 /* AlertesGlobalView.swift in Sources */,
+				83BFF8482A4332CF00DF498E /* ActuView.swift in Sources */,
 				83BFF8672A4337F500DF498E /* ActuDetailsView.swift in Sources */,
 				83BFF8582A4335AF00DF498E /* ProfilUView.swift in Sources */,
+				63F1FFD22A4ADAE3006E2D90 /* AlertesVM.swift in Sources */,
 				83BFF8502A4333B000DF498E /* ChatView.swift in Sources */,
 				B8E89D222A4D9096005ADD8D /* ArticlesModel.swift in Sources */,
 				83BFF8652A4337B300DF498E /* GuideView.swift in Sources */,

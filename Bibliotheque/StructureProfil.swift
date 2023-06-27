@@ -31,9 +31,10 @@ struct Profil : Identifiable {
 
 struct Signalement : Identifiable {
     var id = UUID()
-    var titre : String
-    var humeur : String
+    var type : String
+    var nom : String
     var description : String
+    var read: Bool
     }
 
 struct Temoignage : Identifiable {

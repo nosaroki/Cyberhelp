@@ -16,9 +16,7 @@ struct SujetView: View {
             AsyncImage(url: URL(string: guideInView.image)) { image in
                 image
                     .resizable()
-                    .scaledToFit()
-                    .frame(height: 250)
-                    
+                    .aspectRatio(contentMode: .fit)
             } placeholder: {
                 ProgressView()
             }
@@ -32,6 +30,7 @@ struct SujetView: View {
                     .foregroundColor(Color("DeepBlue"))
             }
             .padding()
+            .background(.white)
         }
         .background(.white)
         .cornerRadius(8)
@@ -42,6 +41,6 @@ struct SujetView: View {
 
 struct SujetView_Previews: PreviewProvider {
     static var previews: some View {
-        SujetView(guideInView: Guide(titre: "", image: "", description: ""))
+        SujetView(guideInView: Guide(titre: "conseil 1", image: "https://i.imgur.com/NQSC42Z.jpg", description: "egkepgkoaeveopeakogk k oakgo keapogk opak o"))
     }
 }
