@@ -9,15 +9,14 @@ import Foundation
 import SwiftUI
 
 class ListArticlesActu: ObservableObject {
-    internal init(listeActu: [Article] = [ Article(image: "bell", titre: "au secours", content: "non vraiment au secours")]) {
-        self.listeActu = listeActu
-    }
-    
-    @Published var listeActu : [Article] = [ Article(image: "bell", titre: "au secours", content: "non vraiment au secours")]
+
+    @Published var listActu : [Article] = [
+        Article(image: "harcelement", titre: "Parlez du cyberharcèlement pour ne pas rester les bras croisés", content: "Aujourd'hui nous parlons de harcèlement et plus particulièrement du cyberharcèlement qui se développe en grande pompe depuis ces dernières années."),
+        Article(image: "hand", titre: "Protéger ses enfants du cyberharcèlement: faut-il les espionner ?", content: "blablabla"),
+        Article(image: "stop", titre: "Les nouvelles mesures anti-cyberharcèlement", content: "oui oui"),
+        Article(image: "cyberbullying", titre: "Pas ouf le cyberharcèlement", content: "non merci aled c tro")
+    ]
     
     // suite des articles ici
-//
-//CrashReportError: Preview is missing environment object "ListArticlesActu"
-//
-// CyberHelp crashed due to missing environment of type: ListArticlesActu. To resolve this add `.environmentObject(ListArticlesActu(...))` to the appropriate preview.
+
 }

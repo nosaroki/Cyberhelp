@@ -11,7 +11,7 @@ struct TabviewU: View {
     @EnvironmentObject var chatVM: ChatViewModel
     var body: some View {
         TabView {
-            ActuView()
+            AccueilView()
                 .tabItem {
                     Image("home")
                     Text("Accueil")

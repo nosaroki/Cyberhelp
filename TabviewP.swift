@@ -12,7 +12,7 @@ struct TabviewP: View {
     
     var body: some View {
         TabView {
-            ActuView()
+            AccueilView()
                 .tabItem {
                     Image("home")
                     Text("Accueil")
