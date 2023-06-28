@@ -15,19 +15,26 @@ struct Alerte: View {
             HStack{
                 VStack{
                     HStack {
-                        Text("Alerte: \(signalementInView.type)")
-                            .foregroundColor(.black)
+                        Text("Nouvelle alerte: \(signalementInView.type)")
+                            .foregroundColor(Color("DeepBlue"))
+                            .font(.callout)
+                            .lineLimit(1)
+                        
                         Spacer()
                     }
                     .padding(.bottom, -4.0)
-                    .font(.title2)
+                    .font(.body)
                     .fontWeight(.semibold)
                     HStack(alignment: .top){
                         Text("\(signalementInView.nom):")
+                            .font(.callout)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("DeepBlue"))
+                            .opacity(0.75)
                         Text(signalementInView.description)
+                            .font(.footnote)
                             .foregroundColor(Color("DeepBlue"))
+                            .opacity(0.75)
                             .lineLimit(2)
                         Spacer()
                     }
@@ -37,24 +44,30 @@ struct Alerte: View {
                 {
                     Image (systemName: "exclamationmark.shield.fill")
                         .padding(.leading)
-                        .foregroundColor(.red)
+                        .foregroundColor(.orange)
                         .font(.system(size: 64))
                 }
                 else {
                     Image(systemName: "exclamationmark.shield")
-//                        .padding()
+                    //                        .padding()
                         .foregroundColor(.gray)
                         .font(.system(size: 64))
                 }
             }
             .padding()
         }
-        .background(Color(.red).opacity(0.05))
-        .cornerRadius(8)
+        .background(Color(.orange).opacity(0.05))
         .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(.red, lineWidth: 2)
+            Rectangle()
+                .frame(width: 4)
+                .padding(.trailing, 360.0)
+                .foregroundColor(.orange)
+                
         )
+        //        .overlay(
+        //            RoundedRectangle(cornerRadius: 8)
+        //                .stroke(.red, lineWidth: 2)
+        //        )
         .padding()
         
     }

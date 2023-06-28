@@ -11,23 +11,4 @@ import SwiftUI
 class AlertClass: ObservableObject {
     @Published var signalements: [Signalement] = []
         
-    func fetchAlertes() async {
-        let apikey = "keyEYFu7vnvje4WGZ"
-        if let url = URL(string: "https://api.airtable.com/v0/appI1pmjlNk6RRdZ2/tblvrijCWtqVhmEPh") {
-            do {
-                var request = URLRequest(url: url)
-                request.setValue("Bearer \(apikey)", forHTTPHeaderField: "Authorization")
-                
-                let (data, _) = try await URLSession.shared.data(for: request)
-                if let decodedResponse = try? JSONDecoder().decode(GuideCollect.self, from: data) {
-                    
-                    signalements = decodedResponse.signalements
-                    
-                }
-            } catch {
-                print("Invalid data")
-            }
-        }
-    }
-    
 }
