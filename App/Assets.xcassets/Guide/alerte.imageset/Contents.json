@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "young-woman-casual-peach-sweater-isolated-green-olive-color-wall-unhappy-serious-with-megaphone-doing-stop-sing-with-palm-hand.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
