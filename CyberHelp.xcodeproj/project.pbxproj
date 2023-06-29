@@ -32,6 +32,7 @@
 		83BFF86E2A4338D500DF498E /* Bouton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF86D2A4338D500DF498E /* Bouton.swift */; };
 		83BFF8702A4338F200DF498E /* StructureProfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF86F2A4338F200DF498E /* StructureProfil.swift */; };
 		83BFF8732A43437000DF498E /* ConnexionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8722A43437000DF498E /* ConnexionView.swift */; };
+		A79A0C3D2A4C30D6004EDADE /* ModaleTemoignages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C3C2A4C30D6004EDADE /* ModaleTemoignages.swift */; };
 		A7D80BA72A45DE8C00339687 /* ThemeChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D80BA62A45DE8C00339687 /* ThemeChoice.swift */; };
 		A7D80BA92A498EB400339687 /* ArticlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D80BA82A498EB400339687 /* ArticlesModel.swift */; };
 		A7D80BB22A4998F100339687 /* ListActu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D80BB12A4998F100339687 /* ListActu.swift */; };
@@ -67,6 +68,7 @@
 		83BFF86F2A4338F200DF498E /* StructureProfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureProfil.swift; sourceTree = "<group>"; };
 		83BFF8712A433BEB00DF498E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		83BFF8722A43437000DF498E /* ConnexionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionView.swift; sourceTree = "<group>"; };
+		A79A0C3C2A4C30D6004EDADE /* ModaleTemoignages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModaleTemoignages.swift; sourceTree = "<group>"; };
 		A7D80BA62A45DE8C00339687 /* ThemeChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChoice.swift; sourceTree = "<group>"; };
 		A7D80BA82A498EB400339687 /* ArticlesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesModel.swift; sourceTree = "<group>"; };
 		A7D80BB12A4998F100339687 /* ListActu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListActu.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				A7D80BA82A498EB400339687 /* ArticlesModel.swift */,
+				A79A0C3C2A4C30D6004EDADE /* ModaleTemoignages.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				83BFF85C2A43362800DF498E /* InscriptionDetailsPView.swift in Sources */,
 				83BFF8462A43325D00DF498E /* TabviewP.swift in Sources */,
 				83BFF8702A4338F200DF498E /* StructureProfil.swift in Sources */,
+				A79A0C3D2A4C30D6004EDADE /* ModaleTemoignages.swift in Sources */,
 				83BFF84A2A43337400DF498E /* AlertesView.swift in Sources */,
 				83BFF8382A43322600DF498E /* CyberHelpApp.swift in Sources */,
 			);
