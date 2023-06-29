@@ -15,7 +15,7 @@ struct Alerte: View {
             HStack{
                 VStack{
                     HStack {
-                        Text("Nouvelle alerte: \(signalementInView.type)")
+                        Text("Nouvelle alerte: \(signalementInView.type.rawValue)")
                             .foregroundColor(Color("DeepBlue"))
                             .font(.callout)
                             .lineLimit(1)
@@ -75,6 +75,6 @@ struct Alerte: View {
 
 struct Alerte_Previews: PreviewProvider {
     static var previews: some View {
-        Alerte(signalementInView: Signalement(type: "Grooming", nom: "popo", description: "bkeopakv oekopkvepokvpok  aeopv keop", read: false) )
+        Alerte(signalementInView: Signalement(type: .grooming, nom: "popo", description: "bkeopakv oekopkvepokvpok  aeopv keop", read: false) )
     }
 }
