@@ -4,7 +4,7 @@
         <attribute name="codePostal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nomCommune" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="ProfilP" representedClassName="ProfilP" syncable="YES" codeGenerationType="class">
+    <entity name="ProfilEntity" representedClassName="ProfilEntity" syncable="YES" codeGenerationType="class">
         <attribute name="adresse" optional="YES" attributeType="String"/>
         <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="descriptionU" optional="YES" attributeType="String"/>
@@ -16,18 +16,6 @@
         <attribute name="prenom" optional="YES" attributeType="String"/>
         <attribute name="profilPic" optional="YES" attributeType="Binary"/>
         <attribute name="siret" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="telephone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
-    <entity name="ProfilU" representedClassName="ProfilU" syncable="YES" codeGenerationType="class">
-        <attribute name="adresse" optional="YES" attributeType="String"/>
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="descriptionU" optional="YES" attributeType="String"/>
-        <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="genre" optional="YES" attributeType="String"/>
-        <attribute name="mdp" optional="YES" attributeType="String"/>
-        <attribute name="nom" optional="YES" attributeType="String"/>
-        <attribute name="prenom" optional="YES" attributeType="String"/>
-        <attribute name="profilPic" optional="YES" attributeType="Binary"/>
         <attribute name="telephone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
 </model>

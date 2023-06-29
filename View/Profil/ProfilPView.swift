@@ -11,7 +11,7 @@ struct ProfilPView: View {
         
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
-    @StateObject var ProfilsPVM = ListesDesProfilesP()
+    @StateObject var ProfilsPVM = ListesDesProfiles()
     
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     

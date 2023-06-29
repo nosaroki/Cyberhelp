@@ -31,46 +31,12 @@ struct Profil : Identifiable {
 
 struct Signalement : Identifiable {
     var id = UUID()
-    var type : TypeDeSgnlmt
+    var type : SignalType
     var nom : String
     var description : String
     var read: Bool
     }
 
-enum TypeDeSgnlmt : String,CaseIterable {
-    case insultes = "Insultes et menaces"
-    case diffamation = "Diffamation"
-    case trolling = "Trolling"
-    case grooming = "Grooming"
-    case violation = "Violation de la vie privée"
-}
-
-struct Temoignage : Identifiable {
-    var id = UUID()
-    var titre : String
-    var image : Image
-    var description : String
-}
-
-struct Actu : Identifiable {
-    var id = UUID()
-    var titre : String
-    var image : Image
-    var description : String
-}
-
-struct Guide : Identifiable, Codable {
-    var id : String = ""
-    var titre : String
-    var image : String
-    var description : String
-    
-    enum CodingKeys: String, CodingKey {
-        case titre
-        case image
-        case description
-    }
-}
 
 // MARK: - GuideCollect
 struct GuideCollect: Codable {

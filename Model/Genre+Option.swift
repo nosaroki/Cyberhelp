@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 enum Genre : String, CaseIterable {
-    case homme = "homme"
-    case femme = "femme"
-    case autre = "autre"
+    case homme = "Homme"
+    case femme = "Femme"
+    case autre = "Autre"
     
 }
+
 enum TopicOptionProfil : String, CaseIterable {
     case profil = "Mon profil"
     case signalement = "Mes signalement"

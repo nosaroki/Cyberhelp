@@ -12,7 +12,7 @@ struct ProfilUView: View {
         
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
-    @StateObject var ProfilsUVM = ListesDesProfilesP()
+    @StateObject var ProfilsUVM = ListesDesProfiles()
     
     @State private var image = UIImage()
     @State private var showPhotoSheet = false

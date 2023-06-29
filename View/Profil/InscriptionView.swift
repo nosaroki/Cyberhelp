@@ -91,7 +91,7 @@ struct InscriptionView: View {
                         
                         //bouton Inscription Pro
                         NavigationLink{
-                            InscriptionDetailsPView(isPro: true)
+                            InscriptionDetailsView(isPro: true)
 //                            isPro = true
                             } label: {
                                 Text("Professionnel \r de santé")
@@ -103,7 +103,7 @@ struct InscriptionView: View {
                         //bouton Inscription Utilisateur
                         NavigationLink {
                            // isPro = false
-                          InscriptionDetailsPView(isPro: false)
+                          InscriptionDetailsView(isPro: false)
                             
                         } label: {
                             

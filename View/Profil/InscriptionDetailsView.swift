@@ -8,9 +8,9 @@
 import SwiftUI
 import PhotosUI
 
-struct InscriptionDetailsPView: View {
+struct InscriptionDetailsView: View {
     
-    @ObservedObject var ProfilsPVM = ListesDesProfilesP()
+    @ObservedObject var ProfilsPVM = ListesDesProfiles()
     
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
@@ -145,7 +145,7 @@ struct InscriptionDetailsPView: View {
     struct InscriptionDetailsPView_Previews: PreviewProvider {
         static var previews: some View {
 //            InscriptionDetailsPView()
-            InscriptionDetailsPView( isPro: false)
+            InscriptionDetailsView( isPro: false)
         }
     }
     
