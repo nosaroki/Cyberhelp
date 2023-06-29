@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabviewP: View {
-    
+    @EnvironmentObject var chatVM: ChatViewModel
     
     var body: some View {
         TabView {
@@ -22,7 +22,7 @@ struct TabviewP: View {
                     Image("shield")
                     Text("Guide")
                 }
-            SignalementView()
+           SignalementView()
                 .tabItem {
                     Image("bell")
                     Text("Inventaire")
@@ -46,5 +46,6 @@ struct TabviewP: View {
 struct Tabview_Previews: PreviewProvider {
     static var previews: some View {
         TabviewP()
+            .environmentObject(ChatViewModel())
     }
 }

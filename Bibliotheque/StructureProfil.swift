@@ -18,7 +18,7 @@ struct Adresse : Codable {
     var nomCommune: String
 }
 
-struct ProfilPro : Identifiable {
+struct Profil : Identifiable {
     var id = UUID()
     var profilPic : Image
     var prénom : String
@@ -27,22 +27,10 @@ struct ProfilPro : Identifiable {
     var genre : Genre
     var telephone : Int
     var adresse : Adresse
-    var siret : Int
+    var siret : Int?
     var email : String
     var mdp : String
-}
-
-struct ProfilU : Identifiable {
-    var id = UUID()
-    var profilPic : Image
-    var prénom : String
-    var nom : String
-    var age : Int
-    var genre : Genre
-    var telephone : Int
-    var adresse : Adresse
-    var email : String
-    var mdp : String
+    var isPro : Bool
 }
 
 struct Signalement : Identifiable {

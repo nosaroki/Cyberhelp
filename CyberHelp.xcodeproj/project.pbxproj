@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8333C6BF2A45DC400053E6CE /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333C6BE2A45DC400053E6CE /* ChatVM.swift */; };
 		833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833BA5A42A458245000B41D9 /* StructureChat.swift */; };
-		8349A0132A448167006E1701 /* StreamChatSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8349A0122A448167006E1701 /* StreamChatSwiftUI */; };
 		83BFF8382A43322600DF498E /* CyberHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8372A43322600DF498E /* CyberHelpApp.swift */; };
 		83BFF83A2A43322600DF498E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8392A43322600DF498E /* ContentView.swift */; };
 		83BFF83C2A43322700DF498E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BFF83B2A43322700DF498E /* Assets.xcassets */; };
@@ -74,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8349A0132A448167006E1701 /* StreamChatSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +187,6 @@
 			);
 			name = CyberHelp;
 			packageProductDependencies = (
-				8349A0122A448167006E1701 /* StreamChatSwiftUI */,
 			);
 			productName = CyberHelp;
 			productReference = 83BFF8342A43322600DF498E /* CyberHelp.app */;
@@ -220,7 +217,6 @@
 			);
 			mainGroup = 83BFF82B2A43322600DF498E;
 			packageReferences = (
-				8349A0112A448167006E1701 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */,
 			);
 			productRefGroup = 83BFF8352A43322600DF498E /* Products */;
 			projectDirPath = "";
@@ -473,25 +469,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8349A0112A448167006E1701 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getstream/stream-chat-swiftui";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8349A0122A448167006E1701 /* StreamChatSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8349A0112A448167006E1701 /* XCRemoteSwiftPackageReference "stream-chat-swiftui" */;
-			productName = StreamChatSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83BFF82C2A43322600DF498E /* Project object */;
 }

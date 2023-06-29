@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var chatVM = ChatViewModel()
     var body: some View {
         
-       TabviewU()
+        TabviewU()
+            .environmentObject(chatVM)
     }
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabviewU: View {
+    @EnvironmentObject var chatVM: ChatViewModel
     var body: some View {
         TabView {
             ActuView()
@@ -44,5 +45,6 @@ struct TabviewU: View {
 struct TabviewU_Previews: PreviewProvider {
     static var previews: some View {
         TabviewU()
+            .environmentObject(ChatViewModel())
     }
 }
