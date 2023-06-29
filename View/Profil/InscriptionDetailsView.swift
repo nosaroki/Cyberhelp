@@ -10,7 +10,7 @@ import PhotosUI
 
 struct InscriptionDetailsView: View {
     
-    @ObservedObject var ProfilsPVM = ListesDesProfiles()
+    @ObservedObject var profileVM: ListesDesProfiles
     
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
@@ -118,7 +118,7 @@ struct InscriptionDetailsView: View {
                                 if email.contains("@gmail.com") || email.contains("@hotmail.com") || email.contains("@hotmail.fr") && !email.isEmpty
                                 {
                                     
-                                    ProfilsPVM.addProfilP(newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newAge : Int(age) ?? 0, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret, newAdresse : adresse, newEmail : email, newMdp : mdp)
+                                    profileVM.addProfilP(newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newAge : Int(age) ?? 0, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret, newAdresse : adresse, newEmail : email, newMdp : mdp)
                                     
                                 }
                                 
@@ -145,7 +145,7 @@ struct InscriptionDetailsView: View {
     struct InscriptionDetailsPView_Previews: PreviewProvider {
         static var previews: some View {
 //            InscriptionDetailsPView()
-            InscriptionDetailsView( isPro: false)
+            InscriptionDetailsView( profileVM: ListesDesProfiles(), isPro: false)
         }
     }
     

@@ -9,10 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var chatVM = ChatViewModel()
+    @StateObject var actuVM = ListArticlesActu()
+    @StateObject var eventVM = ListArticlesEvents()
+    @StateObject var temoignVM = ListArticlesTemoignages()
+    @StateObject var alert = AlertClass()
+    @StateObject var guideVM = GuideClass()
+
     var body: some View {
         
         TabviewU()
             .environmentObject(chatVM)
+            .environmentObject(actuVM)
+            .environmentObject(eventVM)
+            .environmentObject(temoignVM)
+            .environmentObject(alert)
+            .environmentObject(guideVM)
     }
 }
 

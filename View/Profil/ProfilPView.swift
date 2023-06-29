@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ProfilPView: View {
-        
+    
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
-    @StateObject var ProfilsPVM = ListesDesProfiles()
+    @StateObject var profileVM = ListesDesProfiles()
     
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
@@ -19,70 +19,57 @@ struct ProfilPView: View {
         ZStack{
             Color("Neutre").edgesIgnoringSafeArea(.top)
             
-           
             VStack {
                 Picker((""), selection: $selectedTopicProfil) {
-                                ForEach(TopicOptionProfil.allCases, id:\ .self) { topic in
-                                    Text(topic.rawValue)
-                                }
-                            }
-                       .pickerStyle(.segmented)
-                                .padding()
-                                .foregroundColor(Color("DeepBlue"))
+                    ForEach(TopicOptionProfil.allCases, id:\ .self) { topic in
+                        Text(topic.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding()
+                .foregroundColor(Color("DeepBlue"))
                 ScrollView{
-                    VStack {
-                       
-                        
-//                        ForEach (ProfilsPVM.ListeProfilesP){ profilselect in
-                            
+                    if !profileVM.ListeProfilesP.isEmpty {
+                        let profile = profileVM.ListeProfilesP[0]
+                        VStack {
                             HStack{
-                               
-                                Image(uiImage: UIImage(data: ProfilsPVM.ListeProfilesP[0].profilPic  ?? Data()) ?? UIImage())
+                                
+                                Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
                                     .resizable()
                                     .frame(width: 150, height: 150)
                                     .foregroundColor(Color("DeepBlue"))
                                     .cornerRadius(20)
                                 
-//                                Image(uiImage: UIImage(data: profilselect.profilPic ?? Data()) ?? UIImage())
-//                                    .resizable()
-//                                    .frame(width: 150, height: 150)
-//                                    .foregroundColor(Color("DeepBlue"))
-//                                    .cornerRadius(20)
-                                
                                 VStack(alignment: .leading){
                                     VStack{
                                         HStack{
                                             
-                                            Text(ProfilsPVM.ListeProfilesP[0].prenom ?? " ")
+                                            Text(profile.prenom ?? " ")
                                                 .font(.title2)
-                                            Text("\(ProfilsPVM.ListeProfilesP[0].age)")
+                                            Text("\(profile.age)")
                                                 .font(.title3)
-                                           
+                                            
                                         }.padding(.bottom)
                                         
-                                        Text(ProfilsPVM.ListeProfilesP[0].adresse ?? " ")
+                                        Text(profile.adresse ?? " ")
                                     }
-                                    Text(ProfilsPVM.ListeProfilesP[0].descriptionU ?? " ")
+                                    Text(profile.descriptionU ?? " ")
                                         .font(.caption)
                                     
                                 }.padding()
-//                            }
+                            }
+                            
+                            Spacer()
                         }
-                        
-                        
-                        Spacer()
                     }
                 }
             }
-            }
-            }
-            
         }
-
+    }
+}
 
 struct ProfilPView_Previews: PreviewProvider {
     static var previews: some View {
         ProfilPView()
-           // .environmentObject(ListesDesProfilesU())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InscriptionView: View {
     
-//    @State var isPro : Bool = false
+    @StateObject var profileVM = ListesDesProfiles()
     
     @State var email : String = ""
     @State var motDePasse : String = ""
@@ -20,10 +20,10 @@ struct InscriptionView: View {
             
             ZStack{
                 Color("Neutre").edgesIgnoringSafeArea(.top)
-                                
+                
                 VStack {
                     
-                   
+                    
                     Spacer()
                     Text("Bienvenu !")
                         .font(.system(size : 40))
@@ -32,53 +32,53 @@ struct InscriptionView: View {
                     Spacer()
                     
                     
-                   
-                        
-//
+                    
+                    
+                    //
                     ZStack {
                         Rectangle()
                             .frame(width: 320, height: 280)
                             .foregroundColor(Color(hue: 0.566, saturation: 0.042, brightness: 0.937))
                             .cornerRadius(10)
                         VStack(alignment: .leading){
-
-                                Text("Email")
-                                    .foregroundColor(Color("DeepBlue"))
-                                    .bold()
-                                    
-                                Spacer()
-                                TextField("", text: $email)
-                                    .tint(.gray)
-                                    .frame(width: 280)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-
-                                
-                                Text("Mot de passe")
-                                    .foregroundColor(Color("DeepBlue"))
-                                    .bold()
                             
-                                Spacer()
-                                TextField("", text: $motDePasse)
-                                    .tint(.gray)
-                                    .frame(width: 280)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .padding(.bottom)
-
-                                ZStack{
-                                    Rectangle()
-                                        .frame(width: 280, height: 30)
-                                        .foregroundColor(Color("Primaire"))
-                                        .cornerRadius(5)
-                                    
-                                    Text("Se connecter")
-                                        .foregroundColor(Color("Neutre"))
-                                        .multilineTextAlignment(.center)
-                                        .bold()
-                                    
+                            Text("Email")
+                                .foregroundColor(Color("DeepBlue"))
+                                .bold()
+                            
+                            Spacer()
+                            TextField("", text: $email)
+                                .tint(.gray)
+                                .frame(width: 280)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
+                            
+                            Text("Mot de passe")
+                                .foregroundColor(Color("DeepBlue"))
+                                .bold()
+                            
+                            Spacer()
+                            TextField("", text: $motDePasse)
+                                .tint(.gray)
+                                .frame(width: 280)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.bottom)
+                            
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 280, height: 30)
+                                    .foregroundColor(Color("Primaire"))
+                                    .cornerRadius(5)
+                                
+                                Text("Se connecter")
+                                    .foregroundColor(Color("Neutre"))
+                                    .multilineTextAlignment(.center)
+                                    .bold()
+                                
                             }}.frame(width: 310, height: 160)
                     }
                     
-                
+                    
                     Spacer()
                     
                     
@@ -91,19 +91,19 @@ struct InscriptionView: View {
                         
                         //bouton Inscription Pro
                         NavigationLink{
-                            InscriptionDetailsView(isPro: true)
-//                            isPro = true
-                            } label: {
-                                Text("Professionnel \r de santé")
-                                    .frame(width: 115, height: 50)
-                            }.buttonStyle(.borderedProminent)
-                                .padding(10)
-                                .tint(Color("Primaire"))
+                            InscriptionDetailsView(profileVM: profileVM, isPro: true)
+                            //                            isPro = true
+                        } label: {
+                            Text("Professionnel \r de santé")
+                                .frame(width: 115, height: 50)
+                        }.buttonStyle(.borderedProminent)
+                            .padding(10)
+                            .tint(Color("Primaire"))
                         
                         //bouton Inscription Utilisateur
                         NavigationLink {
-                           // isPro = false
-                          InscriptionDetailsView(isPro: false)
+                            // isPro = false
+                            InscriptionDetailsView(profileVM: profileVM, isPro: false)
                             
                         } label: {
                             
@@ -115,14 +115,11 @@ struct InscriptionView: View {
                         
                     }
                     Spacer()
-                    Spacer()
-                    }
-                    
-                    
                 }
-                
             }
+            
         }
+    }
 }
 
 struct InscriptionView_Previews: PreviewProvider {
