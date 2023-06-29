@@ -32,7 +32,7 @@ struct TabviewP: View {
                     Image("comments")
                     Text("Chat")
                 }
-            ProfilPView()
+            InscriptionView()
                 .tabItem {
                     Image("user")
                     Text("Profil")

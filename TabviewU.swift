@@ -27,12 +27,12 @@ struct TabviewU: View {
                     Image("flag")
                     Text("Signalement")
                 }
-            ChatView()
+            ProfilPView()
                 .tabItem {
                     Image("comments")
                     Text("Chat")
                 }
-            ProfilPView()
+            InscriptionView()
                 .tabItem {
                     Image("user")
                     Text("Profil")
