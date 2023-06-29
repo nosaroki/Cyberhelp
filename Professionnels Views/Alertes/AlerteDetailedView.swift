@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AlerteDetailView: View {
+struct AlerteDetailedView: View {
     var body: some View {
         ZStack{
             Color("Neutre")
@@ -89,6 +89,6 @@ struct AlerteDetailView: View {
 
 struct AlerteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AlerteDetailView()
+        AlerteDetailedView()
     }
 }

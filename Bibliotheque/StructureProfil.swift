@@ -31,11 +31,19 @@ struct Profil : Identifiable {
 
 struct Signalement : Identifiable {
     var id = UUID()
-    var type : String
+    var type : TypeDeSgnlmt
     var nom : String
     var description : String
     var read: Bool
     }
+
+enum TypeDeSgnlmt : String,CaseIterable {
+    case insultes = "Insultes et menaces"
+    case diffamation = "Diffamation"
+    case trolling = "Trolling"
+    case grooming = "Grooming"
+    case violation = "Violation de la vie privée"
+}
 
 struct Temoignage : Identifiable {
     var id = UUID()
