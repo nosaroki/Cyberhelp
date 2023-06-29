@@ -32,6 +32,8 @@
 		83BFF86E2A4338D500DF498E /* Bouton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF86D2A4338D500DF498E /* Bouton.swift */; };
 		83BFF8702A4338F200DF498E /* StructureProfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF86F2A4338F200DF498E /* StructureProfil.swift */; };
 		83BFF8732A43437000DF498E /* ConnexionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8722A43437000DF498E /* ConnexionView.swift */; };
+		DB2FCF222A4586BD001730EC /* Dropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FCF212A4586BD001730EC /* Dropdown.swift */; };
+		DBBCEB972A4C460700AE03B2 /* Signalement_Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCEB962A4C460700AE03B2 /* Signalement_Plan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		83BFF86F2A4338F200DF498E /* StructureProfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureProfil.swift; sourceTree = "<group>"; };
 		83BFF8712A433BEB00DF498E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		83BFF8722A43437000DF498E /* ConnexionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionView.swift; sourceTree = "<group>"; };
+		DB2FCF212A4586BD001730EC /* Dropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown.swift; sourceTree = "<group>"; };
+		DBBCEB962A4C460700AE03B2 /* Signalement_Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signalement_Plan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				83BFF8592A43360C00DF498E /* InscriptionDetailsUView.swift */,
 				83BFF8572A4335AF00DF498E /* ProfilUView.swift */,
 				83BFF84B2A43338300DF498E /* SignalementView.swift */,
+				DBBCEB962A4C460700AE03B2 /* Signalement_Plan.swift */,
+				DB2FCF212A4586BD001730EC /* Dropdown.swift */,
 			);
 			path = UtilisateurViews;
 			sourceTree = "<group>";
@@ -252,10 +258,12 @@
 				83BFF8652A4337B300DF498E /* GuideView.swift in Sources */,
 				83BFF86E2A4338D500DF498E /* Bouton.swift in Sources */,
 				83BFF86B2A43383A00DF498E /* TemoignagesDetailsView.swift in Sources */,
+				DBBCEB972A4C460700AE03B2 /* Signalement_Plan.swift in Sources */,
 				83BFF85C2A43362800DF498E /* InscriptionDetailsPView.swift in Sources */,
 				83BFF8462A43325D00DF498E /* TabviewP.swift in Sources */,
 				83BFF8702A4338F200DF498E /* StructureProfil.swift in Sources */,
 				83BFF84A2A43337400DF498E /* AlertesView.swift in Sources */,
+				DB2FCF222A4586BD001730EC /* Dropdown.swift in Sources */,
 				83BFF8382A43322600DF498E /* CyberHelpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
