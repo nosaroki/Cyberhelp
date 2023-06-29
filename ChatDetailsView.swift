@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import StreamChat
 
 struct ChatDetailsView: View {
     

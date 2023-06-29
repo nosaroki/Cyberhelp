@@ -9,10 +9,6 @@ import Foundation
 import SwiftUI
 
 
-enum Genre {
-    case homme, femme, autre
-}
-
 struct Adresse : Codable {
     var codePostal: String
     var nomCommune: String
