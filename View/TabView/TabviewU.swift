@@ -31,7 +31,7 @@ struct TabviewU: View {
                     Image("comments")
                     Text("Chat")
                 }
-            InscriptionView()
+            ConnexionView()
                 .tabItem {
                     Image("user")
                     Text("Profil")

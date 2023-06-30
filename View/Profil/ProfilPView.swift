@@ -13,7 +13,9 @@ struct ProfilPView: View {
     
     @StateObject var profileVM = ListesDesProfiles()
     
-    @State private var selectedTopicProfil : TopicOptionProfil = .profil
+    @State private var selectedTopicProfil : TopicOptionProfilP = .profil
+    
+    @ViewBuilder
     
     var body: some View {
         ZStack{
@@ -21,7 +23,7 @@ struct ProfilPView: View {
             
             VStack {
                 Picker((""), selection: $selectedTopicProfil) {
-                    ForEach(TopicOptionProfil.allCases, id:\ .self) { topic in
+                    ForEach(TopicOptionProfilP.allCases, id:\ .self) { topic in
                         Text(topic.rawValue)
                     }
                 }
@@ -29,37 +31,48 @@ struct ProfilPView: View {
                 .padding()
                 .foregroundColor(Color("DeepBlue"))
                 ScrollView{
+                    
+                    
+                    
                     if !profileVM.ListeProfilesP.isEmpty {
-                        let profile = profileVM.ListeProfilesP[0]
-                        VStack {
-                            HStack{
-                                
-                                Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
-                                    .resizable()
-                                    .frame(width: 150, height: 150)
-                                    .foregroundColor(Color("DeepBlue"))
-                                    .cornerRadius(20)
-                                
-                                VStack(alignment: .leading){
-                                    VStack{
-                                        HStack{
-                                            
-                                            Text(profile.prenom ?? " ")
-                                                .font(.title2)
-                                            Text("\(profile.age)")
-                                                .font(.title3)
-                                            
-                                        }.padding(.bottom)
-                                        
-                                        Text(profile.adresse ?? " ")
-                                    }
-                                    Text(profile.descriptionU ?? " ")
-                                        .font(.caption)
-                                    
-                                }.padding()
-                            }
+                        let profile = profileVM.ListeProfilesP
+                        
+                        
+                        if  let profileLast = profile.last(where: { profile in
                             
-                            Spacer()
+                            return profile.isPro == true
+                        })
+                        {
+                            VStack {
+                                HStack{
+                                    
+                                    Image(uiImage: UIImage(data: profileLast.profilPic  ?? Data()) ?? UIImage())
+                                        .resizable()
+                                        .frame(width: 150, height: 150)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .cornerRadius(20)
+                                    
+                                    VStack(alignment: .leading){
+                                        VStack{
+                                            HStack{
+                                                
+                                                Text(profileLast.prenom ?? " ")
+                                                    .font(.title2)
+                                                Text("\(profileLast.age)")
+                                                    .font(.title3)
+                                                
+                                            }.padding(.bottom)
+                                            
+                                            Text(profileLast.adresse ?? " ")
+                                        }
+                                        Text(profileLast.descriptionU ?? " ")
+                                            .font(.caption)
+                                        
+                                    }.padding()
+                                }
+                                
+                                Spacer()
+                            }
                         }
                     }
                 }

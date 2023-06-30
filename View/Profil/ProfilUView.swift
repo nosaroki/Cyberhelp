@@ -14,48 +14,62 @@ struct ProfilUView: View {
     
     @StateObject var ProfilsUVM = ListesDesProfiles()
     
+    @State private var selectedTopicProfil : TopicOptionProfil = .profil
+    
     @State private var image = UIImage()
     @State private var showPhotoSheet = false
+    
+    @ViewBuilder
     
     var body: some View {
         ZStack{
             Color("Neutre").edgesIgnoringSafeArea(.top)
-            ScrollView{
+           
                 VStack {
-                    
+                    Picker((""), selection: $selectedTopicProfil) {
+                        ForEach(TopicOptionProfil.allCases, id:\ .self) { topic in
+                            Text(topic.rawValue)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .padding()
+                    .foregroundColor(Color("DeepBlue"))
                     HStack{
-                        Text("Mon profil")
-                        Text("Mon signalement")
+                        
+                ScrollView{
+                            
                     }.padding(.top)
                     
-                    ForEach (ProfilsUVM.ListeProfilesP){ profilselect in
+                    if !ProfilsUVM.ListeProfilesP.isEmpty {
+                        let profile = ProfilsUVM.ListeProfilesP[0]
                         
-                        HStack{
-                            
-                         //   Image (systemName: "person.fill")
-                            
-                          Image(uiImage: UIImage(data: profilselect.profilPic ?? Data()) ?? UIImage())
-                            
-//                            profilselect.profilPic
-                                .resizable()
-                                .frame(width: 150, height: 150)
-                                .foregroundColor(Color("DeepBlue"))
-                            
-                            VStack(alignment: .leading){
-                                HStack{
+                        VStack {
+                            HStack{
+                                
+                                Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
+                                    .resizable()
+                                    .frame(width: 150, height: 150)
+                                    .foregroundColor(Color("DeepBlue"))
+                                    .cornerRadius(20)
+                                
+                                VStack(alignment: .leading){
+                                    VStack{
+                                        HStack{
+                                            
+                                            Text(profile.prenom ?? " ")
+                                                .font(.title2)
+                                            Text("\(profile.age)")
+                                                .font(.title3)
+                                            
+                                        }.padding(.bottom)
+                                        
+                                        Text(profile.adresse ?? " ")
+                                    }
+                                    Text(profile.descriptionU ?? " ")
+                                        .font(.caption)
                                     
-                                    Text(profilselect.prenom ?? "no name")
-                                        .font(.title)
-                                    Text("\(profilselect.age)")
-                                        .font(.title2)
-                                    
-                                }.padding(.bottom)
-                                
-                                Text(profilselect.adresse ?? " ")
-                                
-                                Text(profilselect.descriptionU ?? " ")
-                                
-                            }.padding()
+                                }.padding()
+                            }
                         }
                     }
                     
