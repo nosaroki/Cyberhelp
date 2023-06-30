@@ -40,22 +40,24 @@ struct Alerte: View {
                     }
                 }
                 .padding(8)
-                if signalementInView.read == false
-                {
-                    Image (systemName: "exclamationmark.shield.fill")
+//                if signalementInView.read == false
+//                {
+                    Image (systemName: "exclamationmark.shield")
                         .padding(.leading)
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color("DeepBlue"))
+                        .opacity(0.75)
                         .font(.system(size: 64))
-                }
-                else {
-                    Image(systemName: "exclamationmark.shield")
-                    //                        .padding()
-                        .foregroundColor(.gray)
-                        .font(.system(size: 64))
-                }
+//                }
+//                else {
+//                    Image(systemName: "exclamationmark.shield")
+//                    //                        .padding()
+//                        .foregroundColor(.gray)
+//                        .font(.system(size: 64))
+//                }
             }
             .padding()
         }
+        .background(.white)
         .background(Color(.orange).opacity(0.05))
         .overlay(
             Rectangle()
