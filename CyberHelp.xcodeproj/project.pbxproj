@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6339811B2A4496DE00555803 /* SujetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6339811A2A4496DE00555803 /* SujetView.swift */; };
+		634AE1802A4DD4CB00A7662B /* ProfilP2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AE17F2A4DD4CB00A7662B /* ProfilP2View.swift */; };
 		6353D2E72A45DD3F004FE3EF /* GuideVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353D2E62A45DD3F004FE3EF /* GuideVM.swift */; };
 		63725FAC2A4C590100DE1F53 /* AlerteDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63725FAB2A4C590100DE1F53 /* AlerteDetailedView.swift */; };
 		63F1FFD22A4ADAE3006E2D90 /* AlertesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FFD12A4ADAE3006E2D90 /* AlertesVM.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		6339811A2A4496DE00555803 /* SujetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SujetView.swift; sourceTree = "<group>"; };
+		634AE17F2A4DD4CB00A7662B /* ProfilP2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilP2View.swift; sourceTree = "<group>"; };
 		6353D2E62A45DD3F004FE3EF /* GuideVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideVM.swift; sourceTree = "<group>"; };
 		63725FAB2A4C590100DE1F53 /* AlerteDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerteDetailedView.swift; sourceTree = "<group>"; };
 		63F1FFD12A4ADAE3006E2D90 /* AlertesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertesVM.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				B82049E82A4D94660031425F /* ProfilUView.swift */,
 				B82049E42A4D94390031425F /* ProfilPView.swift */,
+				634AE17F2A4DD4CB00A7662B /* ProfilP2View.swift */,
 				83BFF8722A43437000DF498E /* ConnexionView.swift */,
 				83BFF8532A43343200DF498E /* InscriptionView.swift */,
 				B82049EC2A4D94E00031425F /* InscriptionDetailsView.swift */,
@@ -314,6 +317,7 @@
 				B82049E52A4D94390031425F /* ProfilPView.swift in Sources */,
 				83BFF8542A43343200DF498E /* InscriptionView.swift in Sources */,
 				833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */,
+				634AE1802A4DD4CB00A7662B /* ProfilP2View.swift in Sources */,
 				83BFF84C2A43338300DF498E /* SignalementView.swift in Sources */,
 				8333C6BF2A45DC400053E6CE /* ChatVM.swift in Sources */,
 				83BFF8692A43381000DF498E /* EventsDetailsView.swift in Sources */,
