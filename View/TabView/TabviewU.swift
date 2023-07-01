@@ -26,7 +26,7 @@ struct TabviewU: View {
                     Image("flag")
                     Text("Signalement")
                 }
-            ProfilPView()
+            ChatView()
                 .tabItem {
                     Image("comments")
                     Text("Chat")

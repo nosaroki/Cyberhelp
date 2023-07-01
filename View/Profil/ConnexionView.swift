@@ -30,7 +30,7 @@ struct ConnexionView: View {
         NavigationView{
             
             ZStack{
-                Color("Neutre").edgesIgnoringSafeArea(.top)
+                Color("Neutre").ignoresSafeArea()
                 
                 VStack {
                                         
@@ -72,12 +72,12 @@ struct ConnexionView: View {
                                 .padding(.bottom)
                             
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 280, height: 30)
-                                    .foregroundColor(Color("Primaire"))
-                                    .cornerRadius(5)
-                                Text("Se connecter")
-                                    .foregroundColor(Color("Neutre"))
+//                                Rectangle()
+//
+//                                    .foregroundColor(Color("Primaire"))
+//                                    .cornerRadius(5)
+//                                Text("Se connecter")
+//                                    .foregroundColor(Color("Neutre"))
                                 
                                 //VOIR AVEC KELIAN
                                 
@@ -108,12 +108,12 @@ struct ConnexionView: View {
                                         
                                     } label: {
                                         Text("Se connecter")
+                                            .frame(width: 255, height: 30)
+                                            .bold()
                                     }.buttonStyle(.borderedProminent)
                                         .tint(Color("Primaire"))
-
-                               
-                                
-                                
+                                        .padding(.top)
+                                        
                                 
                             }
                         }.frame(width: 310, height: 160)
@@ -121,8 +121,6 @@ struct ConnexionView: View {
                     
                     
                     Spacer()
-                    
-                    
                     
                     Text("Créer un compte")
                         .foregroundColor(Color("Orange"))
@@ -137,6 +135,7 @@ struct ConnexionView: View {
                         } label: {
                             Text("Professionnel \r de santé")
                                 .frame(width: 115, height: 50)
+                                .bold()
                         }.buttonStyle(.borderedProminent)
                             .padding(10)
                             .tint(Color("Primaire"))
@@ -149,6 +148,7 @@ struct ConnexionView: View {
                         } label: {
                             
                             Text("Utilisateur")
+                                .bold()
                                 .frame(width: 115, height: 50)
                         }.buttonStyle(.borderedProminent)
                             .tint(Color("Primaire"))

@@ -38,7 +38,7 @@ struct InscriptionDetailsView: View {
     
     @State private var idAdd: Bool = false
     
-    @State private var isNameValid: Bool = true
+    @State private var isTextValid: Bool = true
     @State private var isEmailValid: Bool = true
     @State private var isPhoneNumberValid: Bool = true
     
@@ -63,7 +63,7 @@ struct InscriptionDetailsView: View {
                                 // .cornerRadius(50)
                                     .padding(.all, 4)
                                     .frame(width: 140, height: 140)
-                                    .background(Color(hue: 0.566, saturation: 0.019, brightness: 0.789))
+                                    .background(Color(hue: 0.566, saturation: 0.057, brightness: 0.887))
                                     .aspectRatio(contentMode: .fill)
                                     .clipShape(Circle())
                                     .padding(8)
@@ -79,92 +79,171 @@ struct InscriptionDetailsView: View {
                             .tint(Color("Primaire"))
                             
                         }
-                        
-                        
-                        //VOIR AVEC KELIAN
-                        
-                        // code ESSAI
-
-                        TextField("Email", text: $email)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding()
-                            .background(isEmailValid ? Color.white : Color.red.opacity(0.3))
-
-                        TextField("Numéro de téléphone", text: $telephone)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding()
-                            .background(isPhoneNumberValid ? Color.white : Color.red.opacity(0.3))
-
-
-                        // fin code ESSAI
-
-                        Button(action: {
-                                      // Vérifier les validations
-                                      validateFields()
-
-                                      // Ajouter le code pour traiter les données d'inscription ici
-                                      if isFormValid() {
-                                       
-                                      }
-                                  }) {
-                                      Text("S'inscrire")
-                                          .padding()
-                                          .foregroundColor(.white)
-                                          .background(Color.blue)
-                                          .cornerRadius(10)
-                                  }
-                                  .padding()
-                        
-                        
-                        
-                        Group{
-                            formulaireString(textfeild: "Nom", nom: $nom)
-                            formulaireString(textfeild: "Prenom", nom: $prenom)
-                            formulaireInt(textfeild: "Age", age:$age)
-                        }
-                        
-                        // Genre
-                        HStack {
-                            Text("Genre")
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
-                            Spacer()
+                        VStack{
                             
-                            Picker("Auto-Join Hotspot", selection: $genre) {
-                                
-                                ForEach(Genre.allCases, id:\.self) { option in
+                            Group{
+                                HStack{
                                     
-                                    Text(option.rawValue)
-                                        .foregroundColor(Color.orange)
+                                    Text("Nom")
+                                        .font(.title2)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .padding(.leading)
+                                    Spacer()
+                                    TextField("", text: $nom)
+                                        .frame(width: 220)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding()
+                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                    
+                                    
                                 }
-                            }.pickerStyle(.inline)
-                                .frame(width: 250, height: 40)
+                                
+                                HStack{
+                                    
+                                    Text("Prenom")
+                                        .font(.title2)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .padding(.leading)
+                                    Spacer()
+                                    TextField("", text: $prenom)
+                                        .frame(width: 220)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding()
+                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                    
+                                }
+                                
+                                HStack{
+                                    
+                                    Text("Age")
+                                        .font(.title2)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .padding(.leading)
+                                    Spacer()
+                                    TextField("", text: $age)
+                                        .keyboardType(.numberPad)
+                                        .frame(width: 220)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding()
+                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                    
+                                    
+                                    
+                                }
+                                
+                                //                            formulaireString(textfeild: "Nom", nom: $nom)
+                                //                            formulaireString(textfeild: "Prenom", nom: $prenom)
+                                //                            formulaireInt(textfeild: "Age", age:$age)
+                            }
+                            HStack{
+                                Text("Téléphone")
+                                    .font(.title2)
+                                    .foregroundColor(Color("DeepBlue"))
+                                    .padding(.leading)
+                                Spacer()
+                                TextField("", text: $telephone)
+                                    .frame(width: 220)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding()
+                                    .background(isPhoneNumberValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            }
                             
-                        }//fin genre
-                        
-                        Group{
-                            formulaireString(textfeild: "description", nom: $description)
-                            formulaireString(textfeild: "Adresse", nom: $adresse)
-//                            formulaireInt(textfeild: "Telephone", age:$telephone)
-                        }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        if isPro == true {
-                            formulaireInt(textfeild: "SIRET", age:$siret)
-                        }
-                        
-//                         formulaireString(textfeild: "Email", nom: $email)
+                            // Genre
+                            HStack {
+                                Text("Genre")
+                                    .font(.title2)
+                                    .foregroundColor(Color("DeepBlue"))
+                                    .padding(.leading)
+                                Spacer()
+                                
+                                Picker(" ", selection: $genre) {
+                                    
+                                    ForEach(Genre.allCases, id:\.self) { option in
+                                        
+                                        Text(option.rawValue)
+                                            .background(.white)
+                                            .foregroundColor(Color.orange)
+                                    }
+                                }.pickerStyle(.inline)
+                                    .frame(width: 250, height: 40)
+                                
+                            }//fin genre
+                            
+                            
+                            
+                            Group{
+                                
+                                HStack{
+                                    
+                                    Text("Description")
+                                        .font(.title2)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .padding(.leading)
+                                    Spacer()
+                                    TextField("", text: $description)
+                                        .frame(width: 220)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding()
+                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                    
+                                    
+                                }
+                                
+                                HStack{
+                                    
+                                    Text("Adresse")
+                                        .font(.title2)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .padding(.leading)
+                                    Spacer()
+                                    TextField("", text: $adresse)
+                                        .frame(width: 220)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding()
+                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                    
+                                    
+                                }
+                                //                            formulaireString(textfeild: "description", nom: $description)
+                                //                            formulaireString(textfeild: "Adresse", nom: $adresse)
+                            }
+                            
+                            
+                            if isPro == true {
+                                HStack{
+                                    Text("SIRET")
+                                        .font(.title2)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .padding(.leading)
+                                    Spacer()
+                                    TextField("", text: $siret)
+                                        .keyboardType(.numberPad)
+                                        .frame(width: 220)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .padding()
+                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                    
+                                    
+                                }
+                                //                            formulaireInt(textfeild: "SIRET", age:$siret)
+                            }
+                            
+                            HStack{
+                                Text("Email")
+                                    .font(.title2)
+                                    .foregroundColor(Color("DeepBlue"))
+                                    .padding(.leading)
+                                Spacer()
+                                TextField(" ", text: $email)
+                                    .frame(width: 220)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding()
+                                    .background(isEmailValid ? Color("Neutre") : Color.red.opacity(0.3))
+                            }
+                            
                             formulaireString(textfeild: "Mot de passe", nom: $mdp)
-                        
-                       
+                            
+                            
                             
                             NavigationLink( isActive: $idAdd){
                                 
@@ -177,37 +256,32 @@ struct InscriptionDetailsView: View {
                                 }
                             }label: {
                                 
-                        
+                                
                                 Button {
                                     
                                     validateFields()
-
-                                    // Ajouter le code pour traiter les données d'inscription ici
+                                    
                                     if isFormValid() {
                                         
                                         profileVM.addProfilP(isPro: isPro, newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newAge : Int(age) ?? 0, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret , newAdresse : adresse, newEmail : email, newMdp : mdp)
                                         
                                         idAdd = true
                                         
-                                        
                                     }
                                     
                                     
-                                    
-                                    
-                                    
                                 } label: {
-                                    Text("Enregistrer")
+                                    Text("Se connecter")
+                                        .frame(width: 255, height: 30)
+                                        .bold()
                                 }.buttonStyle(.borderedProminent)
                                     .tint(Color("Primaire"))
+                                    .padding(.top)
                                 
-                                //                        Spacer()
                             }.padding(5)
                             
-                            
-    
-                    }
-                }
+                        }.padding(4)
+                    }}
             }
         
         .sheet(isPresented: $showPhotoSheet) {
@@ -215,10 +289,10 @@ struct InscriptionDetailsView: View {
         }
         
     }
-        //VOIR AVEC KeLIAN
+        
 
     func validateFields() {
-         isNameValid = !nom.isEmpty
+        isTextValid = isValidText(nom, prenom, age, genre.rawValue, description, adresse, mdp)
          isEmailValid = isValidEmail(email)
          isPhoneNumberValid = isValidPhoneNumber(telephone)
      }
@@ -226,6 +300,11 @@ struct InscriptionDetailsView: View {
      func isValidEmail(_ email: String) -> Bool {
          return email.contains("@") && email.contains(".")
      }
+    
+    func isValidText(_ nom: String, _ prenom: String, _ age: String, _ genre: String, _ description: String, _ adresse: String, _ mdp: String) -> Bool {
+        
+        return !nom.isEmpty && !prenom.isEmpty && !age.isEmpty && !genre.isEmpty && !description.isEmpty && !adresse.isEmpty && !mdp.isEmpty        
+    }
 
      func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
          // Vérifiez si le numéro de téléphone contient uniquement des chiffres et a une longueur de 10 chiffres
@@ -235,28 +314,22 @@ struct InscriptionDetailsView: View {
      }
 
      func isFormValid() -> Bool {
-         return isNameValid && isEmailValid && isPhoneNumberValid
+         return isTextValid && isEmailValid && isPhoneNumberValid
      }
     
         
     
 }
 
-    
-    
-    
 struct InscriptionDetailsPView_Previews: PreviewProvider {
     static var previews: some View {
         InscriptionDetailsView( profileVM: ListesDesProfiles(), isPro: false)
     }
 }
     
-    
-    
     struct formulaireString: View {
         var textfeild : String
         @Binding var nom : String
-
         var body: some View {
             HStack{
 
@@ -266,9 +339,9 @@ struct InscriptionDetailsPView_Previews: PreviewProvider {
                     .padding(.leading)
                 Spacer()
                 TextField("", text: $nom)
-                    .tint(.gray)
                     .frame(width: 220)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3)) //VOIR AVEC KELIAN
                     .padding()
 
             }
@@ -288,11 +361,11 @@ struct InscriptionDetailsPView_Previews: PreviewProvider {
                 Spacer()
                 TextField("", text: $age)
                     .keyboardType(.numberPad)
-                    .tint(.gray)
                     .frame(width: 220)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
                     .padding()
-
+                    
             }
         }
     }

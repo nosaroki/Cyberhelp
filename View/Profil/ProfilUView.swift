@@ -12,7 +12,7 @@ struct ProfilUView: View {
         
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
-    @StateObject var ProfilsUVM = ListesDesProfiles()
+    @StateObject var profileVM = ListesDesProfiles()
     
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
@@ -36,42 +36,53 @@ struct ProfilUView: View {
                     .foregroundColor(Color("DeepBlue"))
                     HStack{
                         
-                ScrollView{
+            
+                        ScrollView{
                             
-                    }.padding(.top)
-                    
-                    if !ProfilsUVM.ListeProfilesP.isEmpty {
-                        let profile = ProfilsUVM.ListeProfilesP[0]
-                        
-                        VStack {
-                            HStack{
+                            
+                            
+                            if !profileVM.ListeProfilesP.isEmpty {
+                                let profile = profileVM.ListeProfilesP
                                 
-                                Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
-                                    .resizable()
-                                    .frame(width: 150, height: 150)
-                                    .foregroundColor(Color("DeepBlue"))
-                                    .cornerRadius(20)
                                 
-                                VStack(alignment: .leading){
-                                    VStack{
+                                if  let profileLast = profile.last(where: { profile in
+                                    
+                                    return profile.isPro == false
+                                })
+                                {
+                                    VStack {
                                         HStack{
                                             
-                                            Text(profile.prenom ?? " ")
-                                                .font(.title2)
-                                            Text("\(profile.age)")
-                                                .font(.title3)
+                                            Image(uiImage: UIImage(data: profileLast.profilPic  ?? Data()) ?? UIImage())
+                                                .resizable()
+                                                .frame(width: 150, height: 150)
+                                                .foregroundColor(Color("DeepBlue"))
+                                                .cornerRadius(20)
                                             
-                                        }.padding(.bottom)
+                                            VStack(alignment: .leading){
+                                                VStack{
+                                                    HStack{
+                                                        
+                                                        Text(profileLast.prenom ?? " ")
+                                                            .font(.title2)
+                                                        Text("\(profileLast.age)")
+                                                            .font(.title3)
+                                                        
+                                                    }.padding(.bottom)
+                                                    
+                                                    Text(profileLast.adresse ?? " ")
+                                                }
+                                                Text(profileLast.descriptionU ?? " ")
+                                                    .font(.caption)
+                                                
+                                            }.padding()
+                                        }
                                         
-                                        Text(profile.adresse ?? " ")
+                                        Spacer()
                                     }
-                                    Text(profile.descriptionU ?? " ")
-                                        .font(.caption)
-                                    
-                                }.padding()
+                                }
                             }
                         }
-                    }
                     
                     
                     Spacer()
