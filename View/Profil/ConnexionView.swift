@@ -24,6 +24,8 @@ struct ConnexionView: View {
     @State var isExist : Bool = false
     @State var isExistP : Bool = false
     
+   
+    
     
     var body: some View {
         
@@ -81,11 +83,11 @@ struct ConnexionView: View {
                                 
                                 //VOIR AVEC KELIAN
                                 
-                                NavigationLink(destination: ProfilUView(), isActive: $isExist){
+                                NavigationLink(destination: ProfilUView(email: email, mdp: mdp), isActive: $isExist){
                                     
                                 }
                                 
-                                NavigationLink(destination: ProfilPView(), isActive: $isExistP){
+                                NavigationLink(destination: ProfilPView(email: email, mdp: mdp), isActive: $isExistP){
                                     
                                 }
                                           

@@ -10,6 +10,10 @@ import SwiftUI
 struct ProfilPView: View {
     
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
+        
+    var email : String
+    var mdp : String
+    
     
     @StateObject var profileVM = ListesDesProfiles()
     
@@ -32,49 +36,95 @@ struct ProfilPView: View {
                 .foregroundColor(Color("DeepBlue"))
                 ScrollView{
                     
+                    // CODE POUR AFFICHER LE PROFIL DANS MA BASE DE DONNEES QUI CORRESPOND A L'EMAIL & MDP
                     
                     
-                    if !profileVM.ListeProfilesP.isEmpty {
-                        let profile = profileVM.ListeProfilesP
+                    ForEach (profileVM.ListeProfilesP) { profile in
                         
-                        
-                        if  let profileLast = profile.last(where: { profile in
+                        if profile.email == email && profile.mdp == mdp {
                             
-                            return profile.isPro == true
-                        })
-                        {
+                            
                             VStack {
-                                HStack{
-                                    
-                                    Image(uiImage: UIImage(data: profileLast.profilPic  ?? Data()) ?? UIImage())
-                                        .resizable()
-                                        .frame(width: 150, height: 150)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .cornerRadius(20)
-                                    
-                                    VStack(alignment: .leading){
-                                        VStack{
-                                            HStack{
-                                                
-                                                Text(profileLast.prenom ?? " ")
-                                                    .font(.title2)
-                                                Text("\(profileLast.age)")
-                                                    .font(.title3)
-                                                
-                                            }.padding(.bottom)
-                                            
-                                            Text(profileLast.adresse ?? " ")
-                                        }
-                                        Text(profileLast.descriptionU ?? " ")
-                                            .font(.caption)
-                                        
-                                    }.padding()
-                                }
-                                
-                                Spacer()
-                            }
+                                  HStack{
+  
+                                      Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
+                                          .resizable()
+                                          .frame(width: 150, height: 150)
+                                          .foregroundColor(Color("DeepBlue"))
+                                          .cornerRadius(20)
+  
+                                      VStack(alignment: .leading){
+                                          VStack{
+                                              HStack{
+  
+                                                  Text(profile.prenom ?? " ")
+                                                      .font(.title2)
+                                                  Text("\(profile.age)")
+                                                      .font(.title3)
+  
+                                              }.padding(.bottom)
+  
+                                              Text(profile.adresse ?? " ")
+                                          }
+                                          Text(profile.descriptionU ?? " ")
+                                              .font(.caption)
+  
+                                      }.padding()
+                                  }
+  
+                                  Spacer()
+                              }
+                            
                         }
+                        
                     }
+                    
+                    
+                    
+                    
+                    // CODE POUR AFFICHER LE DERNIER PROFIL DANS MA BASE DE DONNEES S'IL EST PROFESSIONEL
+                    
+//                    if !profileVM.ListeProfilesP.isEmpty {
+//                        let profile = profileVM.ListeProfilesP
+//
+//
+//                        if  let profileLast = profile.last(where: { profile in
+//
+//                            return profile.isPro == true
+//                        })
+//                        {
+//                            VStack {
+//                                HStack{
+//
+//                                    Image(uiImage: UIImage(data: profileLast.profilPic  ?? Data()) ?? UIImage())
+//                                        .resizable()
+//                                        .frame(width: 150, height: 150)
+//                                        .foregroundColor(Color("DeepBlue"))
+//                                        .cornerRadius(20)
+//
+//                                    VStack(alignment: .leading){
+//                                        VStack{
+//                                            HStack{
+//
+//                                                Text(profileLast.prenom ?? " ")
+//                                                    .font(.title2)
+//                                                Text("\(profileLast.age)")
+//                                                    .font(.title3)
+//
+//                                            }.padding(.bottom)
+//
+//                                            Text(profileLast.adresse ?? " ")
+//                                        }
+//                                        Text(profileLast.descriptionU ?? " ")
+//                                            .font(.caption)
+//
+//                                    }.padding()
+//                                }
+//
+//                                Spacer()
+//                            }
+//                        }
+//                    }
                 }
             }
         }
@@ -83,6 +133,6 @@ struct ProfilPView: View {
 
 struct ProfilPView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilPView()
+        ProfilPView(email: " ", mdp: " ")
     }
 }

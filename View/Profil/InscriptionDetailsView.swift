@@ -248,10 +248,10 @@ struct InscriptionDetailsView: View {
                             NavigationLink( isActive: $idAdd){
                                 
                                 if isPro == true {
-                                    ProfilPView()
+                                    ProfilPView(email: mdp, mdp: mdp)
                                     
                                 }else{
-                                    ProfilUView()
+                                    ProfilUView(email: mdp, mdp: mdp)
                                     
                                 }
                             }label: {
