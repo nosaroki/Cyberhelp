@@ -44,10 +44,11 @@ class ListesDesProfiles: ObservableObject {
     }
     
     
-    func addProfilP(newImage: Data, newPrenom : String, newNom : String, newAge : Int, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
+    func addProfilP(isPro : Bool, newImage: Data, newPrenom : String, newNom : String, newAge : Int, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
 
         let newProfil = ProfilEntity(context: containerP.viewContext)
-
+        
+        newProfil.isPro = isPro
         newProfil.profilPic = newImage
         newProfil.prenom = newPrenom
         newProfil.nom = newNom
@@ -81,10 +82,11 @@ class ListesDesProfiles: ObservableObject {
         self.saveData()
     }
     
-    func updateProfil(user : ProfilEntity, newImage: Data, newPrenom : String, newNom : String, newAge : Int, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
+    func updateProfil(user : ProfilEntity, isPro : Bool ,newImage: Data, newPrenom : String, newNom : String, newAge : Int, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
         
         // *** pas implémenté côté vu, l'idée:
         
+        user.isPro = isPro
         user.profilPic = newImage
         user.prenom = newPrenom
         user.nom = newNom
@@ -101,90 +103,3 @@ class ListesDesProfiles: ObservableObject {
     }
     
 }
-
-        
-//
-//    internal init(container: NSPersistentContainer, ListeProfilesU: <<error type>> = []) {
-//        self.container = container
-//        self.ListeProfilesU = ListeProfilesU
-//    }
-    
-    
-//    let container : NSPersistentContainer
-//
-//
-//    init() {
-//
-//        container = NSPersistentContainer(name: "dataProfilU") // le nom du container doit être le même que celui créé!!
-//        container.loadPersistentStores { (description, error) in
-//            if let error = error {
-//                print("oops there is an error \(error)")
-//            } else {
-//                print("ok cool")
-//            }
-//
-            // Si cette fonction est appelée dans le init: on récupère les données à chaque création d'objets de type UsersViewModel
-                // self.fetchUsers()
-            
-//        }
-//
-//    }
-//
-//    internal init(ListeProfilesU: [ProfilUtilisateur] = []
-    
-//    [
-//        ProfilUtilisateur(
-//            profilPic: Image("PhotoU"),
-//            prénom: "Isabelle",
-//            nom: "Doudou",
-//            age: 19,
-//            genre: .femme,
-//            description: """
-//                            Hello, moi c’est Isabelle
-//                            j’aime faire du sport et souvent victime d’attaque sur mon poids
-//                            """,
-//            telephone: 0678564532,
-//            adresse: Adresse(codePostal: "75011", nomCommune: "Paris"),
-//            email: "Isabelle@gmail.com",
-//            mdp: "0123AZERTY")
-//
-//    ]) {
-//        self.ListeProfilesU = ListeProfilesU
-//    }
-    
-    
-//    @Published var ListeProfilesU: [ProfilU]
-    
-//    [
-//        ProfilUtilisateur(
-//            profilPic: Image("PhotoU"),
-//            prénom: "Isabelle",
-//            nom: "Doudou",
-//            age: 19,
-//            genre: .femme,
-//            description: """
-//                              Hello, moi c’est Isabelle
-//                              j’aime faire du sport et souvent victime d’attaque sur mon poids
-//                              """,
-//            telephone: 0678564532,
-//            adresse: Adresse(codePostal: "75011", nomCommune: "Paris"),
-//            email: "Isabelle@gmail.com",
-//            mdp: "0123AZERTY")
-//
-//    ]
-   
-    
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-

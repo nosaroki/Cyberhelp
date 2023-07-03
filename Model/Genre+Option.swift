@@ -20,3 +20,9 @@ enum TopicOptionProfil : String, CaseIterable {
     case signalement = "Mes signalement"
     
 }
+
+enum TopicOptionProfilP : String, CaseIterable {
+    case profil = "Mon profil"
+    case contact = "Mes contact"
+    
+}

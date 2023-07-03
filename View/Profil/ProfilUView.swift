@@ -12,66 +12,141 @@ struct ProfilUView: View {
         
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
-    @StateObject var ProfilsUVM = ListesDesProfiles()
+    @StateObject var profileVM = ListesDesProfiles()
+    
+    @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
     @State private var image = UIImage()
     @State private var showPhotoSheet = false
     
+    var email : String
+    var mdp : String
+    
+    @ViewBuilder
+    
     var body: some View {
         ZStack{
             Color("Neutre").edgesIgnoringSafeArea(.top)
-            ScrollView{
+           
                 VStack {
-                    
-                    HStack{
-                        Text("Mon profil")
-                        Text("Mon signalement")
-                    }.padding(.top)
-                    
-                    ForEach (ProfilsUVM.ListeProfilesP){ profilselect in
-                        
-                        HStack{
-                            
-                         //   Image (systemName: "person.fill")
-                            
-                          Image(uiImage: UIImage(data: profilselect.profilPic ?? Data()) ?? UIImage())
-                            
-//                            profilselect.profilPic
-                                .resizable()
-                                .frame(width: 150, height: 150)
-                                .foregroundColor(Color("DeepBlue"))
-                            
-                            VStack(alignment: .leading){
-                                HStack{
-                                    
-                                    Text(profilselect.prenom ?? "no name")
-                                        .font(.title)
-                                    Text("\(profilselect.age)")
-                                        .font(.title2)
-                                    
-                                }.padding(.bottom)
-                                
-                                Text(profilselect.adresse ?? " ")
-                                
-                                Text(profilselect.descriptionU ?? " ")
-                                
-                            }.padding()
+                    Picker((""), selection: $selectedTopicProfil) {
+                        ForEach(TopicOptionProfil.allCases, id:\ .self) { topic in
+                            Text(topic.rawValue)
                         }
                     }
-                    
-                    
-                    Spacer()
+                    .pickerStyle(.segmented)
+                    .padding()
+                    .foregroundColor(Color("DeepBlue"))
+                    HStack{
+                        
+            
+                    ScrollView{
+                        
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 350, height: 280)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                            
+                            ForEach (profileVM.ListeProfilesP) { profile in
+                                
+                                if profile.email == email && profile.mdp == mdp {
+                                    
+                                    
+                                    VStack{
+                                        HStack{
+                                            
+                                            Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
+                                                .resizable()
+                                                .frame(width: 150, height: 250)
+                                                .foregroundColor(Color("DeepBlue"))
+                                                .cornerRadius(20)
+                                            
+                                            VStack(alignment: .leading){
+                                                VStack(alignment:.leading){
+                                                    HStack{
+                                                        
+                                                        Text(profile.prenom ?? " ")
+                                                            .font(.title2)
+                                                            .foregroundColor(Color("DeepBlue"))
+                                                        Text(" - \(profile.age) ans")
+                                                            .font(.title3)
+                                                            .foregroundColor(Color("DeepBlue"))
+                                                    }.padding(.bottom)
+                                                    
+                                                    Text(profile.adresse ?? " ")
+                                                }
+                                                
+                                                
+                                            }.padding()
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    VStack{
+                                        Text(profile.descriptionU ?? " ")
+                                            .font(.caption)
+                                            .foregroundColor(Color("DeepBlue"))
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
+                        
+//                            if !profileVM.ListeProfilesP.isEmpty {
+//                                let profile = profileVM.ListeProfilesP
+//                                
+//                                
+//                                if  let profileLast = profile.last(where: { profile in
+//                                    
+//                                    return profile.isPro == false
+//                                })
+//                                {
+//                                    VStack {
+//                                        HStack{
+//                                            
+//                                            Image(uiImage: UIImage(data: profileLast.profilPic  ?? Data()) ?? UIImage())
+//                                                .resizable()
+//                                                .frame(width: 150, height: 150)
+//                                                .foregroundColor(Color("DeepBlue"))
+//                                                .cornerRadius(20)
+//                                            
+//                                            VStack(alignment: .leading){
+//                                                VStack{
+//                                                    HStack{
+//                                                        
+//                                                        Text(profileLast.prenom ?? " ")
+//                                                            .font(.title2)
+//                                                        Text("\(profileLast.age)")
+//                                                            .font(.title3)
+//                                                        
+//                                                    }.padding(.bottom)
+//                                                    
+//                                                    Text(profileLast.adresse ?? " ")
+//                                                }
+//                                                Text(profileLast.descriptionU ?? " ")
+//                                                    .font(.caption)
+//                                                
+//                                            }.padding()
+//                                        }
+//                                        
+//                                        Spacer()
+//                                    }
+//                                }
+//                            }
+                    }
                 }
             }
-            }
-            }
-            
         }
+    }
+            
+}
 
 
 struct ProfilUView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilUView()
+        ProfilUView(email: " ", mdp: " ")
            // .environmentObject(ListesDesProfilesU())
     }
 }
