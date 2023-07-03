@@ -10,7 +10,8 @@ import SwiftUI
 struct ChatDetailsView: View {
     
     @EnvironmentObject var ChatVM: ChatViewModel
-    @ State var messageText = ""
+    @State var messageText = ""
+    @State private var scrollProxy: ScrollViewProxy? = nil
     var conversation : Conversation
     
     
@@ -18,79 +19,96 @@ struct ChatDetailsView: View {
         ZStack{
             Color("Neutre")
             VStack {
-                Text("Chat")
+                Text("Dr. \(profilP.nom)")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("DeepBlue"))
-                ScrollView{
-                    
-                    ForEach (conversation.conversation) { message in
+                    .padding(.top)
+                    ScrollView{
                         
-                        if message.destinataire == true {
-                            VStack (alignment: .leading){
-                                Text("\(message.heure, format: .dateTime.hour().minute())")
-                                    .font(.footnote)
-                                    .padding(.leading)
-                                    .foregroundColor(.gray)
-                                    .fontWeight(.medium)
-                                HStack {
-                                    Text(message.chat)
-                                        .fontWeight(.medium)
-                                        .padding()
-                                        .background(Color("OrangeClair"))
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .clipShape(RoundedRectangle(cornerRadius: 16.0,style: .continuous))
-                                        .listRowSeparator(.hidden)
-                                        .overlay(alignment: .bottomLeading) {
-                                            Image(systemName: "arrowtriangle.down.fill")
-                                                .font(.title)
-                                                .rotationEffect(.degrees(45))
-                                                .offset(x: -8, y: 8)
-                                                .foregroundColor(Color("OrangeClair"))
-                                        }
-                                }
-                                
-                                .padding(.horizontal)
-                                .padding(.bottom,8)
-                                
-                                
-                            }
+                        ForEach (conversation.conversation) { message in
                             
-                        } else {
-                            VStack(alignment: .trailing){
-                                Text("\(message.heure, format: .dateTime.hour().minute())")
-                                    .font(.footnote)
-                                    .padding(.trailing)
-                                    .foregroundColor(.gray)
-                                    .fontWeight(.medium)
-                                HStack{
-                                    Spacer()
-                                    Text(message.chat)
+                            if message.destinataire == true {
+                                VStack (alignment: .leading){
+                                    HStack{
+                                        Text(message.chat)
+                                            .fontWeight(.medium)
+                                            .padding()
+                                            .padding(.bottom, 16)
+                                            .background(Color("OrangeClair"))
+                                            .foregroundColor(Color("DeepBlue"))
+                                            .clipShape(RoundedRectangle(cornerRadius: 16.0,style: .continuous))
+                                            .listRowSeparator(.hidden)
+                                            .overlay(alignment: .bottomLeading) {
+                                                Image(systemName: "arrowtriangle.down.fill")
+                                                    .font(.title)
+                                                    .rotationEffect(.degrees(45))
+                                                    .offset(x: -8, y: 8)
+                                                    .foregroundColor(Color("OrangeClair"))
+                                            }
+                                    }
+                                    .padding(.horizontal)
+                                    .padding(.bottom,8)
+                                    Text("\(message.heure, format: .dateTime.hour().minute())")
+                                        .font(.footnote)
+                                        .padding(.top, -38)
+                                        .padding (.leading,32)
+                                        .foregroundColor(Color("DeepBlue"))
                                         .fontWeight(.medium)
-                                        .padding()
-                                        .background(Color("Secondaire"))
-                                        .foregroundColor(Color("Neutre"))
-                                        .clipShape(RoundedRectangle(cornerRadius: 16.0,style: .continuous))
-                                        .listRowSeparator(.hidden)
-                                        .overlay(alignment: .bottomTrailing) {
-                                            Image(systemName: "arrowtriangle.down.fill")
-                                                .font(.title)
-                                                .rotationEffect(.degrees(-45))
-                                                .offset(x: 8, y: 8)
-                                                .foregroundColor(Color("Secondaire"))
-                                        }
+                                        .frame(alignment: .trailing)
                                 }
-                                .padding(.horizontal)
-                                .padding(.bottom, 8)
+                                .id(message.id)
+                                .onAppear {
+                                    scrollProxy?.scrollTo(message.id, anchor: .bottom)
+                                    
+                                }
+                                
+                            } else {
+                                VStack(alignment: .trailing){
+                                    
+                                    HStack{
+                                        Spacer()
+                                        Text(message.chat)
+                                            .fontWeight(.medium)
+                                            .padding()
+                                            .padding(.bottom, 16)
+                                            .background(Color("Secondaire"))
+                                            .foregroundColor(Color("Neutre"))
+                                            .clipShape(RoundedRectangle(cornerRadius: 16.0,style: .continuous))
+                                            .listRowSeparator(.hidden)
+                                            .overlay(alignment: .bottomTrailing) {
+                                                Image(systemName: "arrowtriangle.down.fill")
+                                                    .font(.title)
+                                                    .rotationEffect(.degrees(-45))
+                                                    .offset(x: 8, y: 8)
+                                                    .foregroundColor(Color("Secondaire"))
+                                            }
+                                    }
+                                    .padding(.horizontal)
+                                    .padding(.bottom, 8)
+                                    Text("\(message.heure, format: .dateTime.hour().minute())")
+                                        .font(.footnote)
+                                        .padding(.top, -38)
+                                        .padding(.trailing, 32)
+                                        .foregroundColor(Color("Neutre"))
+                                        .fontWeight(.medium)
+                                    
+                                }
                                 
                             }
-
                         }
                     }
-                }
+//                    .id(UUID())
+//                    .introspectionView { scrollView in
+//                        scrollProxy = scrollView
                 
                 HStack{
                     TextField("Ecrivez ici", text: $messageText)
+//                        .introspectionTextField { textField in
+//                                textField.becomeFirstResponder()
+//                        .onAppear {
+//                                scrollProxy?.scrollTo(conversation.conversation.last, anchor: .bottom)
+//                            }
                         .foregroundColor(.black)
                         .padding()
                         .background(Color("DeepBlue").opacity(0.1))
