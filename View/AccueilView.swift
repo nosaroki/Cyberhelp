@@ -46,7 +46,9 @@ struct AccueilView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .padding()
+                    .padding(.leading)
+                    .padding(.trailing)
+//                    .padding(.bottom)
                     .foregroundColor(Color("DeepBlue"))
                     
                     VStack (alignment: .leading){
@@ -73,6 +75,7 @@ struct AccueilView: View {
                                             .opacity(0.9)
                                     }
                                     .cornerRadius(24)
+                                    .padding(.bottom, 24)
                                 }
                             }
                             else {
@@ -88,7 +91,7 @@ struct AccueilView: View {
                                         
                                         Text(displayActu.titre)
                                             .foregroundColor(Color("DeepBlue"))
-                                            .font(.system(size: 16))
+                                            .multilineTextAlignment(.leading) .font(.system(size: 16))
                                             .fontWeight(.bold)
                                             .frame(width: 260)
                                     }
@@ -101,7 +104,7 @@ struct AccueilView: View {
                     }
                     .padding()
                 }
-                .navigationTitle("Bonjour")
+                .navigationTitle("Bonjour Éléonore")
                 .navigationBarTitleDisplayMode(.inline)
                 
                 if selectedTopic == .temoignages {
