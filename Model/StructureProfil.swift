@@ -27,6 +27,7 @@ struct Profil : Identifiable {
     var email : String
     var mdp : String
     var isPro : Bool
+
 }
 
 struct Signalement : Identifiable {
@@ -56,3 +57,5 @@ struct Record: Codable {
     let id, createdTime: String
     let fields: Guide
 }
+
+//var userArray : [Profil] = [profilP, profilU]

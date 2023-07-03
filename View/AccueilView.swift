@@ -19,6 +19,7 @@ struct AccueilView: View {
     
     @State private var selectedTopic: TopicOption = .actu
     @State var isShown : Bool = false
+    @State var addTemoignage : Bool = false
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
@@ -33,7 +34,7 @@ struct AccueilView: View {
         NavigationView{
             ZStack{
                 Color("Neutre")
-                    .edgesIgnoringSafeArea(.top)
+                    .ignoresSafeArea()
                 
                 ScrollView {
                     VStack{
@@ -45,189 +46,86 @@ struct AccueilView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .padding()
+                    .padding(.leading)
+                    .padding(.trailing)
+//                    .padding(.bottom)
                     .foregroundColor(Color("DeepBlue"))
                     
                     VStack (alignment: .leading){
-                        switch selectedTopic {
-                        case .actu:
-                            ForEach (ArticlesActuVM.listActu) {
-                                displayActu in
-                                if displayActu.id == ArticlesActuVM.listActu.first!.id{
-                                    NavigationLink {
-                                        ActuDetailsView()
-                                    } label: {
-                                        ZStack (alignment: .bottom){
-                                            Image(displayActu.image)
-                                                .resizable()
-                                                .frame(maxWidth: .infinity)
-                                                .frame(height: 200)
-                                            Text(displayActu.titre)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .font(.system(size: 16))
-                                                .fontWeight(.bold)
-                                                .frame(maxWidth: .infinity)
-                                                .padding(.horizontal)
-                                                .background(Color.white)
-                                                .opacity(0.9)
-                                        }
-                                        //                                        .padding(.horizontal, 16)
-                                        .cornerRadius(24)
+                        
+                        ForEach (getList()) {
+                            displayActu in
+                            if displayActu.id == getList().first!.id{
+                                NavigationLink {
+                                    ArticlesDetailsView(article: displayActu)
+                                } label: {
+                                    ZStack (alignment: .bottom){
+                                        Image(displayActu.image)
+                                            .resizable()
+                                            .frame(maxWidth: .infinity)
+                                            .frame(height: 200)
+                                        Text(displayActu.titre)
+                                            .padding(8)
+                                            .foregroundColor(Color("DeepBlue"))
+                                            .font(.system(size: 16))
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.horizontal)
+                                            .background(Color.white)
+                                            .opacity(0.9)
                                     }
-                                    
-                                    
-                                }
-                                else {
-                                    NavigationLink {
-                                        ActuDetailsView()
-                                    } label: {
-                                        HStack {
-                                            Image(displayActu.image)
-                                                .resizable()
-                                                .scaledToFill()
-                                            //                                                .frame(width)
-                                            
-                                            Text(displayActu.titre)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .font(.system(size: 16))
-                                                .fontWeight(.bold)
-                                        }
-                                        .background(Color.white)
-                                        .cornerRadius(10)
-                                        .frame(width: 370)
-                                    }
-                                    
-                                    
+                                    .cornerRadius(24)
+                                    .padding(.bottom, 24)
                                 }
                             }
-                            
-                        case .event:
-                            ForEach (ArticlesEventsVM.listEvents) {
-                                displayEvent in
-                                
-                                if displayEvent.id == ArticlesEventsVM.listEvents.first!.id{
-                                    NavigationLink {
-                                        EventsDetailsView()
-                                    } label: {
-                                        ZStack (alignment: .bottom){
-                                            Image(displayEvent.image)
-                                                .resizable()
-                                                .frame(maxWidth: .infinity)
-                                                .frame(height: 200)
-                                            Text(displayEvent.titre)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .font(.system(size: 16))
-                                                .fontWeight(.bold)
-                                                .frame(maxWidth: .infinity)
-                                                .padding(.horizontal)
-                                                .background(Color.white)
-                                                .opacity(0.9)
-                                        }
-                                        //                                    .padding(.horizontal, 16)
-                                        .cornerRadius(24)
+                            else {
+                                NavigationLink {
+                                    ArticlesDetailsView(article: displayActu)
+                                } label: {
+                                    HStack {
+                                        Image(displayActu.image)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 100, height: 100)
+                                            .clipped()
                                         
+                                        Text(displayActu.titre)
+                                            .foregroundColor(Color("DeepBlue"))
+                                            .multilineTextAlignment(.leading) .font(.system(size: 16))
+                                            .fontWeight(.bold)
+                                            .frame(width: 260)
                                     }
-                                    
-                                    
+                                    .background(Color.white)
+                                    .cornerRadius(10)
+                                    .frame(width: 370)
                                 }
-                                else {
-                                    NavigationLink {
-                                        EventsDetailsView()
-                                    } label: {
-                                        HStack {
-                                            Image(displayEvent.image)
-                                            
-                                            Text(displayEvent.titre)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .font(.system(size: 16))
-                                                .fontWeight(.bold)
-                                        }
-                                        .background(Color.white)
-                                        .cornerRadius(10)
-                                        .padding(.horizontal)
-                                    }
-                                    
-                                    
-                                    
-                                }
-                            }
-                            
-                        case .temoignages:
-                            ForEach (ArticlesTemoignagesVM.listTemoignages) {
-                                displayTemoignages in
-                                
-                                if displayTemoignages.id == ArticlesTemoignagesVM.listTemoignages.first!.id{
-                                    NavigationLink {
-                                        TemoignagesDetailsView()
-                                    } label: {
-                                        ZStack (alignment: .bottom){
-                                            Image(displayTemoignages.image)
-                                                .resizable()
-                                                .frame(maxWidth: .infinity)
-                                                .frame(height: 200)
-                                            Text(displayTemoignages.titre)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .font(.system(size: 16))
-                                                .fontWeight(.bold)
-                                                .frame(maxWidth: .infinity)
-                                                .padding(.horizontal)
-                                                .background(Color.white)
-                                                .opacity(0.9)
-                                        }
-                                        .padding(.horizontal, 16)
-                                        .cornerRadius(24)
-                                    }
-                                    
-                                    
-                                }
-                                else{
-                                    NavigationLink {
-                                        TemoignagesDetailsView()
-                                    } label: {
-                                        HStack {
-                                            Image(displayTemoignages.image)
-                                            
-                                            Text(displayTemoignages.titre)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .font(.system(size: 16))
-                                                .fontWeight(.bold)
-                                        }
-                                        .background(Color.white)
-                                        .cornerRadius(10)
-                                        .frame(width: 370)
-                                    }
-                                    
-                                    
-                                }
-                            }
-                            // Modal
-                            Button {
-                                isShown.toggle()
-                            } label: {
-                                
-                                Text("+")
-                                    .fontWeight(.bold)
-                                
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(.mint)
-                            .zIndex(1)
-                            .padding(.leading, 250)
-                            .padding()
-                            .sheet(isPresented: $isShown) {
-                                ModaleTemoignages(isModaleShown: $isShown)
                             }
                         }
                     }
                     .padding()
                 }
-                .navigationTitle("Bonjour")
+                .navigationTitle("Bonjour Éléonore")
                 .navigationBarTitleDisplayMode(.inline)
                 
-            }// fin navview
-            
+                if selectedTopic == .temoignages {
+                    AddButtonTemoignageView(addTemoignage: $addTemoignage)
+                }
+            }
         }
-        
+        .sheet(isPresented: $addTemoignage) {
+            AddTemoignageView(addTemoignage: $addTemoignage)
+        }
+    }
+    
+    func getList() -> [Article] {
+        switch selectedTopic {
+        case .actu:
+            return ArticlesActuVM.listActu
+        case .event:
+            return ArticlesEventsVM.listEvents
+        case .temoignages:
+            return ArticlesTemoignagesVM.listTemoignages
+        }
     }
 }
 

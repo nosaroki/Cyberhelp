@@ -16,9 +16,10 @@ struct GuideView: View {
         ZStack{
             Color("Neutre")
             VStack{
-//                Text("Guide")
-//                    .font(.largeTitle)
-//                    .fontWeight(.bold)
+                Text("Guide")
+                    .padding(.top, 24)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                 ScrollView{
                     ForEach(guideVM.guides) { conseils in
                         SujetView(guideInView: conseils)
