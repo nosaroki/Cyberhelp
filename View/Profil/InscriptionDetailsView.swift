@@ -85,7 +85,7 @@ struct InscriptionDetailsView: View {
                             TextField("", text: $nom)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .overlay{
-                                    if !isPhoneNumberValid{
+                                    if !isTextValid {
                                         RoundedRectangle(cornerRadius: 5)
                                             .stroke(lineWidth: 1)
                                             .foregroundColor(.red.opacity(0.3))
@@ -109,7 +109,7 @@ struct InscriptionDetailsView: View {
                             TextField("", text: $prenom)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .overlay{
-                                    if !isPhoneNumberValid{
+                                    if !isTextValid {
                                         RoundedRectangle(cornerRadius: 5)
                                             .stroke(lineWidth: 1)
                                             .foregroundColor(.red.opacity(0.3))
@@ -133,14 +133,9 @@ struct InscriptionDetailsView: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .padding(.leading)
                                 .padding(.trailing)
-                            
-                            
-                            
+                         
                         }
-                        
-                        //                            formulaireString(textfeild: "Nom", nom: $nom)
-                        //                            formulaireString(textfeild: "Prenom", nom: $prenom)
-                        //                            formulaireInt(textfeild: "Age", age:$age)
+
                     }
                     VStack(alignment: .leading){
                         Text("Téléphone")
@@ -235,8 +230,7 @@ struct InscriptionDetailsView: View {
                                
                             
                         }
-                        //                            formulaireString(textfeild: "description", nom: $description)
-                        //                            formulaireString(textfeild: "Adresse", nom: $adresse)
+
                     }
                     
                     
@@ -265,7 +259,7 @@ struct InscriptionDetailsView: View {
                             
                             
                         }
-                        //                            formulaireInt(textfeild: "SIRET", age:$siret)
+
                     }
                     
                     VStack(alignment: .leading){
@@ -275,7 +269,7 @@ struct InscriptionDetailsView: View {
                             .padding(.leading)
                         
                         TextField(" ", text: $email)
-//                            .frame(width: 220)
+
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .overlay{
                                 if !isEmailValid{
@@ -289,8 +283,7 @@ struct InscriptionDetailsView: View {
                             .padding(.trailing)
                            
                     }
-                    
-//                    formulaireString(textfeild: "Mot de passe", nom: $mdp)
+
                     
                     VStack(alignment: .leading){
                         
@@ -312,12 +305,8 @@ struct InscriptionDetailsView: View {
                             }
                             .padding(.leading)
                             .padding(.trailing)
-                            
-                            
-                        
+                       
                     }
-                    
-                    
                     
                     HStack {
                         Spacer()
