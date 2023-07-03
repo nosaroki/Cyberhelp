@@ -29,17 +29,18 @@ struct SignalementView: View {
     let Emoji7: String = "😆"
     var body: some View {
         NavigationView {
-        ScrollView{
+
         ZStack{
             Color("Neutre")
                 .ignoresSafeArea()
             VStack{
+                ScrollView{
                 // NavigationStack{
                 Text("Selectionne le type de harcèlement")
-                    .font(.title2)
+                        .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(Color("DeepBlue"))
-                    .padding(.bottom)
+                  //  .padding(.bottom)
                     .padding(.top, 50.0)
                 Text("Type de signalement")
                     .foregroundColor(Color("DeepBlue"))
@@ -55,6 +56,7 @@ struct SignalementView: View {
                 }
                 .background(Color.white)
                 .cornerRadius(8)
+                
                 //     Image(systemName: "arrowtriangle.down.square.fill")
                 //        .frame(width: 10.0, height: 10.0)
                 //       .tint(.orange)
@@ -70,50 +72,56 @@ struct SignalementView: View {
                 
                 if selectedType == "Insultes et menaces" {
                     Text("Réception de messages haineux, injurieux ou menaces")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("DeepBlue"))
+                        .foregroundColor(Color("Orange"))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
+                        .padding(.horizontal, 15.0)
+                        .padding(.bottom)
                 }
                 
                 else if selectedType == "Diffamation" {
                     Text("Propagation de fausses informations ou de rumeurs")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("DeepBlue"))
+                        .foregroundColor(Color("Orange"))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
+                        .padding(.horizontal, 15.0)
+                        .padding(.bottom)
                 }
                 
                 else if selectedType == "Violation de la vie privée" {
                     Text("En captant, enregistrant ou transmettant, sans le consentement de leur auteur, des paroles prononcées à titre privé ou confidentiel")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("DeepBlue"))
+                        .foregroundColor(Color("Orange"))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
+                        .padding(.horizontal, 15.0)
+                        .padding(.bottom)
                 }
                 
                 else if selectedType == "Honte en ligne" {
                     Text("Publication de photos ou de vidéos humiliantes")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("DeepBlue"))
+                        .foregroundColor(Color("Orange"))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
+                        .padding(.horizontal, 15.0)
+                        .padding(.bottom)
                 }
                 
                 else if selectedType == "Trolling"{
                     Text("Provocation délibérée de la victime pour susciter des réactions négatives ou des conflits")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("DeepBlue"))
+                        .foregroundColor(Color("Orange"))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
+                        .padding(.horizontal, 15.0)
+                        .padding(.bottom)
                 }
                 
                 else if selectedType == "Grooming"{
                     Text("Manipulation et exploitation d’une personne vulnérable, souvent mineur, par un prédateur en ligne")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("DeepBlue"))
+                        .foregroundColor(Color("Orange"))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
+                        .padding(.horizontal, 15.0)
+                        .padding(.bottom)
                 }
                 
                 else {
@@ -122,20 +130,15 @@ struct SignalementView: View {
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.blue)
                 }
-                Spacer()
-                Spacer()
-                VStack{
+               VStack{
                     Text("Peux-tu nous en dire plus sur le cyber-harcèlement que tu subies ?")
                         .fontWeight(.bold)
                         .foregroundColor(Color("DeepBlue"))
                         .multilineTextAlignment(.center)
-                    
+                        .padding(.bottom, 15.0)
                         TextEditor(text: $description)
                         .scaledToFit()
-                      //  .lineSpacing(5)
-                        .padding(.top)
-                        //    .padding(.bottom, 200.0)
-                            .padding(.horizontal)
+                        .padding(.horizontal, 25.0)
                         //  Form {
                         //       TextField(text: $description, prompt: Text("Écrire ici..."))
                         //      {
@@ -144,7 +147,6 @@ struct SignalementView: View {
                         //   }
                         //}
                     }
-                    .padding(.bottom, 100.0)
                 VStack{
                     Text("Que ressens-tu aujourd'hui")
                         .fontWeight(.bold)
@@ -181,18 +183,18 @@ struct SignalementView: View {
                         //     )
                         
                         //.mask
-                        (Slider(value: $humeur, in: -100...100))
+                        (Slider(value: $humeur, in: -100...100)
+                            .padding(.horizontal, 25.0))
                         //  (Slider(value: $humeur, in: -100...100))
-                            .tint(Color(.green))
-                            .padding()
+                          //  .tint(Color("Rainbow"))
+                
                         
                         //    Text("\(celsius, specifier: "%.1f") Celsius is \(celsius * 9 / 5 + 32, specifier: "%.1f") Fahrenheit")
                         
                         Text("Partage nous les faits")
                             .fontWeight(.bold)
                             .foregroundColor(Color("DeepBlue"))
-                            .padding(.vertical, 30.0)
-                            .padding(.top, 50.0)
+                            .padding(.top, 25.0)
                         
                         Button {
                             
@@ -205,7 +207,7 @@ struct SignalementView: View {
                             }
                         }
                         .padding()
-                        .background(Color.orange)
+                        .background(Color("Primaire"))
                         .clipShape(Capsule())
                         .tint(.white)
                         .padding()
@@ -214,12 +216,14 @@ struct SignalementView: View {
                           //  label: {
                                 Text("Je veux parler")
                             //}
-                            .background(Color(red: 0.217, green: 0.632, blue: 0.792))
+                            .frame(width: 150, height: 50)
+                            .background(Color("Secondaire"))
                             .buttonStyle(.bordered)
-                            .cornerRadius(10)
+                            .cornerRadius(7)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                            .padding(.top)
+                            .padding()
+                          
                             }
                         }
                     }
