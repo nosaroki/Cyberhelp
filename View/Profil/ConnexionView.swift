@@ -47,7 +47,7 @@ struct ConnexionView: View {
                     ZStack {
                         Rectangle()
                             .frame(width: 320, height: 280)
-                            .foregroundColor(Color(hue: 0.566, saturation: 0.042, brightness: 0.937))
+                            .foregroundColor(Color(hue: 0.544, saturation: 0.126, brightness: 0.982))
                             .cornerRadius(10)
                         VStack(alignment: .leading){
                             
@@ -67,7 +67,7 @@ struct ConnexionView: View {
                                 .bold()
                             
                             Spacer()
-                            TextField("", text: $mdp)
+                            SecureField("", text: $mdp)
                                 .tint(.gray)
                                 .frame(width: 280)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -124,39 +124,47 @@ struct ConnexionView: View {
                     
                     Spacer()
                     
-                    Text("Créer un compte")
-                        .foregroundColor(Color("Orange"))
-                        .bold()
                     
-                    HStack{
-                        
-                        //bouton Inscription Pro
-                        NavigationLink{
-                            InscriptionDetailsView(profileVM: profileVM, isPro: true)
-                            
-                        } label: {
-                            Text("Professionnel \r de santé")
-                                .frame(width: 115, height: 50)
-                                .bold()
-                        }.buttonStyle(.borderedProminent)
-                            .padding(10)
-                            .tint(Color("Primaire"))
-                        
-                        //bouton Inscription Utilisateur
-                        NavigationLink {
-                          
-                            InscriptionDetailsView(profileVM: profileVM, isPro: false)
-                            
-                        } label: {
-                            
-                            Text("Utilisateur")
-                                .bold()
-                                .frame(width: 115, height: 50)
-                        }.buttonStyle(.borderedProminent)
-                            .tint(Color("Primaire"))
-                            .padding(10)
-                        
+                    NavigationLink(destination: CreationDeCompte())
+                    {
+                        Text("Cliquer ICI pour créer un compte")
+                            .foregroundColor(Color("DeepBlue"))
+                            .bold()
                     }
+//
+//                    Text("Créer un compte")
+//                        .foregroundColor(Color("Orange"))
+//                        .bold()
+//
+//                    HStack{
+//
+//                        //bouton Inscription Pro
+//                        NavigationLink{
+//                            InscriptionDetailsView(profileVM: profileVM, isPro: true)
+//
+//                        } label: {
+//                            Text("Professionnel \r de santé")
+//                                .frame(width: 115, height: 50)
+//                                .bold()
+//                        }.buttonStyle(.borderedProminent)
+//                            .padding(10)
+//                            .tint(Color("Primaire"))
+//
+//                        //bouton Inscription Utilisateur
+//                        NavigationLink {
+//
+//                            InscriptionDetailsView(profileVM: profileVM, isPro: false)
+//
+//                        } label: {
+//
+//                            Text("Utilisateur")
+//                                .bold()
+//                                .frame(width: 115, height: 50)
+//                        }.buttonStyle(.borderedProminent)
+//                            .tint(Color("Primaire"))
+//                            .padding(10)
+//
+//                    }
                     Spacer()
                 }
             }

@@ -16,14 +16,8 @@ struct InscriptionDetailsView: View {
     
      var isPro : Bool
     
-//    @State private var avatarItem: PhotosPickerItem?
-//    @State private var avatarImage: Image = Image(systemName: "person.circle.fill")
-//
-    //@State var photoprofil: UIImage?
-    
     @State private var image = UIImage()
     @State private var showPhotoSheet = false
-    
     
     @State var prenom : String = ""
     @State var nom : String = ""
@@ -44,245 +38,271 @@ struct InscriptionDetailsView: View {
     
     var body: some View {
         
-       
-            
-            ZStack{
-                Color("Neutre").edgesIgnoringSafeArea(.top)
-                ScrollView{
-                    VStack{
+    ZStack{
+        Color("Neutre").edgesIgnoringSafeArea(.top)
+        ScrollView{
+            VStack{
+                
+                VStack {
+                    
+                    ZStack{
+                        Rectangle()
+                            .foregroundColor(Color("Primaire").opacity(0.2))
                         
-                        VStack {
+                        Image(uiImage: self.image)
+                            .resizable()
+                        // .cornerRadius(50)
+                            .padding(.all, 4)
+                            .frame(width: 140, height: 140)
+                            .background(Color(hue: 0.566, saturation: 0.057, brightness: 0.887))
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                            .padding(8)
+                        
+                    }
+                    
+                    Button {
+                        showPhotoSheet = true
+                    } label: {
+                        Text("+ Photo profil")
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(Color("Primaire"))
+                    
+                }
+                VStack (alignment: .leading, spacing: 30 ){
+                    
+                    Group{
+                        VStack(alignment: .leading){
                             
-                            ZStack{
-                                Rectangle()
-                                    .foregroundColor(Color("Primaire").opacity(0.2))
-                                
-                                
-                                Image(uiImage: self.image)
-                                    .resizable()
-                                // .cornerRadius(50)
-                                    .padding(.all, 4)
-                                    .frame(width: 140, height: 140)
-                                    .background(Color(hue: 0.566, saturation: 0.057, brightness: 0.887))
-                                    .aspectRatio(contentMode: .fill)
-                                    .clipShape(Circle())
-                                    .padding(8)
-                                
-                            }
+                            Text("Nom")
+                                .bold()
+                                .foregroundColor(Color("DeepBlue"))
+                                .padding(.leading)
+                          
+                            TextField("", text: $nom)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.leading)
+                                .padding(.trailing)
+                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
                             
-                            Button {
-                                showPhotoSheet = true
-                            } label: {
-                                Text("+ Photo profil")
-                            }
-                            .buttonStyle(.bordered)
-                            .tint(Color("Primaire"))
                             
                         }
-                        VStack{
+                        
+                        VStack(alignment: .leading){
                             
-                            Group{
-                                HStack{
-                                    
-                                    Text("Nom")
-                                        .font(.title2)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .padding(.leading)
-                                    Spacer()
-                                    TextField("", text: $nom)
-                                        .frame(width: 220)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .padding()
-                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                                    
-                                    
-                                }
+                            Text("Prenom")
+                                .bold()
+                                .foregroundColor(Color("DeepBlue"))
+                                .padding(.leading)
+                            
+                            TextField("", text: $prenom)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.leading)
+                                .padding(.trailing)
+                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            
+                        }
+                        
+                        VStack(alignment: .leading){
+                            
+                            Text("Age")
+                                .bold()
+                                .foregroundColor(Color("DeepBlue"))
+                                .padding(.leading)
+                            Spacer()
+                            TextField("", text: $age)
+                                .keyboardType(.numberPad)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.leading)
+                                .padding(.trailing)
+                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            
+                            
+                            
+                        }
+                        
+                        //                            formulaireString(textfeild: "Nom", nom: $nom)
+                        //                            formulaireString(textfeild: "Prenom", nom: $prenom)
+                        //                            formulaireInt(textfeild: "Age", age:$age)
+                    }
+                    VStack(alignment: .leading){
+                        Text("Téléphone")
+                            .bold()
+                            .foregroundColor(Color("DeepBlue"))
+                            .padding(.leading)
+                        Spacer()
+                        TextField("", text: $telephone)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.leading)
+                            .padding(.trailing)
+                            .background(isPhoneNumberValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                    }
+                    
+                    // Genre
+                    VStack (alignment: .leading){
+                        Text("Genre")
+                            .bold()
+                            .foregroundColor(Color("DeepBlue"))
+                            .padding(.leading)
+                        Spacer()
+                        
+                        Picker(" ", selection: $genre) {
+                            
+                            ForEach(Genre.allCases, id:\.self) { option in
                                 
-                                HStack{
-                                    
-                                    Text("Prenom")
-                                        .font(.title2)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .padding(.leading)
-                                    Spacer()
-                                    TextField("", text: $prenom)
-                                        .frame(width: 220)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .padding()
-                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                                    
-                                }
-                                
-                                HStack{
-                                    
-                                    Text("Age")
-                                        .font(.title2)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .padding(.leading)
-                                    Spacer()
-                                    TextField("", text: $age)
-                                        .keyboardType(.numberPad)
-                                        .frame(width: 220)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .padding()
-                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                                    
-                                    
-                                    
-                                }
-                                
-                                //                            formulaireString(textfeild: "Nom", nom: $nom)
-                                //                            formulaireString(textfeild: "Prenom", nom: $prenom)
-                                //                            formulaireInt(textfeild: "Age", age:$age)
-                            }
-                            HStack{
-                                Text("Téléphone")
-                                    .font(.title2)
+                                Text(option.rawValue)
+                                    .background(.white)
                                     .foregroundColor(Color("DeepBlue"))
-                                    .padding(.leading)
-                                Spacer()
-                                TextField("", text: $telephone)
-                                    .frame(width: 220)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .padding()
-                                    .background(isPhoneNumberValid ? Color("Neutre")  : Color.red.opacity(0.3))
                             }
+                        }.pickerStyle(.inline)
+                            .frame(height: 40)
+                        
+                    }//fin genre
+                    
+                    
+                    
+                    Group{
+                        
+                        VStack(alignment: .leading){
                             
-                            // Genre
-                            HStack {
-                                Text("Genre")
-                                    .font(.title2)
-                                    .foregroundColor(Color("DeepBlue"))
-                                    .padding(.leading)
-                                Spacer()
-                                
-                                Picker(" ", selection: $genre) {
-                                    
-                                    ForEach(Genre.allCases, id:\.self) { option in
-                                        
-                                        Text(option.rawValue)
-                                            .background(.white)
-                                            .foregroundColor(Color.orange)
-                                    }
-                                }.pickerStyle(.inline)
-                                    .frame(width: 250, height: 40)
-                                
-                            }//fin genre
+                            Text("Description")
+                                .bold()
+                                .foregroundColor(Color("DeepBlue"))
+                                .padding(.leading)
+                            Spacer()
+                            TextField("", text: $description)
+//                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.leading)
+                                .padding(.trailing)
+                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
                             
                             
+                        }
+                        
+                        VStack(alignment: .leading){
                             
-                            Group{
-                                
-                                HStack{
-                                    
-                                    Text("Description")
-                                        .font(.title2)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .padding(.leading)
-                                    Spacer()
-                                    TextField("", text: $description)
-                                        .frame(width: 220)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .padding()
-                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                                    
-                                    
-                                }
-                                
-                                HStack{
-                                    
-                                    Text("Adresse")
-                                        .font(.title2)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .padding(.leading)
-                                    Spacer()
-                                    TextField("", text: $adresse)
-                                        .frame(width: 220)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .padding()
-                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                                    
-                                    
-                                }
-                                //                            formulaireString(textfeild: "description", nom: $description)
-                                //                            formulaireString(textfeild: "Adresse", nom: $adresse)
-                            }
+                            Text("Adresse")
+                                .bold()
+                                .foregroundColor(Color("DeepBlue"))
+                                .padding(.leading)
+                            Spacer()
+                            TextField("", text: $adresse)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.leading)
+                                .padding(.trailing)
+                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
                             
+                            
+                        }
+                        //                            formulaireString(textfeild: "description", nom: $description)
+                        //                            formulaireString(textfeild: "Adresse", nom: $adresse)
+                    }
+                    
+                    
+                    if isPro == true {
+                        VStack(alignment: .leading){
+                            Text("SIRET")
+                                .bold()
+                                .foregroundColor(Color("DeepBlue"))
+                                .padding(.leading)
+                            Spacer()
+                            TextField("", text: $siret)
+                                .keyboardType(.numberPad)
+//                                .frame(width: 220)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding(.leading)
+                                .padding(.trailing)
+                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            
+                            
+                        }
+                        //                            formulaireInt(textfeild: "SIRET", age:$siret)
+                    }
+                    
+                    VStack(alignment: .leading){
+                        Text("Email")
+                            .bold()
+                            .foregroundColor(Color("DeepBlue"))
+                            .padding(.leading)
+                        
+                        TextField(" ", text: $email)
+//                            .frame(width: 220)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.leading)
+                            .padding(.trailing)
+                            .background(isEmailValid ? Color("Neutre") : Color.red.opacity(0.3))
+                    }
+                    
+//                    formulaireString(textfeild: "Mot de passe", nom: $mdp)
+                    
+                    VStack(alignment: .leading){
+                        
+                        Text("Mot de passe")
+                            .bold()
+                            .foregroundColor(Color("DeepBlue"))
+                            .padding(.leading)
+                       
+                        TextField("", text: $mdp)
+//                            .frame(width: 220)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.leading)
+                            .padding(.trailing)
+                            .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            
+                        
+                    }
+                    
+                    
+                    
+                    HStack {
+                        Spacer()
+                        NavigationLink( isActive: $idAdd){
                             
                             if isPro == true {
-                                HStack{
-                                    Text("SIRET")
-                                        .font(.title2)
-                                        .foregroundColor(Color("DeepBlue"))
-                                        .padding(.leading)
-                                    Spacer()
-                                    TextField("", text: $siret)
-                                        .keyboardType(.numberPad)
-                                        .frame(width: 220)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .padding()
-                                        .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                ProfilPView(email: mdp, mdp: mdp)
+                                
+                            }else{
+                                ProfilUView(email: mdp, mdp: mdp)
+                                
+                            }
+                        }label: {
+                            
+                            
+                            Button {
+                                
+                                validateFields()
+                                
+                                if isFormValid() {
                                     
+                                    profileVM.addProfilP(isPro: isPro, newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newAge : Int(age) ?? 0, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret , newAdresse : adresse, newEmail : email, newMdp : mdp)
+                                    
+                                    idAdd = true
                                     
                                 }
-                                //                            formulaireInt(textfeild: "SIRET", age:$siret)
-                            }
-                            
-                            HStack{
-                                Text("Email")
-                                    .font(.title2)
-                                    .foregroundColor(Color("DeepBlue"))
-                                    .padding(.leading)
-                                Spacer()
-                                TextField(" ", text: $email)
-                                    .frame(width: 220)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .padding()
-                                    .background(isEmailValid ? Color("Neutre") : Color.red.opacity(0.3))
-                            }
-                            
-                            formulaireString(textfeild: "Mot de passe", nom: $mdp)
-                            
-                            
-                            
-                            NavigationLink( isActive: $idAdd){
-                                
-                                if isPro == true {
-                                    ProfilPView(email: mdp, mdp: mdp)
-                                    
-                                }else{
-                                    ProfilUView(email: mdp, mdp: mdp)
-                                    
-                                }
-                            }label: {
                                 
                                 
-                                Button {
-                                    
-                                    validateFields()
-                                    
-                                    if isFormValid() {
-                                        
-                                        profileVM.addProfilP(isPro: isPro, newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newAge : Int(age) ?? 0, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret , newAdresse : adresse, newEmail : email, newMdp : mdp)
-                                        
-                                        idAdd = true
-                                        
-                                    }
-                                    
-                                    
-                                } label: {
-                                    Text("Se connecter")
-                                        .frame(width: 255, height: 30)
-                                        .bold()
-                                }.buttonStyle(.borderedProminent)
-                                    .tint(Color("Primaire"))
-                                    .padding(.top)
-                                
-                            }.padding(5)
+                            } label: {
+                                Text("Se connecter")
+                                    .frame(width: 255, height: 30)
+                                    .bold()
+                            }.buttonStyle(.borderedProminent)
+                                .tint(Color("Primaire"))
+                                .padding(.top)
                             
-                        }.padding(4)
-                    }}
+                    }
+                    Spacer()
+                        
+                    }
+                    
+                }
             }
+            
+        }
+    }
+            
+           
         
         .sheet(isPresented: $showPhotoSheet) {
             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)

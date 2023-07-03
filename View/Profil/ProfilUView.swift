@@ -40,48 +40,60 @@ struct ProfilUView: View {
                     HStack{
                         
             
-                        ScrollView{
+                    ScrollView{
+                        
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 350, height: 280)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
                             
                             ForEach (profileVM.ListeProfilesP) { profile in
                                 
                                 if profile.email == email && profile.mdp == mdp {
                                     
                                     
-                                    VStack {
-                                          HStack{
-          
-                                              Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
-                                                  .resizable()
-                                                  .frame(width: 150, height: 150)
-                                                  .foregroundColor(Color("DeepBlue"))
-                                                  .cornerRadius(20)
-          
-                                              VStack(alignment: .leading){
-                                                  VStack{
-                                                      HStack{
-          
-                                                          Text(profile.prenom ?? " ")
-                                                              .font(.title2)
-                                                          Text("\(profile.age)")
-                                                              .font(.title3)
-          
-                                                      }.padding(.bottom)
-          
-                                                      Text(profile.adresse ?? " ")
-                                                  }
-                                                  Text(profile.descriptionU ?? " ")
-                                                      .font(.caption)
-          
-                                              }.padding()
-                                          }
-          
-                                          Spacer()
-                                      }
+                                    VStack{
+                                        HStack{
+                                            
+                                            Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
+                                                .resizable()
+                                                .frame(width: 150, height: 250)
+                                                .foregroundColor(Color("DeepBlue"))
+                                                .cornerRadius(20)
+                                            
+                                            VStack(alignment: .leading){
+                                                VStack(alignment:.leading){
+                                                    HStack{
+                                                        
+                                                        Text(profile.prenom ?? " ")
+                                                            .font(.title2)
+                                                            .foregroundColor(Color("DeepBlue"))
+                                                        Text(" - \(profile.age) ans")
+                                                            .font(.title3)
+                                                            .foregroundColor(Color("DeepBlue"))
+                                                    }.padding(.bottom)
+                                                    
+                                                    Text(profile.adresse ?? " ")
+                                                }
+                                                
+                                                
+                                            }.padding()
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    VStack{
+                                        Text(profile.descriptionU ?? " ")
+                                            .font(.caption)
+                                            .foregroundColor(Color("DeepBlue"))
+                                    }
                                     
                                 }
                                 
                             }
-                            
+                        }
+                        
 //                            if !profileVM.ListeProfilesP.isEmpty {
 //                                let profile = profileVM.ListeProfilesP
 //                                
@@ -123,16 +135,13 @@ struct ProfilUView: View {
 //                                    }
 //                                }
 //                            }
-                        }
-                    
-                    
-                    Spacer()
+                    }
                 }
             }
-            }
-            }
-            
         }
+    }
+            
+}
 
 
 struct ProfilUView_Previews: PreviewProvider {
