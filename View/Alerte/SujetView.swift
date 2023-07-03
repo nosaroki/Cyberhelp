@@ -22,12 +22,13 @@ struct SujetView: View {
             }
             VStack(alignment: .leading){
                 Text(guideInView.titre)
-                    .foregroundColor(Color("Primaire"))
-                    .font(.title2)
+                    .foregroundColor(Color("DeepBlue"))
+                    .font(.title3)
                     .fontWeight(.bold)
-                    .padding(.bottom)
+                    .padding(.bottom,4)
                 Text(guideInView.description)
                     .foregroundColor(Color("DeepBlue"))
+                    .padding(.bottom, 8)
             }
             .padding()
             .background(.white)

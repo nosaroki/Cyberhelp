@@ -26,16 +26,16 @@ struct Alerte: View {
                     .font(.body)
                     .fontWeight(.semibold)
                     HStack(alignment: .top){
-                        Text("\(signalementInView.nom):")
-                            .font(.callout)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("DeepBlue"))
-                            .opacity(0.75)
-                        Text(signalementInView.description)
+//                        Text("\(signalementInView.nom):")
+//                            .font(.callout)
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(Color("DeepBlue"))
+//                            .opacity(0.75)
+                        Text("\(signalementInView.nom): \(signalementInView.description)")
                             .font(.footnote)
                             .foregroundColor(Color("DeepBlue"))
                             .opacity(0.75)
-                            .lineLimit(2)
+                            .lineLimit(3)
                         Spacer()
                     }
                 }

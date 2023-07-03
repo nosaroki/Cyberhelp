@@ -18,6 +18,7 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Pseudo")
+                                .padding(.vertical,4)
                                 .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
@@ -32,6 +33,7 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Type de signalement")
+                                .padding(.vertical,4)
                                 .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
@@ -46,6 +48,7 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Description")
+                                .padding(.vertical,4)
                                 .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
@@ -60,6 +63,7 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Pièces jointes")
+                                .padding(.vertical,4)
                                 .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
@@ -78,7 +82,8 @@ struct AlerteDetailedView: View {
                 .padding(.top)
                 Spacer()
                 Text("Contacter")
-                    .padding()
+                    .fontWeight(.medium)
+                    .padding(13)
                     .foregroundColor(.white)
                     .background(Color("Primaire"))
                     .cornerRadius(8)
