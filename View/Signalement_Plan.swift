@@ -18,11 +18,18 @@ struct Signalement_Plan: View {
                     //(alignment: .leading)
                         ZStack{
                             Rectangle()
+                                .foregroundStyle(Color("DeepBlue"))
+                              //  .scaledToFit()
+                                .frame(width: 377.0, height: 172)
+                                .cornerRadius(10)
+                                .padding()
+                            Rectangle()
                                 .foregroundStyle(.white)
                               //  .scaledToFit()
-                                .frame(height: 200)
+                                .frame(width: 375.0, height: 170)
                                 .cornerRadius(10)
-                                .border(Color(red: 0.14, green: 0.202, blue: 0.327))
+                               // .border(Color(red: 0.14, green: 0.202, blue: 0.327))
+                             //   .cornerRadius(10)
                                 .padding()
                             
                             Text("Merci d’avoir partager ton expériences avec nous, vous serez contacté par un spécialiste dans les meilleures délais")
@@ -37,11 +44,14 @@ struct Signalement_Plan: View {
                             Rectangle()
                                 .cornerRadius(10)
                                 .foregroundStyle(Color("Primaire"))
-                            Text("Les spécialiste qui pourrons t’aider  prés de chez toi")
-                                .fontWeight(.bold)
-                                .foregroundColor(Color.white)
-                                .multilineTextAlignment(.center)
-                                .padding(.bottom, 400.0)
+                            VStack{
+                                Text("Les spécialiste qui pourrons t’aider  prés de chez toi")
+                                    .padding()
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.white)
+                                    .multilineTextAlignment(.center)
+                                MapView()
+                            }
                         }
                     }
             }
