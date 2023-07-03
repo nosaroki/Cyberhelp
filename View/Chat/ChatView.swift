@@ -18,6 +18,7 @@ struct ChatView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color("DeepBlue"))
+                        .padding(.top)
                     ScrollView {
                         ForEach (chatVM.conversations){ conversation in
                             NavigationLink {

@@ -14,6 +14,7 @@
 		63F1FFD42A4ADB02006E2D90 /* AlertesGlobalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1FFD32A4ADB02006E2D90 /* AlertesGlobalView.swift */; };
 		8333C6BF2A45DC400053E6CE /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8333C6BE2A45DC400053E6CE /* ChatVM.swift */; };
 		833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833BA5A42A458245000B41D9 /* StructureChat.swift */; };
+		8357AF002A4DC87100DD2E1E /* PageLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8357AEFF2A4DC87100DD2E1E /* PageLogoView.swift */; };
 		83BFF8382A43322600DF498E /* CyberHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8372A43322600DF498E /* CyberHelpApp.swift */; };
 		83BFF83A2A43322600DF498E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFF8392A43322600DF498E /* ContentView.swift */; };
 		83BFF83C2A43322700DF498E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BFF83B2A43322700DF498E /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		63F1FFD32A4ADB02006E2D90 /* AlertesGlobalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertesGlobalView.swift; sourceTree = "<group>"; };
 		8333C6BE2A45DC400053E6CE /* ChatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
 		833BA5A42A458245000B41D9 /* StructureChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureChat.swift; sourceTree = "<group>"; };
+		8357AEFF2A4DC87100DD2E1E /* PageLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLogoView.swift; sourceTree = "<group>"; };
 		83BFF8342A43322600DF498E /* CyberHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyberHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BFF8372A43322600DF498E /* CyberHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberHelpApp.swift; sourceTree = "<group>"; };
 		83BFF8392A43322600DF498E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		83BFF82B2A43322600DF498E = {
 			isa = PBXGroup;
 			children = (
+				8357AEFF2A4DC87100DD2E1E /* PageLogoView.swift */,
 				B82049F12A4D964A0031425F /* App */,
 				B82049F02A4D95DC0031425F /* Model */,
 				B82049EE2A4D95CF0031425F /* View */,
@@ -306,6 +309,7 @@
 				63725FAC2A4C590100DE1F53 /* AlerteDetailedView.swift in Sources */,
 				63725FAC2A4C590100DE1F53 /* AlerteDetailedView.swift in Sources */,
 				6339811B2A4496DE00555803 /* SujetView.swift in Sources */,
+				8357AF002A4DC87100DD2E1E /* PageLogoView.swift in Sources */,
 				83BFF8732A43437000DF498E /* ConnexionView.swift in Sources */,
 				83BFF8522A43340700DF498E /* ChatDetailsView.swift in Sources */,
 				8F0427942A476F9500307426 /* Genre+Option.swift in Sources */,
