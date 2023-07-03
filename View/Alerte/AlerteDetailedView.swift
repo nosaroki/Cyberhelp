@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AlerteDetailedView: View {
+    @EnvironmentObject var alerteVM: AlertClass
+    
     var body: some View {
         ZStack{
             Color("Neutre")
@@ -16,10 +18,11 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Pseudo")
-                                .foregroundColor(Color("Secondaire"))
+                                .padding(.vertical,4)
+                                .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text("polochon13431")
+                            Text(alerteVM.signalements[0].nom)
                                 .foregroundColor(Color("DeepBlue"))
                                 .opacity(0.5)
                         }
@@ -30,10 +33,11 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Type de signalement")
-                                .foregroundColor(Color("Secondaire"))
+                                .padding(.vertical,4)
+                                .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text("Grooming")
+                            Text(alerteVM.signalements[0].type.rawValue)
                                 .foregroundColor(Color("DeepBlue"))
                                 .opacity(0.5)
                         }
@@ -44,10 +48,11 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Description")
-                                .foregroundColor(Color("Secondaire"))
+                                .padding(.vertical,4)
+                                .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.")
+                            Text(alerteVM.signalements[0].description)
                                 .foregroundColor(Color("DeepBlue"))
                                 .opacity(0.5)
                         }
@@ -58,10 +63,11 @@ struct AlerteDetailedView: View {
                     HStack{
                         VStack(alignment: .leading,spacing: 4){
                             Text("Pièces jointes")
-                                .foregroundColor(Color("Secondaire"))
+                                .padding(.vertical,4)
+                                .foregroundColor(Color("DeepBlue"))
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text("photos") // Insertion d'images et screens
+                            Text("Vide") // Insertion d'images et screens
                                 .foregroundColor(Color("DeepBlue"))
                                 .opacity(0.5)
                         }
@@ -76,7 +82,8 @@ struct AlerteDetailedView: View {
                 .padding(.top)
                 Spacer()
                 Text("Contacter")
-                    .padding()
+                    .fontWeight(.medium)
+                    .padding(13)
                     .foregroundColor(.white)
                     .background(Color("Primaire"))
                     .cornerRadius(8)
@@ -89,6 +96,6 @@ struct AlerteDetailedView: View {
 
 struct AlerteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AlerteDetailedView()
+        AlerteDetailedView().environmentObject(AlertClass())
     }
 }

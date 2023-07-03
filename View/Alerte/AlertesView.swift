@@ -26,36 +26,38 @@ struct Alerte: View {
                     .font(.body)
                     .fontWeight(.semibold)
                     HStack(alignment: .top){
-                        Text("\(signalementInView.nom):")
-                            .font(.callout)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("DeepBlue"))
-                            .opacity(0.75)
-                        Text(signalementInView.description)
+//                        Text("\(signalementInView.nom):")
+//                            .font(.callout)
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(Color("DeepBlue"))
+//                            .opacity(0.75)
+                        Text("\(signalementInView.nom): \(signalementInView.description)")
                             .font(.footnote)
                             .foregroundColor(Color("DeepBlue"))
                             .opacity(0.75)
-                            .lineLimit(2)
+                            .lineLimit(3)
                         Spacer()
                     }
                 }
                 .padding(8)
-                if signalementInView.read == false
-                {
-                    Image (systemName: "exclamationmark.shield.fill")
+//                if signalementInView.read == false
+//                {
+                    Image (systemName: "exclamationmark.shield")
                         .padding(.leading)
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color("DeepBlue"))
+                        .opacity(0.75)
                         .font(.system(size: 64))
-                }
-                else {
-                    Image(systemName: "exclamationmark.shield")
-                    //                        .padding()
-                        .foregroundColor(.gray)
-                        .font(.system(size: 64))
-                }
+//                }
+//                else {
+//                    Image(systemName: "exclamationmark.shield")
+//                    //                        .padding()
+//                        .foregroundColor(.gray)
+//                        .font(.system(size: 64))
+//                }
             }
             .padding()
         }
+        .background(.white)
         .background(Color(.orange).opacity(0.05))
         .overlay(
             Rectangle()
