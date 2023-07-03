@@ -44,7 +44,7 @@ class ListesDesProfiles: ObservableObject {
     }
     
     
-    func addProfilP(isPro : Bool, newImage: Data, newPrenom : String, newNom : String, newAge : Int, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
+    func addProfilP(isPro : Bool, newImage: Data, newPrenom : String, newNom : String, newDate : Date, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
 
         let newProfil = ProfilEntity(context: containerP.viewContext)
         
@@ -52,7 +52,7 @@ class ListesDesProfiles: ObservableObject {
         newProfil.profilPic = newImage
         newProfil.prenom = newPrenom
         newProfil.nom = newNom
-        newProfil.age = Int64(newAge)
+        newProfil.dateDeNaissance = newDate
         newProfil.genre = newGenre
         newProfil.descriptionU = newDescription
         newProfil.telephone = Int64(newtelephone)
@@ -82,7 +82,7 @@ class ListesDesProfiles: ObservableObject {
         self.saveData()
     }
     
-    func updateProfil(user : ProfilEntity, isPro : Bool ,newImage: Data, newPrenom : String, newNom : String, newAge : Int, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
+    func updateProfil(user : ProfilEntity, isPro : Bool ,newImage: Data, newPrenom : String, newNom : String, newDate : Date, newGenre : String , newDescription : String, newtelephone: Int, newSiret : String, newAdresse : String, newEmail : String, newMdp : String) {
         
         // *** pas implémenté côté vu, l'idée:
         
@@ -90,7 +90,7 @@ class ListesDesProfiles: ObservableObject {
         user.profilPic = newImage
         user.prenom = newPrenom
         user.nom = newNom
-        user.age = Int64(newAge)
+        user.dateDeNaissance = newDate
         user.genre = newGenre
         user.descriptionU = newDescription
         user.telephone = Int64(newtelephone)

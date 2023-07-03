@@ -83,11 +83,11 @@ struct ConnexionView: View {
                                 
                                 //VOIR AVEC KELIAN
                                 
-                                NavigationLink(destination: ProfilUView(email: email, mdp: mdp), isActive: $isExist){
+                                NavigationLink(destination: ProfilUView(profileVM: profileVM, email: email, mdp: mdp), isActive: $isExist){
                                     
                                 }
                                 
-                                NavigationLink(destination: ProfilPView(email: email, mdp: mdp), isActive: $isExistP){
+                                NavigationLink(destination: ProfilPView(email: email, mdp: mdp, profileVM: profileVM), isActive: $isExistP){
                                     
                                 }
                                           

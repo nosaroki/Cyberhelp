@@ -15,7 +15,7 @@ struct ProfilPView: View {
     var mdp : String
     
     
-    @StateObject var profileVM = ListesDesProfiles()
+    @ObservedObject var profileVM : ListesDesProfiles
     
     @State private var selectedTopicProfil : TopicOptionProfilP = .profil
     
@@ -68,9 +68,9 @@ struct ProfilPView: View {
                                                             Text(profile.prenom ?? " ")
                                                                 .font(.title2)
                                                                 .foregroundColor(Color("DeepBlue"))
-                                                            Text(" - \(profile.age) ans")
-                                                                .font(.title3)
-                                                                .foregroundColor(Color("DeepBlue"))
+//                                                            Text(" - \(profile.age) ans")
+//                                                                .font(.title3)
+//                                                                .foregroundColor(Color("DeepBlue"))
                                                         }.padding(.bottom)
                                                         
                                                         Text(profile.adresse ?? " ")
@@ -151,6 +151,6 @@ struct ProfilPView: View {
 
 struct ProfilPView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilPView(email: " ", mdp: " ")
+        ProfilPView(email: " ", mdp: " ", profileVM: ListesDesProfiles())
     }
 }

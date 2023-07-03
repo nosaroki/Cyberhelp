@@ -21,7 +21,7 @@ struct InscriptionDetailsView: View {
     
     @State var prenom : String = ""
     @State var nom : String = ""
-    @State var age : String = ""
+    @State var date : Date = Date()
     @State var genre : Genre = .autre
     @State var telephone : String = ""
     @State var description : String = ""
@@ -35,6 +35,8 @@ struct InscriptionDetailsView: View {
     @State private var isTextValid: Bool = true
     @State private var isEmailValid: Bool = true
     @State private var isPhoneNumberValid: Bool = true
+    
+    
     
     var body: some View {
         
@@ -82,9 +84,17 @@ struct InscriptionDetailsView: View {
                           
                             TextField("", text: $nom)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isPhoneNumberValid{
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                               
                             
                             
                         }
@@ -98,25 +108,31 @@ struct InscriptionDetailsView: View {
                             
                             TextField("", text: $prenom)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isPhoneNumberValid{
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                            
+                               
                         }
                         
                         VStack(alignment: .leading){
                             
-                            Text("Age")
+                            Text("Date de naissance")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
                                 .padding(.leading)
                             Spacer()
-                            TextField("", text: $age)
-                                .keyboardType(.numberPad)
+                            DatePicker("", selection: $date, displayedComponents: [.date])
+                                .datePickerStyle(.compact)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
                             
                             
                             
@@ -134,9 +150,17 @@ struct InscriptionDetailsView: View {
                         Spacer()
                         TextField("", text: $telephone)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay{
+                                if !isPhoneNumberValid{
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(lineWidth: 1)
+                                        .foregroundColor(.red.opacity(0.3))
+                                    
+                                }
+                            }
                             .padding(.leading)
                             .padding(.trailing)
-                            .background(isPhoneNumberValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            
                     }
                     
                     // Genre
@@ -174,9 +198,17 @@ struct InscriptionDetailsView: View {
                             TextField("", text: $description)
 //                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isTextValid {
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                
                             
                             
                         }
@@ -190,10 +222,17 @@ struct InscriptionDetailsView: View {
                             Spacer()
                             TextField("", text: $adresse)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isTextValid {
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
-                            
+                               
                             
                         }
                         //                            formulaireString(textfeild: "description", nom: $description)
@@ -212,9 +251,17 @@ struct InscriptionDetailsView: View {
                                 .keyboardType(.numberPad)
 //                                .frame(width: 220)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isPhoneNumberValid{
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                                 .padding(.leading)
                                 .padding(.trailing)
-                                .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                                
                             
                             
                         }
@@ -230,9 +277,17 @@ struct InscriptionDetailsView: View {
                         TextField(" ", text: $email)
 //                            .frame(width: 220)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay{
+                                if !isEmailValid{
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(lineWidth: 1)
+                                        .foregroundColor(.red.opacity(0.3))
+                                    
+                                }
+                            }
                             .padding(.leading)
                             .padding(.trailing)
-                            .background(isEmailValid ? Color("Neutre") : Color.red.opacity(0.3))
+                           
                     }
                     
 //                    formulaireString(textfeild: "Mot de passe", nom: $mdp)
@@ -247,9 +302,17 @@ struct InscriptionDetailsView: View {
                         TextField("", text: $mdp)
 //                            .frame(width: 220)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay{
+                                if !isTextValid {
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(lineWidth: 1)
+                                        .foregroundColor(.red.opacity(0.3))
+                                    
+                                }
+                            }
                             .padding(.leading)
                             .padding(.trailing)
-                            .background(isTextValid ? Color("Neutre")  : Color.red.opacity(0.3))
+                            
                             
                         
                     }
@@ -261,22 +324,21 @@ struct InscriptionDetailsView: View {
                         NavigationLink( isActive: $idAdd){
                             
                             if isPro == true {
-                                ProfilPView(email: mdp, mdp: mdp)
+                                ProfilPView(email: email, mdp: mdp, profileVM: profileVM)
                                 
                             }else{
-                                ProfilUView(email: mdp, mdp: mdp)
+                                ProfilUView(profileVM: profileVM, email: email, mdp: mdp)
                                 
                             }
                         }label: {
-                            
-                            
+                                                
                             Button {
                                 
                                 validateFields()
                                 
                                 if isFormValid() {
                                     
-                                    profileVM.addProfilP(isPro: isPro, newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newAge : Int(age) ?? 0, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret , newAdresse : adresse, newEmail : email, newMdp : mdp)
+                                    profileVM.addProfilP(isPro: isPro, newImage: image.pngData() ?? Data(), newPrenom : prenom, newNom : nom, newDate : date, newGenre : genre.rawValue , newDescription : description, newtelephone: Int(telephone) ?? 0, newSiret: siret , newAdresse : adresse, newEmail : email, newMdp : mdp)
                                     
                                     idAdd = true
                                     
@@ -312,7 +374,7 @@ struct InscriptionDetailsView: View {
         
 
     func validateFields() {
-        isTextValid = isValidText(nom, prenom, age, genre.rawValue, description, adresse, mdp)
+        isTextValid = isValidText(nom, prenom, genre.rawValue, description, adresse, mdp)
          isEmailValid = isValidEmail(email)
          isPhoneNumberValid = isValidPhoneNumber(telephone)
      }
@@ -321,9 +383,9 @@ struct InscriptionDetailsView: View {
          return email.contains("@") && email.contains(".")
      }
     
-    func isValidText(_ nom: String, _ prenom: String, _ age: String, _ genre: String, _ description: String, _ adresse: String, _ mdp: String) -> Bool {
+    func isValidText(_ nom: String, _ prenom: String, _ genre: String, _ description: String, _ adresse: String, _ mdp: String) -> Bool {
         
-        return !nom.isEmpty && !prenom.isEmpty && !age.isEmpty && !genre.isEmpty && !description.isEmpty && !adresse.isEmpty && !mdp.isEmpty        
+        return !nom.isEmpty && !prenom.isEmpty && !genre.isEmpty && !description.isEmpty && !adresse.isEmpty && !mdp.isEmpty        
     }
 
      func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
@@ -343,7 +405,9 @@ struct InscriptionDetailsView: View {
 
 struct InscriptionDetailsPView_Previews: PreviewProvider {
     static var previews: some View {
-        InscriptionDetailsView( profileVM: ListesDesProfiles(), isPro: false)
+        NavigationView {
+            InscriptionDetailsView( profileVM: ListesDesProfiles(), isPro: false)
+        }
     }
 }
     
