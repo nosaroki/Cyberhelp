@@ -9,39 +9,67 @@ import SwiftUI
 
 struct TabviewP: View {
     @EnvironmentObject var chatVM: ChatViewModel
-    
+    @State private var selectedIndex = 0
     var body: some View {
-        TabView {
-            AccueilView()
-                .tabItem {
-                    Image("home")
-                    Text("Accueil")
+        TabView(selection: $selectedIndex) {
+                    AccueilView()
+                        .tabItem {
+                            if selectedIndex == 0 {
+                                Image("homeFilled")
+                            } else {
+                                Image("home")
+                            }
+                            Text("Accueil")
+                        }
+                        .tag(0)
+                    
+                    GuideView()
+                        .tabItem {
+                            if selectedIndex == 1 {
+                                Image("shieldFilled")
+                            } else {
+                                Image("shield")
+                            }
+                            Text("Guide")
+                        }
+                        .tag(1)
+                    
+                    SignalementView()
+                        .tabItem {
+                            if selectedIndex == 2 {
+                                Image("bellFilled")
+                            } else {
+                                Image("bell")
+                            }
+                            Text("Inventaire")
+                        }
+                        .tag(2)
+                    
+                    ChatView()
+                        .tabItem {
+                            if selectedIndex == 3 {
+                                Image("commentsFilled")
+                            } else {
+                                Image("comments")
+                            }
+                            Text("Chat")
+                        }
+                        .tag(3)
+                    
+                    ConnexionView()
+                        .tabItem {
+                            if selectedIndex == 4 {
+                                Image("userFilled")
+                            } else {
+                                Image("user")
+                            }
+                            Text("Profil")
+                        }
+                        .tag(4)
                 }
-            GuideView()
-                .tabItem {
-                    Image("shield")
-                    Text("Guide")
-                }
-           SignalementView()
-                .tabItem {
-                    Image("bell")
-                    Text("Inventaire")
-                }
-            ChatView()
-                .tabItem {
-                    Image("comments")
-                    Text("Chat")
-                }
-            ConnexionView()
-                .tabItem {
-                    Image("user")
-                    Text("Profil")
-                }
-                
+                .accentColor(Color("DeepBlue"))
+            }
         }
-        .accentColor(Color("DeepBlue"))
-    }
-}
 
 struct Tabview_Previews: PreviewProvider {
     static var previews: some View {
