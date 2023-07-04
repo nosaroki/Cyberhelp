@@ -101,7 +101,6 @@ struct PageLogoView: View {
                         .pickerStyle(.segmented)
                         .padding(.leading)
                         .padding(.trailing)
-    //                    .padding(.bottom)
                         .foregroundColor(Color("DeepBlue"))
                         
                         VStack (alignment: .leading){

@@ -27,7 +27,7 @@ struct ProfilPView: View {
             ZStack{
                 
                     
-                    
+
                     VStack {
                         Picker((""), selection: $selectedTopicProfil) {
                             ForEach(TopicOptionProfilP.allCases, id:\ .self) { topic in

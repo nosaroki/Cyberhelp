@@ -17,12 +17,12 @@ enum Genre : String, CaseIterable {
 
 enum TopicOptionProfil : String, CaseIterable {
     case profil = "Mon profil"
-    case signalement = "Mes signalement"
+    case signalement = "Mes signalements"
     
 }
 
 enum TopicOptionProfilP : String, CaseIterable {
     case profil = "Mon profil"
-    case contact = "Mes contact"
+    case historique = "Mon historique"
     
 }
