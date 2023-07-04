@@ -91,5 +91,6 @@ struct TabviewU: View {
 struct TabviewU_Previews: PreviewProvider {
     static var previews: some View {
         TabviewU()
+            .environmentObject(ListesDesProfiles())
     }
 }
