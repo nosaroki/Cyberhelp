@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ProfilP2View: View {
-    @StateObject var profileVM = ListesDesProfiles()
+    @EnvironmentObject var profileVM : ListesDesProfiles
     
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
     var body: some View {
+        
         ZStack{
             Color("Neutre")
+            
             VStack{
                 Picker((""), selection: $selectedTopicProfil) {
                     ForEach(TopicOptionProfil.allCases, id:\ .self) { topic in
@@ -25,37 +27,40 @@ struct ProfilP2View: View {
                 .padding()
                 .foregroundColor(Color("DeepBlue"))
                 ScrollView{
-                    if !profileVM.ListeProfilesP.isEmpty {
-                        let profile = profileVM.ListeProfilesP[0]
+                    if let profile = profileVM.monProfil{
                         HStack(alignment: .top){
-                            Image("doctorPp")
+                            Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
                                 .resizable()
+                                .scaledToFill()
+                                .frame(width: 170, height: 170)
                                 .cornerRadius(16)
+                                .clipped()
                                 .padding(.top)
-                                .scaledToFit()
+                                .padding(.horizontal)
+                        
                             VStack(alignment: .leading){
-                                Text("Nom prénom")
+                                Text("\(profile.nom!) \(profile.prenom!)")
+                                    .font(.title2)
                                     .lineLimit(1)
                                     .scaledToFit()
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("DeepBlue"))
-                                Text("Specialité")
+                                Text("Psychologue")
                                     .padding(.bottom, 2)
                                     .foregroundColor(Color("DeepBlue"))
                                     .opacity(0.5)
                                 
                                 HStack{
                                     Image(systemName: "mappin.circle")
-                                    Text("Distance")
+                                        .font(.system(size: 22))
+                                        .padding(.trailing, 1)
+                                    Text(profile.adresse!)
                                         .foregroundColor(Color("DeepBlue"))
                                         .opacity(0.5)
                                 }
-                                .padding(.bottom)
-                                HStack{
-                                    Image(systemName: "graduationcap.fill")
-                                        .padding(8)
-                                        .background(.white)
-                                        .cornerRadius(8)
+//                                .padding(.bottom)
+                                HStack(alignment: .top){
+                                    Image(systemName: "graduationcap")
                                     VStack(alignment: .leading){
                                         Text("Experience")
                                             .foregroundColor(Color("DeepBlue"))
@@ -63,15 +68,17 @@ struct ProfilP2View: View {
                                         Text("6 ans")
                                             .foregroundColor(Color("DeepBlue"))
                                     }
+                                    .padding(.top, 4)
                                 }
                             }
-                            .padding()
+                            .padding(.vertical)
+                            Spacer()
                         }
                         VStack(alignment:.leading){
                             Text("Biographie")
                                 .foregroundColor(Color("DeepBlue"))
                                 .fontWeight(.bold)
-                            Text("feoakfo ok faeokf oaekfpkf oaekf oeak fkeao pkfk pokopkopkepafk opkoopk eoapk")
+                            Text("Je suis psychologue cognitiviste-comportementaliste, je reçois en mon cabinet situé à Vaux-le-Penil, en Seine et Marne, les enfants adolescents et adultes, en demande d'intervention psychologique efficace et mesurable. Je propose une thérapie comportementale fondée sur l'extinction du comportement inadapté et le renforcement des comportements appropriés, par apprentissage systématique, adapté et généralisable. En parallèle, je propose une thérapie cognitive, fondée sur la restructuration du traitement de l'information, l'apprentissage de la souplesse cognitive et la remédiation, afin d'obtenir une perception pertinente de la réalité et un comportement maîtrisé.")
                                 .padding(.top,2)
                                 .foregroundColor(Color("DeepBlue"))
                                 .opacity(0.5)
@@ -87,6 +94,6 @@ struct ProfilP2View: View {
 
 struct ProfilP2View_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilP2View()
+        ProfilP2View().environmentObject(ListesDesProfiles())
     }
 }

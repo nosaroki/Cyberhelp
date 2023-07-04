@@ -13,8 +13,9 @@ struct GuideView: View {
     
     var body: some View {
         
-        ZStack{
+        ZStack(){
             Color("Neutre")
+                .edgesIgnoringSafeArea(.top)
             VStack{
                 Text("Guide")
                     .padding(.vertical, 16)

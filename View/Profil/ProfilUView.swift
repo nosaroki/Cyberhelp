@@ -10,9 +10,7 @@ import UIKit
 
 struct ProfilUView: View {
         
-    //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
-    
-    @ObservedObject var profileVM : ListesDesProfiles
+    @EnvironmentObject var profileVM: ListesDesProfiles
     
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
@@ -48,9 +46,9 @@ struct ProfilUView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                             
-                            ForEach (profileVM.ListeProfilesP) { profile in
-                                
-                                if profile.email == email && profile.mdp == mdp {
+
+                            if let profile = profileVM.monProfil
+                            {
                                     
                                     
                                     VStack{
@@ -142,12 +140,10 @@ struct ProfilUView: View {
         }
     }
             
-}
 
 
 struct ProfilUView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilUView(profileVM: ListesDesProfiles(), email: " ", mdp: " ")
-           // .environmentObject(ListesDesProfilesU())
+        ProfilUView(email: " ", mdp: " ").environmentObject(ListesDesProfiles())
     }
 }

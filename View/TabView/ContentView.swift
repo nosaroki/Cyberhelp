@@ -14,7 +14,7 @@ struct ContentView: View {
     @StateObject var temoignVM = ListArticlesTemoignages()
     @StateObject var alert = AlertClass()
     @StateObject var guideVM = GuideClass()
-
+    @StateObject var profilVM = ListesDesProfiles()
     var body: some View {
         
         TabviewU()
@@ -24,6 +24,7 @@ struct ContentView: View {
             .environmentObject(temoignVM)
             .environmentObject(alert)
             .environmentObject(guideVM)
+            .environmentObject(profilVM)
     }
 }
 
