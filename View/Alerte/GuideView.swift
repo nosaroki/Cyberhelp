@@ -17,7 +17,8 @@ struct GuideView: View {
             Color("Neutre")
             VStack{
                 Text("Guide")
-                    .padding(.top, 24)
+                    .padding(.vertical, 16)
+                    .padding(.bottom, -16)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 ScrollView{

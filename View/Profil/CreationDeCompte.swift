@@ -15,9 +15,8 @@ struct CreationDeCompte: View {
     @State var isExistP : Bool = false
     
     
+
     var body: some View {
-       
-            
             ZStack{
                 Color("Neutre").ignoresSafeArea()
                 
@@ -61,9 +60,8 @@ struct CreationDeCompte: View {
                     }
                 }
             }
-            
-        }
-    
+
+    }
 }
 
 struct CreationDeCompte_Previews: PreviewProvider {

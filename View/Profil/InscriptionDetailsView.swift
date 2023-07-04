@@ -29,7 +29,7 @@ struct InscriptionDetailsView: View {
     @State var siret : String = ""
     @State var email : String = ""
     @State var mdp : String = ""
-    
+
     @State private var idAdd: Bool = false
     
     @State private var isTextValid: Bool = true
