@@ -13,6 +13,7 @@ struct ChatView: View {
         NavigationStack{
             ZStack {
                 Color("Neutre")
+                    .edgesIgnoringSafeArea(.top)
                 VStack {
                     Text("Chat")
                         .font(.title)

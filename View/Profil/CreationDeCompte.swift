@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CreationDeCompte: View {
     
-    @StateObject var profileVM = ListesDesProfiles()
+    @ObservedObject var profileVM = ListesDesProfiles()
     
     @State var isExist : Bool = false
     @State var isExistP : Bool = false
     
     
-    var body: some View { 
+
+    var body: some View {
             ZStack{
                 Color("Neutre").ignoresSafeArea()
                 
@@ -59,11 +60,14 @@ struct CreationDeCompte: View {
                     }
                 }
             }
+
     }
 }
 
 struct CreationDeCompte_Previews: PreviewProvider {
     static var previews: some View {
-        CreationDeCompte()
+        NavigationView {
+            CreationDeCompte()
+        }
     }
 }

@@ -21,6 +21,9 @@ struct ConnexionView: View {
     @State var email : String = ""
     @State var mdp : String = ""
     
+    @State private var isTextValid: Bool = true
+    @State private var isEmailValid: Bool = true
+    
     @State var isExist : Bool = false
     @State var isExistP : Bool = false
     
@@ -60,6 +63,14 @@ struct ConnexionView: View {
                                 .tint(.gray)
                                 .frame(width: 280)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isTextValid {
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                             
                             
                             Text("Mot de passe")
@@ -71,27 +82,32 @@ struct ConnexionView: View {
                                 .tint(.gray)
                                 .frame(width: 280)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .overlay{
+                                    if !isTextValid {
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(lineWidth: 1)
+                                            .foregroundColor(.red.opacity(0.3))
+                                        
+                                    }
+                                }
                                 .padding(.bottom)
                             
                             ZStack{
-//                                Rectangle()
-//
-//                                    .foregroundColor(Color("Primaire"))
-//                                    .cornerRadius(5)
-//                                Text("Se connecter")
-//                                    .foregroundColor(Color("Neutre"))
+
                                 
                                 //VOIR AVEC KELIAN
                                 
-                                NavigationLink(destination: ProfilUView(email: email, mdp: mdp), isActive: $isExist){
+                                NavigationLink(destination: ProfilUView(profileVM: profileVM, email: email, mdp: mdp), isActive: $isExist){
                                     
                                 }
                                 
-                                NavigationLink(destination: ProfilPView(email: email, mdp: mdp), isActive: $isExistP){
+                                NavigationLink(destination: ProfilPView(email: email, mdp: mdp, profileVM: profileVM), isActive: $isExistP){
                                     
                                 }
                                           
                                     Button {
+                                        
+                                        validateFields()
                                         
                                         for profile in profileVM.ListeProfilesP {
                                             
@@ -171,6 +187,27 @@ struct ConnexionView: View {
             
         }
     }
+    
+    
+    
+    func validateFields() {
+        isTextValid = isValidText(mdp)
+         isEmailValid = isValidEmail(email)
+     }
+
+     func isValidEmail(_ email: String) -> Bool {
+         return email.contains("@") && email.contains(".")
+     }
+    
+    func isValidText(_ mdp: String) -> Bool {
+        
+        return !mdp.isEmpty
+    }
+
+     func isFormValid() -> Bool {
+         return isTextValid && isEmailValid
+     }
+    
 }
 
 struct ConnexionView_Previews: PreviewProvider {

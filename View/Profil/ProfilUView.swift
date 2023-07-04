@@ -12,7 +12,7 @@ struct ProfilUView: View {
         
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
-    @StateObject var profileVM = ListesDesProfiles()
+    @ObservedObject var profileVM : ListesDesProfiles
     
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
@@ -69,9 +69,10 @@ struct ProfilUView: View {
                                                         Text(profile.prenom ?? " ")
                                                             .font(.title2)
                                                             .foregroundColor(Color("DeepBlue"))
-                                                        Text(" - \(profile.age) ans")
-                                                            .font(.title3)
-                                                            .foregroundColor(Color("DeepBlue"))
+//                                                        Text(" - \(profile.age) ans")
+//                                                            .font(.title3)
+//                                                            .foregroundColor(Color("DeepBlue"))
+                                                        
                                                     }.padding(.bottom)
                                                     
                                                     Text(profile.adresse ?? " ")
@@ -146,7 +147,7 @@ struct ProfilUView: View {
 
 struct ProfilUView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilUView(email: " ", mdp: " ")
+        ProfilUView(profileVM: ListesDesProfiles(), email: " ", mdp: " ")
            // .environmentObject(ListesDesProfilesU())
     }
 }

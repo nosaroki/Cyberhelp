@@ -15,7 +15,7 @@ struct ProfilPView: View {
     var mdp : String
     
     
-    @StateObject var profileVM = ListesDesProfiles()
+    @ObservedObject var profileVM : ListesDesProfiles
     
     @State private var selectedTopicProfil : TopicOptionProfilP = .profil
     
@@ -50,21 +50,26 @@ struct ProfilPView: View {
                             ForEach (profileVM.ListeProfilesP) { profile in
                                 
                                 if profile.email == email && profile.mdp == mdp {
-                                    
-                                    
-                                    VStack {
-                                        HStack{
-                                            
-                                            Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
-                                                .resizable()
-                                                .frame(width: 150, height: 200)
-                                                .foregroundColor(Color("DeepBlue"))
-                                                .cornerRadius(20)
-                                            
-                                            VStack(alignment: .leading){
-                                                VStack(alignment:.leading){
-                                                    HStack{
-                                                        
+                                        VStack {
+                                            HStack{
+                                                
+                                                Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
+                                                    .resizable()
+                                                    .frame(width: 150, height: 200)
+                                                    .foregroundColor(Color("DeepBlue"))
+                                                    .cornerRadius(20)
+                                                
+                                                VStack(alignment: .leading){
+                                                    VStack(alignment:.leading){
+                                                        HStack{
+                                                            
+                                                            Text(profile.prenom ?? " ")
+                                                                .font(.title2)
+                                                                .foregroundColor(Color("DeepBlue"))
+//                                                            Text(" - \(profile.age) ans")
+//                                                                .font(.title3)
+//                                                                .foregroundColor(Color("DeepBlue"))
+                                                        }.padding(.bottom)                                         
                                                         Text(profile.prenom ?? " ")
                                                             .font(.title2)
                                                             .foregroundColor(Color("DeepBlue"))
@@ -151,6 +156,6 @@ struct ProfilPView: View {
 
 struct ProfilPView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilPView(email: " ", mdp: " ")
+        ProfilPView(email: " ", mdp: " ", profileVM: ListesDesProfiles())
     }
 }

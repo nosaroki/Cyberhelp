@@ -24,6 +24,14 @@ struct Message : Identifiable {
     var heure : Date
 }
 
+struct ScrollViewOffsetKey: PreferenceKey {
+    static var defaultValue: CGPoint = .zero
+    
+    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {
+        value = nextValue()
+    }
+}
+
 
 var profilU = Profil(profilPic: Image("userPhoto"), prénom: "Isabelle", nom: "Pinchon", age: 19, genre: Genre.femme, telephone: 0606060606, adresse: Adresse(codePostal: "3 rue de la Liberté", nomCommune: "75015 Paris"), email: "isabelle@pinchon.fr", mdp: "Bellegossedu93/", isPro: false)
 
