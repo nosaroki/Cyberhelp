@@ -18,6 +18,7 @@ struct ChatDetailsView: View {
     var body: some View {
         ZStack {
             Color("Neutre")
+                .edgesIgnoringSafeArea(.top)
             VStack {
                 Text("Dr. \(profilP.nom)")
                     .font(.title)

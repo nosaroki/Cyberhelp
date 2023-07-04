@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TabviewU: View {
+    init() {
+    UITabBar.appearance().backgroundColor = UIColor.white
+    }
     @State private var selectedIndex = 0
     var body: some View {
         TabView(selection: $selectedIndex) {
@@ -40,7 +43,7 @@ struct TabviewU: View {
                             } else {
                                 Image("flag")
                             }
-                            Text("Inventaire")
+                            Text("Signalement")
                         }
                         .tag(2)
                     

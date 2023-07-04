@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct TabviewP: View {
+    init() {
+    UITabBar.appearance().backgroundColor = UIColor.white
+    }
+    
     @EnvironmentObject var chatVM: ChatViewModel
     @State private var selectedIndex = 0
     var body: some View {
@@ -41,7 +45,7 @@ struct TabviewP: View {
                             } else {
                                 Image("bell")
                             }
-                            Text("Inventaire")
+                            Text("Alerte")
                         }
                         .tag(2)
                     
