@@ -32,6 +32,7 @@
 		8F04279A2A4A320900307426 /* dataProfilU.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F0427982A4A320900307426 /* dataProfilU.xcdatamodeld */; };
 		8F4CFFD42A4C6A6B00EC4B13 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */; };
 		8F69B70F2A52C4BA00E24D50 /* CreationDeCompte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */; };
+		A7686A292A5403260013D8CF /* CloseButtonTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */; };
 		A79A0C412A4DC842004EDADE /* AddTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */; };
 		A79A0C432A4DD138004EDADE /* AddButtonTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */; };
 		A7D80BA72A45DE8C00339687 /* TopicOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D80BA62A45DE8C00339687 /* TopicOption.swift */; };
@@ -82,6 +83,7 @@
 		8F0427992A4A320900307426 /* dataProfilU.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataProfilU.xcdatamodel; sourceTree = "<group>"; };
 		8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationDeCompte.swift; sourceTree = "<group>"; };
+		A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonTemoignageView.swift; sourceTree = "<group>"; };
 		A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemoignageView.swift; sourceTree = "<group>"; };
 		A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonTemoignageView.swift; sourceTree = "<group>"; };
 		A7D80BA62A45DE8C00339687 /* TopicOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicOption.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				83BFF8392A43322600DF498E /* ContentView.swift */,
 				83BFF8452A43325D00DF498E /* TabviewP.swift */,
 				83BFF8622A43375C00DF498E /* TabviewU.swift */,
+				A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -224,8 +227,6 @@
 				B82049E62A4D945D0031425F /* AlertesView.swift */,
 				63F1FFD32A4ADB02006E2D90 /* AlertesGlobalView.swift */,
 				63725FAB2A4C590100DE1F53 /* AlerteDetailedView.swift */,
-				83BFF84B2A43338300DF498E /* SignalementView.swift */,
-				83BFF86A2A43383A00DF498E /* TemoignagesDetailsView.swift */,
 				B8E89D232A4D909B005ADD8D /* ModaleTemoignages.swift */,
 				B82049EA2A4D948F0031425F /* GuideView.swift */,
 				6339811A2A4496DE00555803 /* SujetView.swift */,
@@ -336,11 +337,11 @@
 				8F0427942A476F9500307426 /* Genre+Option.swift in Sources */,
 				A79A0C412A4DC842004EDADE /* AddTemoignageView.swift in Sources */,
 				8F0427842A475E5000307426 /* ListesDesProfiles.swift in Sources */,
+				A7686A292A5403260013D8CF /* CloseButtonTemoignageView.swift in Sources */,
 				83BFF8632A43375C00DF498E /* TabviewU.swift in Sources */,
 				B82049E52A4D94390031425F /* ProfilPView.swift in Sources */,
 				833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */,
 				634AE1802A4DD4CB00A7662B /* ProfilP2View.swift in Sources */,
-				83BFF84C2A43338300DF498E /* SignalementView.swift in Sources */,
 				8333C6BF2A45DC400053E6CE /* ChatVM.swift in Sources */,
 				83BFF83A2A43322600DF498E /* ContentView.swift in Sources */,
 				DBBCEB992A4DBEE700AE03B2 /* SignalementView.swift in Sources */,

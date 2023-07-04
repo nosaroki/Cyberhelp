@@ -32,7 +32,7 @@ struct SignalementView: View {
 
         ZStack{
             Color("Neutre")
-                .ignoresSafeArea()
+                .edgesIgnoringSafeArea(.top)
             VStack{
                 ScrollView{
                 // NavigationStack{

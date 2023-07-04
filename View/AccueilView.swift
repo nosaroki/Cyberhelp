@@ -34,8 +34,7 @@ struct AccueilView: View {
         NavigationView{
             ZStack{
                 Color("Neutre")
-                    .ignoresSafeArea()
-                
+                    .edgesIgnoringSafeArea(.top)
                 ScrollView {
                     VStack{
                         
@@ -113,7 +112,7 @@ struct AccueilView: View {
             }
         }
         .sheet(isPresented: $addTemoignage) {
-            AddTemoignageView(addTemoignage: $addTemoignage)
+            ModaleTemoignages(isModaleShown: $addTemoignage)
         }
     }
     
