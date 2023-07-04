@@ -13,7 +13,6 @@ struct ProfilP2View: View {
     @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
     var body: some View {
-
             ZStack{
                 Color("Neutre")
                     .edgesIgnoringSafeArea(.top)
@@ -87,8 +86,14 @@ struct ProfilP2View: View {
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button("Modifier")
+                {}
+                    .fontWeight(.bold)
         }
     }
+}
 
 struct ProfilP2View_Previews: PreviewProvider {
     static var previews: some View {
