@@ -14,7 +14,7 @@ struct SignalementProProfile: View {
         NavigationView {
                 ZStack{
                     Color("Neutre")
-                        .ignoresSafeArea()
+                        .edgesIgnoringSafeArea(.top)
                     VStack{
                     ScrollView{
                     HStack{

@@ -13,7 +13,7 @@ struct Signalement_Plan: View {
        //     ScrollView{
                 ZStack{
                     Color("Neutre")
-                        .ignoresSafeArea()
+                        .edgesIgnoringSafeArea(.top)
                     VStack{
                     //(alignment: .leading)
                         ZStack{

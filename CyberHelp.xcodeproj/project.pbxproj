@@ -31,6 +31,7 @@
 		8F04279A2A4A320900307426 /* dataProfilU.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F0427982A4A320900307426 /* dataProfilU.xcdatamodeld */; };
 		8F4CFFD42A4C6A6B00EC4B13 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */; };
 		8F69B70F2A52C4BA00E24D50 /* CreationDeCompte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */; };
+		A7686A292A5403260013D8CF /* CloseButtonTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */; };
 		A79A0C412A4DC842004EDADE /* AddTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */; };
 		A79A0C432A4DD138004EDADE /* AddButtonTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */; };
 		A7D80BA72A45DE8C00339687 /* TopicOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D80BA62A45DE8C00339687 /* TopicOption.swift */; };
@@ -80,6 +81,7 @@
 		8F0427992A4A320900307426 /* dataProfilU.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataProfilU.xcdatamodel; sourceTree = "<group>"; };
 		8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationDeCompte.swift; sourceTree = "<group>"; };
+		A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonTemoignageView.swift; sourceTree = "<group>"; };
 		A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemoignageView.swift; sourceTree = "<group>"; };
 		A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonTemoignageView.swift; sourceTree = "<group>"; };
 		A7D80BA62A45DE8C00339687 /* TopicOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicOption.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				83BFF8392A43322600DF498E /* ContentView.swift */,
 				83BFF8452A43325D00DF498E /* TabviewP.swift */,
 				83BFF8622A43375C00DF498E /* TabviewU.swift */,
+				A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				8F0427942A476F9500307426 /* Genre+Option.swift in Sources */,
 				A79A0C412A4DC842004EDADE /* AddTemoignageView.swift in Sources */,
 				8F0427842A475E5000307426 /* ListesDesProfiles.swift in Sources */,
+				A7686A292A5403260013D8CF /* CloseButtonTemoignageView.swift in Sources */,
 				83BFF8632A43375C00DF498E /* TabviewU.swift in Sources */,
 				B82049E52A4D94390031425F /* ProfilPView.swift in Sources */,
 				833BA5A52A458245000B41D9 /* StructureChat.swift in Sources */,
