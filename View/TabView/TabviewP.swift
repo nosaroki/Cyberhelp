@@ -16,7 +16,7 @@ struct TabviewP: View {
     @State private var selectedIndex = 0
     var body: some View {
         TabView(selection: $selectedIndex) {
-                    AccueilView()
+                    PageLogoView()
                         .tabItem {
                             if selectedIndex == 0 {
                                 Image("homeFilled")
