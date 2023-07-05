@@ -44,7 +44,7 @@ var profilP = Profil(profilPic: Image("ProPhoto"), prénom: "Jasmine", nom: "Leb
 
 var profil2P = Profil(profilPic: Image("ProPhoto"), prénom: "Marie-Charlotte", nom: "Dubois", age: 54, genre: Genre.femme, telephone: 0102010201, adresse: Adresse(codePostal: "3 rue de la Vilette", nomCommune: "Paris"), email: "mariecharlotte@gmail.com", mdp: "A3edkenc", isPro: true)
 
-
+var patapo = Profil(profilPic: Image("userPhoto"), prénom: "Patapo", nom: "topata", age: 18, genre: .homme, telephone: 0103040203, adresse: Adresse(codePostal: "75018", nomCommune: "Paris"), email: "patapo@gmail.com", mdp: "patapo", isPro: false)
 
 
 
