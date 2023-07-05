@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfilP2View: View {
     @EnvironmentObject var profileVM : ListesDesProfiles
     
-    @State private var selectedTopicProfil : TopicOptionProfil = .profil
+//    @State private var selectedTopicProfil : TopicOptionProfil = .profil
     
     var body: some View {
             ZStack{
