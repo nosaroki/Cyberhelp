@@ -24,12 +24,11 @@ struct ProfilPView: View {
             Color("Neutre").edgesIgnoringSafeArea(.top)
             ZStack{
                 
-                
-                
-                VStack {
-                    Picker((""), selection: $selectedTopicProfil) {
-                        ForEach(TopicOptionProfilP.allCases, id:\ .self) { topic in
-                            Text(topic.rawValue)
+                    VStack {
+                        Picker((""), selection: $selectedTopicProfil) {
+                            ForEach(TopicOptionProfilP.allCases, id:\ .self) { topic in
+                                Text(topic.rawValue)
+                            }
                         }
                     }
                     .pickerStyle(.segmented)

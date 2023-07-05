@@ -39,6 +39,45 @@ struct Signalement : Identifiable {
     }
 
 
+
+
+
+
+
+struct contact : Identifiable {
+    
+    var id : UUID = UUID()
+    
+    var picture : Image
+    var name : String
+
+    var statu : statu
+    
+    func colorStatu() -> Color {
+        
+        switch statu {
+        case .enLigne:
+            return .green
+        case .horsLigne:
+            return .gray
+        }
+    }
+    
+}
+
+
+var Jean : contact = contact(picture: Image("gateauAuChocolat"), name: "Jean",  statu: .enLigne)
+var Lise : contact = contact(picture: Image("gateauAuChocolat"), name: "Lise.P",  statu: .horsLigne)
+var Katie : contact = contact(picture: Image("gateauAuChocolat"), name: "Katie",  statu: .horsLigne)
+var Sarah : contact = contact(picture: Image("gateauAuChocolat"), name: "Sarah",  statu: .enLigne)
+var Nico50 : contact = contact(picture: Image("gateauAuChocolat"), name: "Nico50",  statu: .horsLigne)
+
+
+var tableauContacts : [contact] = [Jean, Lise, Katie, Sarah, Nico50]
+
+
+
+
 // MARK: - GuideCollect
 struct GuideCollect: Codable {
     let records: [Record]

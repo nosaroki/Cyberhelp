@@ -12,3 +12,9 @@ enum TopicOption : String, CaseIterable {
     case event = "Évènements"
     case temoignages = "Témoignages"
 }
+
+enum statu : String, CaseIterable {
+    case enLigne = "En ligne"
+    case horsLigne = "Hors ligne"
+    
+}

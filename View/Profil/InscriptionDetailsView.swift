@@ -17,6 +17,9 @@ struct InscriptionDetailsView: View {
     
      var isPro : Bool
     
+    
+//    var profil : ProfilMap
+    
     @State private var image = UIImage()
     @State private var showPhotoSheet = false
     
