@@ -14,7 +14,7 @@ struct Alerte: View {
         VStack{
             HStack{
                 VStack{
-                    HStack {
+                    HStack{
                         Text("Nouvelle alerte: \(signalementInView.type.rawValue)")
                             .foregroundColor(Color("DeepBlue"))
                             .font(.callout)
@@ -26,11 +26,6 @@ struct Alerte: View {
                     .font(.body)
                     .fontWeight(.semibold)
                     HStack(alignment: .top){
-//                        Text("\(signalementInView.nom):")
-//                            .font(.callout)
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color("DeepBlue"))
-//                            .opacity(0.75)
                         Text("\(signalementInView.nom): \(signalementInView.description)")
                             .font(.footnote)
                             .foregroundColor(Color("DeepBlue"))
@@ -40,20 +35,11 @@ struct Alerte: View {
                     }
                 }
                 .padding(8)
-//                if signalementInView.read == false
-//                {
                     Image (systemName: "exclamationmark.shield")
                         .padding(.leading)
                         .foregroundColor(Color("DeepBlue"))
                         .opacity(0.75)
                         .font(.system(size: 64))
-//                }
-//                else {
-//                    Image(systemName: "exclamationmark.shield")
-//                    //                        .padding()
-//                        .foregroundColor(.gray)
-//                        .font(.system(size: 64))
-//                }
             }
             .padding()
         }
@@ -66,10 +52,6 @@ struct Alerte: View {
                 .foregroundColor(.orange)
                 
         )
-        //        .overlay(
-        //            RoundedRectangle(cornerRadius: 8)
-        //                .stroke(.red, lineWidth: 2)
-        //        )
         .padding()
         
     }
@@ -77,6 +59,6 @@ struct Alerte: View {
 
 struct Alerte_Previews: PreviewProvider {
     static var previews: some View {
-        Alerte(signalementInView: Signalement(type: .grooming, nom: "popo", description: "bkeopakv oekopkvepokvpok  aeopv keop", read: false) )
+        Alerte(signalementInView: Signalement(type: .grooming, nom: "popo", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", read: false) )
     }
 }

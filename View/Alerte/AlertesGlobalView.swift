@@ -11,19 +11,28 @@ struct AlertesGlobalView: View {
     @EnvironmentObject var alerteVM: AlertClass
     
     var body: some View {
-        ZStack{
-        Color("Neutre")
-            VStack{
-                ScrollView{
-                    ForEach(alerteVM.signalements) { alerte in
-                        Alerte(signalementInView: alerte)
-                        
+        NavigationView{
+            ZStack{
+                Color("Neutre")
+                    .edgesIgnoringSafeArea(.top)
+
+                NavigationLink( destination: AlerteDetailedView(),
+                                label:{
+                    VStack{
+                        ScrollView{
+                            ForEach(alerteVM.signalements) { alerte in
+                                Alerte(signalementInView: alerte)
+                            }
+                        }
                     }
-                }
+                })
+                                    .navigationTitle("Alertes")
+                                    .navigationBarTitleDisplayMode(.inline)
             }
-    }
+        }
     }
 }
+
 
 struct AlertesGlobalView_Previews: PreviewProvider {
     static var previews: some View {
