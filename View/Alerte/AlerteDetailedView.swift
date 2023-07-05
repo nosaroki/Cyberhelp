@@ -83,13 +83,20 @@ struct AlerteDetailedView: View {
                 .padding()
                 .padding(.top)
                 Spacer()
-                Text("Contacter")
-                    .fontWeight(.medium)
-                    .padding(13)
-                    .foregroundColor(.white)
-                    .background(Color("Primaire"))
-                    .cornerRadius(8)
-                    .padding(.bottom,32)
+                
+                
+                
+                NavigationLink(destination: EmptyChatView(conversation: emptyConversation)){
+                                Text("Contacter")
+                                                .fontWeight(.medium)
+                                                .padding(13)
+                                                .foregroundColor(.white)
+                                                .background(Color("Primaire"))
+                                                .cornerRadius(8)
+                                                .padding(.bottom,32)
+
+                }
+                
 
             }
         }
