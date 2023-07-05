@@ -22,9 +22,9 @@ struct SignalementView: View {
     @State private var humeur: Double = 0
     @State private var Parler: Bool = false
     @State private var currentValue = 6.0
-    
     @State private var image = UIImage()
     @State private var showPhotoSheet = false
+    @State private var value: Double = 0
     let Emoji1: String = "🤬"
     let Emoji2: String = "😡"
     let Emoji3: String = "☹️"
@@ -36,8 +36,7 @@ struct SignalementView: View {
     Color.red,
     Color.pink,
     Color.orange,
-    Color.yellow,
-    Color.white
+    Color.yellow
     ])
 
     
@@ -54,7 +53,7 @@ struct SignalementView: View {
                         .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(Color("DeepBlue"))
-                  //  .padding(.bottom)
+                    .padding(.bottom, 4.0)
                     .padding(.top, 50.0)
                 Text("Type de signalement")
                     .foregroundColor(Color("DeepBlue"))
@@ -138,7 +137,7 @@ struct SignalementView: View {
                     Text("Que ressens-tu aujourd'hui")
                         .fontWeight(.bold)
                         .foregroundColor(Color("DeepBlue"))
-                        .padding(.vertical)
+                        .padding(.top, 25.0)
                     Group{
                        /* HStack{
                             //   Text(Emoji1)
@@ -177,6 +176,7 @@ struct SignalementView: View {
                             Text(Emoji2)
                                 .font(.largeTitle)
                                 .padding(.leading, 25)
+                
                         (Slider(value: $humeur, in: -100...100)
                     /*     {
                                      Text("Slider")
@@ -186,9 +186,12 @@ struct SignalementView: View {
                                      Text(Emoji6).font(.largeTitle).fontWeight(.bold)
                                  }*/
                             .tint(Color.clear)
+                            .opacity(0.15)
+                            .colorInvert()
+            
                             .background(LinearGradient(gradient: gradient, startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(7)
-                       
+                           
 
                           //  .background(Color.yellow)
                            // .padding(.horizontal, 25.0)
@@ -213,17 +216,17 @@ struct SignalementView: View {
                             
                         } label: {
                             HStack {
-                                Image(systemName: "plus.square.fill")
+                                Image(systemName: "plus.circle")
                                     .padding(.leading)
                                     .frame(width: 1.0, height: 1.0)
                                 Text("Joindre des fichiers")
-                                    .font(.footnote)
+                                    .font(.body)
                                     .fontWeight(.bold)
                                     .padding(.leading, 11.0)
                             }
                         }
                         .padding(.all, 10.0)
-                        .background(Color("Primaire"))
+                        .background(Color("Orange"))
                         .cornerRadius(7)
                         .tint(.white)
                         .padding(.horizontal)
@@ -236,20 +239,23 @@ struct SignalementView: View {
                             .frame(width: 50, height: 50)
                         
                             NavigationLink(destination: Signalement_Plan()){
-                              //  Button (action: { Parler = true })
-                          //  label: {
+                                //  Button (action: { Parler = true })
+                                //  label: {
                                 Text("Je veux parler")
-                                .padding(.vertical, 2.0)
-                            //}
-                            .frame(width: 150, height: 50)
-                            .background(Color("Primaire"))
-                            .buttonStyle(.borderedProminent)
-                            .cornerRadius(7)
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            
-    
+                                    .font(.title3)
+                                //}
+                                    .frame(width: 175, height: 75)
+                                    .background(Color("Primaire"))
+                                    .buttonStyle(.borderedProminent)
+                                    .cornerRadius(7)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.bold)
+                                    
+                                
+                                
                             }
+                            .padding(.vertical, 2.0)
+                            .padding(.bottom, 100.0)
                         }
                 }
                 }
