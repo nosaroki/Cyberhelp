@@ -10,8 +10,6 @@ import SwiftUI
 struct ProfilP2View: View {
     @EnvironmentObject var profileVM : ListesDesProfiles
     
-//    @State private var selectedTopicProfil : TopicOptionProfil = .profil
-    
     var body: some View {
             ZStack{
                 Color("Neutre")
@@ -27,7 +25,7 @@ struct ProfilP2View: View {
                                     .clipShape(Circle())
                                     .overlay(
                                         Circle()
-                                            .stroke((Color("DeepBlue")), lineWidth: 2)
+                                            .stroke(.white, lineWidth: 2)
                                             .frame(width: 122, height: 122)
                                     )
                                     .padding(.top)
@@ -78,7 +76,7 @@ struct ProfilP2View: View {
                                 Text("Je suis psychologue cognitiviste-comportementaliste, je reçois en mon cabinet situé à Vaux-le-Penil, en Seine et Marne, les enfants adolescents et adultes, en demande d'intervention psychologique efficace et mesurable. \r\rJe propose une thérapie comportementale fondée sur l'extinction du comportement inadapté et le renforcement des comportements appropriés, par apprentissage systématique, adapté et généralisable.")
                                     .padding(.top,-4)
                                     .foregroundColor(Color("DeepBlue"))
-                                    .opacity(0.5)
+                                    .opacity(0.7)
                             }
                             .padding(4)
                             .padding()
