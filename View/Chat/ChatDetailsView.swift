@@ -20,13 +20,14 @@ struct ChatDetailsView: View {
             Color("Neutre")
                 .edgesIgnoringSafeArea(.top)
             VStack {
-                Text("Dr. \(profilP.nom)")
+                Text("Dr \(conversation.user.nom)")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("DeepBlue"))
                     .padding(.top)
-                ScrollViewReader { scrollView in
-                    ScrollView {
+                ScrollView {
+                    ScrollViewReader { scrollView in
+                        
                         ForEach(conversation.conversation) { message in
                             if message.destinataire == true {
                                 LazyVStack(alignment: .leading) {
@@ -89,7 +90,14 @@ struct ChatDetailsView: View {
                                 }
                             }
                         }
+                        
+                        .onChange(of: conversation) { newValue in
+                            withAnimation {
+                                scrollView.scrollTo(conversation.conversation.last!.id,anchor: .bottom)
+                            }
+                        }
                     }
+                }
                     HStack {
                         TextField("Ecrivez ici", text: $messageText)
                             .foregroundColor(.black)
@@ -98,9 +106,13 @@ struct ChatDetailsView: View {
                             .cornerRadius(10)
                             .onSubmit {
                                 ChatVM.sendMessage(conversation: conversation, message: messageText)
+                                
+                                messageText = ""
                             }
                         Button {
                             ChatVM.sendMessage(conversation: conversation, message: messageText)
+                            messageText = ""
+                            
                         } label: {
                             Image("send")
                                 .resizable()
@@ -116,7 +128,7 @@ struct ChatDetailsView: View {
             }
         }
     }
-}
+
 
 
 
