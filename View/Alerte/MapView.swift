@@ -48,13 +48,6 @@ struct MapView: View {
                                 .foregroundColor(Color("DeepBlue"))
                                 .tint(.red)
                                 .background()
-                            /* VStack {
-                             Image(systemName: "mappin.circle.fill")
-                             .font(.title)
-                             Image(systemName: "arrowtriangle.down.fill")
-                             .padding(.top, -20.0)
-                             }
-                             .foregroundColor(.pink)*/
                         } // end vstack
                         
                     } // end zstack

@@ -49,34 +49,31 @@ struct InscriptionDetailsView: View {
         ScrollView{
             VStack{
                 
-                VStack {
+                
+                
+            ZStack{
+                Button {
+                    showPhotoSheet = true
+                } label: {
+                    Image(uiImage: self.image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 140, height: 140)
+                        .background(Color(hue: 0.566, saturation: 0.057, brightness: 0.887))
+                        .clipShape(Circle())
                     
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(Color("Primaire").opacity(0.2))
-                        
-                        Image(uiImage: self.image)
-                            .resizable()
-                        // .cornerRadius(50)
-                            .padding(.all, 4)
-                            .frame(width: 140, height: 140)
-                            .background(Color(hue: 0.566, saturation: 0.057, brightness: 0.887))
-                            .aspectRatio(contentMode: .fill)
-                            .clipShape(Circle())
-                            .padding(8)
-                        
-                    }
-                    
-                    Button {
-                        showPhotoSheet = true
-                    } label: {
-                        Text("+ Photo profil")
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(Color("Primaire"))
+                        .padding(8)
                     
                 }
-                VStack (alignment: .leading, spacing: 30 ){
+                                    
+                                   Image(systemName: "pencil.circle.fill")
+                                        .foregroundColor(.gray)
+                                        .font(.title)
+                                        .padding(.top,120)
+                
+            }
+
+                VStack (alignment: .leading, spacing: 16){
                     
                     Group{
                         VStack(alignment: .leading){
@@ -84,9 +81,12 @@ struct InscriptionDetailsView: View {
                             Text("Nom")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
-                          
+                                .padding(.leading, 30)
+                                .padding(.top, -4)
+                                .padding(.bottom,-2)
+                            
                             TextField("", text: $nom)
+                                .font(.system(size: 30))
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .overlay{
                                     if !isTextValid {
@@ -96,8 +96,9 @@ struct InscriptionDetailsView: View {
                                         
                                     }
                                 }
-                                .padding(.leading)
-                                .padding(.trailing)
+                                .padding(.leading, 30)
+                                .padding(.trailing, 30)
+                                
                                
                             
                             
@@ -108,9 +109,11 @@ struct InscriptionDetailsView: View {
                             Text("Prenom")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
+                                .padding(.leading, 30)
+                                .padding(.bottom,-2)
                             
                             TextField("", text: $prenom)
+                                .font(.system(size: 30))
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .overlay{
                                     if !isTextValid {
@@ -120,8 +123,8 @@ struct InscriptionDetailsView: View {
                                         
                                     }
                                 }
-                                .padding(.leading)
-                                .padding(.trailing)
+                                .padding(.leading, 30)
+                                .padding(.trailing, 30)
                                
                         }
                         
@@ -130,13 +133,15 @@ struct InscriptionDetailsView: View {
                             Text("Date de naissance")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
+                                .padding(.leading, 30)
                             Spacer()
                             DatePicker("", selection: $date, displayedComponents: [.date])
                                 .datePickerStyle(.compact)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .padding(.leading)
-                                .padding(.trailing)
+                                .padding(.leading, 12)
+                                .padding(.trailing, 250)
+                                .padding(.top,4)
+                                .padding(.bottom,8)
                          
                         }
 
@@ -145,9 +150,10 @@ struct InscriptionDetailsView: View {
                         Text("Téléphone")
                             .bold()
                             .foregroundColor(Color("DeepBlue"))
-                            .padding(.leading)
+                            .padding(.leading, 30)
                         Spacer()
                         TextField("", text: $telephone)
+                            .font(.system(size: 30))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .overlay{
                                 if !isPhoneNumberValid{
@@ -157,8 +163,8 @@ struct InscriptionDetailsView: View {
                                     
                                 }
                             }
-                            .padding(.leading)
-                            .padding(.trailing)
+                            .padding(.leading, 30)
+                            .padding(.trailing, 30)
                             
                     }
                     
@@ -167,7 +173,7 @@ struct InscriptionDetailsView: View {
                         Text("Genre")
                             .bold()
                             .foregroundColor(Color("DeepBlue"))
-                            .padding(.leading)
+                            .padding(.leading, 30)
                         Spacer()
                         
                         Picker(" ", selection: $genre) {
@@ -178,8 +184,10 @@ struct InscriptionDetailsView: View {
                                     .background(.white)
                                     .foregroundColor(Color("DeepBlue"))
                             }
-                        }.pickerStyle(.inline)
-                            .frame(height: 40)
+                        }.pickerStyle(.automatic)
+                            .frame(height: 40.0)
+                            .padding(.leading, 20)
+                            .padding(.trailing, 20)
                         
                     }//fin genre
                     
@@ -192,9 +200,10 @@ struct InscriptionDetailsView: View {
                             Text("Description")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
+                                .padding(.leading, 30)
                             Spacer()
                             TextField("", text: $description)
+                                .font(.system(size: 30))
 //                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .overlay{
@@ -205,8 +214,8 @@ struct InscriptionDetailsView: View {
                                         
                                     }
                                 }
-                                .padding(.leading)
-                                .padding(.trailing)
+                                .padding(.leading, 30)
+                                .padding(.trailing, 30)
                                 
                             
                             
@@ -217,9 +226,10 @@ struct InscriptionDetailsView: View {
                             Text("Adresse")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
+                                .padding(.leading, 30)
                             Spacer()
                             TextField("", text: $adresse)
+                                .font(.system(size: 30))
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .overlay{
                                     if !isTextValid {
@@ -229,8 +239,8 @@ struct InscriptionDetailsView: View {
                                         
                                     }
                                 }
-                                .padding(.leading)
-                                .padding(.trailing)
+                                .padding(.leading, 30)
+                                .padding(.trailing, 30)
                                
                             
                         }
@@ -243,9 +253,10 @@ struct InscriptionDetailsView: View {
                             Text("SIRET")
                                 .bold()
                                 .foregroundColor(Color("DeepBlue"))
-                                .padding(.leading)
+                                .padding(.leading, 30)
                             Spacer()
                             TextField("", text: $siret)
+                                .font(.system(size: 30))
                                 .keyboardType(.numberPad)
 //                                .frame(width: 220)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -257,8 +268,8 @@ struct InscriptionDetailsView: View {
                                         
                                     }
                                 }
-                                .padding(.leading)
-                                .padding(.trailing)
+                                .padding(.leading, 30)
+                                .padding(.trailing, 30)
                                 
                             
                             
@@ -270,10 +281,10 @@ struct InscriptionDetailsView: View {
                         Text("Email")
                             .bold()
                             .foregroundColor(Color("DeepBlue"))
-                            .padding(.leading)
+                            .padding(.leading, 30)
                         
                         TextField(" ", text: $email)
-
+                            .font(.system(size: 30))
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .overlay{
                                 if !isEmailValid{
@@ -283,8 +294,8 @@ struct InscriptionDetailsView: View {
                                     
                                 }
                             }
-                            .padding(.leading)
-                            .padding(.trailing)
+                            .padding(.leading, 30)
+                            .padding(.trailing, 30)
                            
                     }
 
@@ -294,9 +305,10 @@ struct InscriptionDetailsView: View {
                         Text("Mot de passe")
                             .bold()
                             .foregroundColor(Color("DeepBlue"))
-                            .padding(.leading)
+                            .padding(.leading, 30)
                        
                         TextField("", text: $mdp)
+                            .font(.system(size: 30))
 //                            .frame(width: 220)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .overlay{
@@ -307,8 +319,8 @@ struct InscriptionDetailsView: View {
                                     
                                 }
                             }
-                            .padding(.leading)
-                            .padding(.trailing)
+                            .padding(.leading, 30)
+                            .padding(.trailing, 30)
                        
                     }
                     
@@ -339,7 +351,7 @@ struct InscriptionDetailsView: View {
                                 
                                 
                             } label: {
-                                Text("Se connecter")
+                                Text("Créer mon profil ")
                                     .frame(width: 255, height: 30)
                                     .bold()
                             }.buttonStyle(.borderedProminent)
@@ -350,6 +362,8 @@ struct InscriptionDetailsView: View {
                     Spacer()
                         
                     }
+                    
+                    Spacer()
                     
                 }
             }
