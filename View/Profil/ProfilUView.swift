@@ -10,9 +10,7 @@ import UIKit
 
 struct ProfilUView: View {
         
-    //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
-    
-    @ObservedObject var profileVM : ListesDesProfiles
+    @EnvironmentObject var profileVM: ListesDesProfiles
     
     @State private var image = UIImage()
     @State private var showPhotoSheet = false
@@ -27,13 +25,12 @@ struct ProfilUView: View {
             Color("Neutre")
                 .edgesIgnoringSafeArea(.top)
                     VStack{
-                    ScrollView{
-                                                       
+                    ScrollView{                                                       
                             ForEach (profileVM.ListeProfilesP) { profile in
                                 
                                 if profile.email == email && profile.mdp == mdp {
-                                    
-                                        HStack(alignment: .top){
+                                  
+                                       HStack(alignment: .top){
                                             Image(uiImage: UIImage(data: profile.profilPic  ?? Data()) ?? UIImage())
                                                 .resizable()
                                                 .scaledToFill()
@@ -193,15 +190,9 @@ struct ProfilUView: View {
                     }
                 }
             
-        
-    
-            
-
-
 
 struct ProfilUView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilUView(profileVM: ListesDesProfiles(), email: " ", mdp: " ")
-           // .environmentObject(ListesDesProfilesU())
+        ProfilUView(email: " ", mdp: " ").environmentObject(ListesDesProfiles())
     }
 }

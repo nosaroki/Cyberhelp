@@ -14,7 +14,7 @@ class ListesDesProfiles: ObservableObject {
     let containerP: NSPersistentContainer
     
     @Published var ListeProfilesP : [ProfilEntity] = []
-    
+    @Published var monProfil : ProfilEntity?
     init() {
         
         containerP = NSPersistentContainer(name: "dataProfilU") // le nom du container doit être le même que celui créé!!

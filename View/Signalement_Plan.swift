@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct Signalement_Plan: View {
-    var body: some View {
-        NavigationView {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    var body: some View
+    {
+      //  NavigationView {
        //     ScrollView{
                 ZStack{
                     Color("Neutre")
-                        .ignoresSafeArea()
+                        .edgesIgnoringSafeArea(.top)
                     VStack{
                     //(alignment: .leading)
                         ZStack{
                             Rectangle()
                                 .foregroundStyle(Color("DeepBlue"))
                               //  .scaledToFit()
-                                .frame(width: 377.0, height: 172)
+                                .frame(width: 377.0, height: 122)
                                 .cornerRadius(10)
                                 .padding()
                             Rectangle()
                                 .foregroundStyle(.white)
                               //  .scaledToFit()
-                                .frame(width: 375.0, height: 170)
+                                .frame(width: 375.0, height: 120)
                                 .cornerRadius(10)
                                // .border(Color(red: 0.14, green: 0.202, blue: 0.327))
                              //   .cornerRadius(10)
@@ -38,6 +40,7 @@ struct Signalement_Plan: View {
                                 .foregroundColor(Color(red: 0.14, green: 0.202, blue: 0.327))
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 25.0)
+                                .padding(.vertical, 5.0)
                             //  }
                         }
                         ZStack{
@@ -54,8 +57,15 @@ struct Signalement_Plan: View {
                             }
                         }
                     }
-            }
+           // }
         }
+        .navigationBarBackButtonHidden(true)
+           .navigationBarItems(leading: Button(action : {
+                         self.mode.wrappedValue.dismiss()
+                     }){
+                         Image(systemName: "chevron.left")
+                         Text("Signalement")
+                     })
     }
 }
 

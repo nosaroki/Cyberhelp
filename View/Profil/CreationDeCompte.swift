@@ -9,15 +9,14 @@ import SwiftUI
 
 struct CreationDeCompte: View {
     
-    @ObservedObject var profileVM = ListesDesProfiles()
+    @EnvironmentObject var profilsVM: ListesDesProfiles
     
     @State var isExist : Bool = false
     @State var isExistP : Bool = false
     
     
+
     var body: some View {
-       
-            
             ZStack{
                 Color("Neutre").ignoresSafeArea()
                 
@@ -31,7 +30,7 @@ struct CreationDeCompte: View {
                         
                         //bouton Inscription Pro
                         NavigationLink{
-                            InscriptionDetailsView(profileVM: profileVM, isPro: true)
+                            InscriptionDetailsView(isPro: true)
                             
                         } label: {
                             Text("Professionnel \r de santé")
@@ -44,7 +43,7 @@ struct CreationDeCompte: View {
                         //bouton Inscription Utilisateur
                         NavigationLink {
                             
-                            InscriptionDetailsView(profileVM: profileVM, isPro: false)
+                            InscriptionDetailsView( isPro: false)
                             
                         } label: {
                             
@@ -61,15 +60,14 @@ struct CreationDeCompte: View {
                     }
                 }
             }
-            
-        }
-    
+
+    }
 }
 
 struct CreationDeCompte_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreationDeCompte()
+            CreationDeCompte().environmentObject(ListesDesProfiles())
         }
     }
 }

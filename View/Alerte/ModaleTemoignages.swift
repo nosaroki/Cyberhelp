@@ -43,57 +43,69 @@ struct ModaleTemoignages: View {
                         .font(.title)
                         .foregroundColor(Color("DeepBlue"))
                     
-                    Text("Titre de ton article *")
-                        .padding()
+                    Text("Titre de ton article")
+                        .padding(.top)
                         .font(.title3)
                         .foregroundColor(Color("DeepBlue"))
                     
                     TextField("Ecrire ici", text: $text1)
                         .font(.body)
+                        .padding()
                         .frame(height: 50)
                         .foregroundColor(Color("DeepBlue"))
                         .background(Color.white)
                         .cornerRadius(8)
                     
-                    Text("Raconte nous ton histoire *")
-                        .padding()
+                    Text("Raconte nous ton histoire")
+                        .padding(.top)
                         .font(.title3)
                         .foregroundColor(Color("DeepBlue"))
                     
                     TextField("Ecrire ici", text: $text2)
+                        .frame(height: 200, alignment: .top)
                         .font(.body)
-                        .frame(height: 200)
+                        .padding()
                         .foregroundColor(Color("DeepBlue"))
                         .background(Color.white)
                         .cornerRadius(8)
                     
                     Button {
                         } label: {
-                        Text("+ " + " Ajouter une image")
-                            .fontWeight(.bold)
+                            
+                            HStack {
+                               Image(systemName: "plus.circle")
+                                Text(" Ajouter une image")
+                                .fontWeight(.bold)
+                            .frame(height: 44)
+                            }
                         
                     }
                     .buttonStyle(.borderedProminent)
-                    .frame(width: 200)
+                    .frame(height: 44)
+                    .padding(22)
                     .tint(Color("Orange"))
                     .zIndex(1)
-                    .padding(.leading, 70)
-                    .padding()
+                    .padding(.leading, 60)
                     
                     Button {
                         } label: {
                         Text("Publier mon témoignage")
+//                                .padding()
                             .fontWeight(.bold)
-                        
+                            .frame(width: 300, height: 44)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .frame(width: 250)
+                    .buttonStyle(.borderedProminent).padding(22)
+//                    .frame(width: 250)
                     .tint(Color("Primaire"))
                     .zIndex(1)
-                    .padding(.leading, 50)
-                    .padding()
+//                    .padding(.leading, 50)
+                    
                 }
                 .padding()
+                .navigationBarItems(trailing:
+                                        HStack {
+                    CloseButtonTemoignageView(isShown: $isModaleShown)
+                } )
             }
         }
     }

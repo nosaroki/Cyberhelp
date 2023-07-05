@@ -13,11 +13,13 @@ struct GuideView: View {
     
     var body: some View {
         
-        ZStack{
+        ZStack(){
             Color("Neutre")
+                .edgesIgnoringSafeArea(.top)
             VStack{
                 Text("Guide")
-                    .padding(.top, 24)
+                    .padding(.vertical, 16)
+                    .padding(.bottom, -16)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 ScrollView{

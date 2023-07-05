@@ -165,7 +165,7 @@ struct PageLogoView: View {
                 }
             }
             .sheet(isPresented: $addTemoignage) {
-                AddTemoignageView(addTemoignage: $addTemoignage)
+                       ModaleTemoignages(isModaleShown: $addTemoignage)
             }
         }
         

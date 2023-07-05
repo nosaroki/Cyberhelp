@@ -16,56 +16,58 @@ import MapKit
 import CoreLocation
 
 struct MapView: View {
-    
-    
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.854 , longitude: 2.382322), span: MKCoordinateSpan(latitudeDelta: 0.007, longitudeDelta: 0.007))
-   // var profilemap : ProfileMap
+    @State var i = 1
     var body: some View {
-        
-        NavigationView {
+        Map(coordinateRegion: $region,showsUserLocation: true, annotationItems: userCoor) { place in
             
-            Map(coordinateRegion: $region,showsUserLocation: true, annotationItems: userCoor) { place in
+            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)) {
                 
-                
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)) {
-                    
-                    
-                    NavigationLink {
-                        SignalementProProfile()
-                    } label: {
-                        ZStack {
-                            VStack {
-                                //UIImage.(named: "\(filename).\(extension)")
-                          //  profilPic: Image("psychologue1")
-                                //profil1: ProfileMap = ProfileMap(profilPic: Image("
-                              //  profilemap.profilPic
-                                Image("ProfileMap.profilPic")
-                                        .resizable()
-                                        .frame(width: 75.0, height: 100)
-                                        .border(Color("DeepBlue"))
-                                        .padding(3)
-                                Text(place.prénom)
-                               /* VStack {
-                                    Image(systemName: "mappin.circle.fill")
-                                        .font(.title)
-                                    Image(systemName: "arrowtriangle.down.fill")
-                                       .padding(.top, -20.0)
-                                }
-                                .foregroundColor(.pink)*/
-                            } // end vstack
-                            
-                        } // end zstack
-                    }
-          
-                    
-                    
-                    
+                NavigationLink {
+                    SignalementProProfile2()
+                } label: {
+                    ZStack {
+                        VStack {
+                            ZStack{
+                                Capsule()
+                                    .fill(Color("DeepBlue"))
+                                    .frame(width: 72, height: 102)
+                                Image(place.profilPic)
+                                    .resizable()
+                                //    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 75.0, height: 100)
+                                    .padding(3)
+                                    .mask(
+                                        Capsule()
+                                            .fill(.blue)
+                                            .frame(width: 70, height: 100)
+                                    )
+                            }
+                            Text(place.prénom)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("DeepBlue"))
+                                .tint(.red)
+                                .background()
+                            /* VStack {
+                             Image(systemName: "mappin.circle.fill")
+                             .font(.title)
+                             Image(systemName: "arrowtriangle.down.fill")
+                             .padding(.top, -20.0)
+                             }
+                             .foregroundColor(.pink)*/
+                        } // end vstack
+                        
+                    } // end zstack
                 }
                 
-            } // end map
+                
+                
+                
+            }
             
-        } // end nav view
+        } // end map
         
+    //} // end nav view
     }
 }
 

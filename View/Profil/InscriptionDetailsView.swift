@@ -10,7 +10,8 @@ import PhotosUI
 
 struct InscriptionDetailsView: View {
     
-    @ObservedObject var profileVM: ListesDesProfiles
+    @EnvironmentObject var profileVM: ListesDesProfiles
+
     
     //@EnvironmentObject var ProfilsUVM: ListesDesProfilesU
     
@@ -25,14 +26,14 @@ struct InscriptionDetailsView: View {
     @State var prenom : String = ""
     @State var nom : String = ""
     @State var date : Date = Date()
-    @State var genre : Genre = .autre
+    @State var genre : Genre = .homme
     @State var telephone : String = ""
     @State var description : String = ""
     @State var adresse : String = ""
     @State var siret : String = ""
     @State var email : String = ""
     @State var mdp : String = ""
-    
+
     @State private var idAdd: Bool = false
     
     @State private var isTextValid: Bool = true
@@ -316,10 +317,10 @@ struct InscriptionDetailsView: View {
                         NavigationLink( isActive: $idAdd){
                             
                             if isPro == true {
-                                ProfilPView(email: email, mdp: mdp, profileVM: profileVM)
+                                ProfilPView(email: email, mdp: mdp)
                                 
                             }else{
-                                ProfilUView(profileVM: profileVM, email: email, mdp: mdp)
+                                ProfilUView(email: email, mdp: mdp)
                                 
                             }
                         }label: {
@@ -398,7 +399,7 @@ struct InscriptionDetailsView: View {
 struct InscriptionDetailsPView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            InscriptionDetailsView( profileVM: ListesDesProfiles(), isPro: false)
+            InscriptionDetailsView(isPro: false).environmentObject(ListesDesProfiles())
         }
     }
 }

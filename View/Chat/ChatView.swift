@@ -13,6 +13,7 @@ struct ChatView: View {
         NavigationStack{
             ZStack {
                 Color("Neutre")
+                    .edgesIgnoringSafeArea(.top)
                 VStack {
                     Text("Chat")
                         .font(.title)
@@ -34,7 +35,7 @@ struct ChatView: View {
                                         Image("bellFilled")
                                             .foregroundColor(Color("Orange"))
                                         VStack (alignment: (.leading)){
-                                            Text(conversation.user.prénom)
+                                            Text("Dr \(conversation.user.nom)")
                                                 .fontWeight(.bold)
                                                 .lineLimit(1)
                                             if let lastMessage = conversation.conversation.last {
@@ -61,7 +62,6 @@ struct ChatView: View {
                     .padding()
                 }
             }
-            
         }
         }
     }

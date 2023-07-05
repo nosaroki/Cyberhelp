@@ -16,10 +16,10 @@ import SwiftUI
 
 struct ConnexionView: View {
     
-    @StateObject var profileVM = ListesDesProfiles()
+    @EnvironmentObject var profileVM: ListesDesProfiles
     
-    @State var email : String = ""
-    @State var mdp : String = ""
+    @State var email : String = "Marie@gmail.com"
+    @State var mdp : String = "Mdp"
     
     @State private var isTextValid: Bool = true
     @State private var isEmailValid: Bool = true
@@ -27,7 +27,7 @@ struct ConnexionView: View {
     @State var isExist : Bool = false
     @State var isExistP : Bool = false
     
-   
+    
     
     
     var body: some View {
@@ -38,14 +38,14 @@ struct ConnexionView: View {
                 Color("Neutre").ignoresSafeArea()
                 
                 VStack {
-                                        
+                    
                     Spacer()
                     Text("Bienvenue !")
                         .font(.system(size : 40))
                         .foregroundColor(Color("DeepBlue"))
                         .padding(20)
                     Spacer()
-
+                    
                     //
                     ZStack {
                         Rectangle()
@@ -93,45 +93,45 @@ struct ConnexionView: View {
                                 .padding(.bottom)
                             
                             ZStack{
-
+                                
                                 
                                 //VOIR AVEC KELIAN
                                 
-                                NavigationLink(destination: ProfilUView(profileVM: profileVM, email: email, mdp: mdp), isActive: $isExist){
+                                NavigationLink(destination: ProfilUView(email: email, mdp: mdp), isActive: $isExist){
                                     
                                 }
                                 
-                                NavigationLink(destination: ProfilPView(email: email, mdp: mdp, profileVM: profileVM), isActive: $isExistP){
+                                NavigationLink(destination: ProfilP2View(), isActive: $isExistP){
                                     
                                 }
-                                          
-                                    Button {
+                                
+                                Button {
+                                    
+                                    validateFields()
+                                    
+                                    for profile in profileVM.ListeProfilesP {
                                         
-                                        validateFields()
-                                        
-                                        for profile in profileVM.ListeProfilesP {
-                                            
-                                            if profile.email == email && profile.mdp == mdp
-                                            {
-                                                                                               
-                                                if profile.isPro == true{
-                                            
-                                                    isExistP = true
-                                                }else{
-                                                    isExist = true
-                                                }
+                                        if profile.email == email && profile.mdp == mdp
+                                        {
+                                            profileVM.monProfil = profile
+                                            if profile.isPro == true{
+                                                
+                                                isExistP = true
+                                            }else{
+                                                isExist = true
                                             }
                                         }
-                                            
-                                        
-                                    } label: {
-                                        Text("Se connecter")
-                                            .frame(width: 255, height: 30)
-                                            .bold()
-                                    }.buttonStyle(.borderedProminent)
-                                        .tint(Color("Primaire"))
-                                        .padding(.top)
-                                        
+                                    }
+                                    
+                                    
+                                } label: {
+                                    Text("Se connecter")
+                                        .frame(width: 255, height: 30)
+                                        .bold()
+                                }.buttonStyle(.borderedProminent)
+                                    .tint(Color("Primaire"))
+                                    .padding(.top)
+                                
                                 
                             }
                         }.frame(width: 310, height: 160)
@@ -147,40 +147,40 @@ struct ConnexionView: View {
                             .foregroundColor(Color("DeepBlue"))
                             .bold()
                     }
-//
-//                    Text("Créer un compte")
-//                        .foregroundColor(Color("Orange"))
-//                        .bold()
-//
-//                    HStack{
-//
-//                        //bouton Inscription Pro
-//                        NavigationLink{
-//                            InscriptionDetailsView(profileVM: profileVM, isPro: true)
-//
-//                        } label: {
-//                            Text("Professionnel \r de santé")
-//                                .frame(width: 115, height: 50)
-//                                .bold()
-//                        }.buttonStyle(.borderedProminent)
-//                            .padding(10)
-//                            .tint(Color("Primaire"))
-//
-//                        //bouton Inscription Utilisateur
-//                        NavigationLink {
-//
-//                            InscriptionDetailsView(profileVM: profileVM, isPro: false)
-//
-//                        } label: {
-//
-//                            Text("Utilisateur")
-//                                .bold()
-//                                .frame(width: 115, height: 50)
-//                        }.buttonStyle(.borderedProminent)
-//                            .tint(Color("Primaire"))
-//                            .padding(10)
-//
-//                    }
+                    //
+                    //                    Text("Créer un compte")
+                    //                        .foregroundColor(Color("Orange"))
+                    //                        .bold()
+                    //
+                    //                    HStack{
+                    //
+                    //                        //bouton Inscription Pro
+                    //                        NavigationLink{
+                    //                            InscriptionDetailsView(profileVM: profileVM, isPro: true)
+                    //
+                    //                        } label: {
+                    //                            Text("Professionnel \r de santé")
+                    //                                .frame(width: 115, height: 50)
+                    //                                .bold()
+                    //                        }.buttonStyle(.borderedProminent)
+                    //                            .padding(10)
+                    //                            .tint(Color("Primaire"))
+                    //
+                    //                        //bouton Inscription Utilisateur
+                    //                        NavigationLink {
+                    //
+                    //                            InscriptionDetailsView(profileVM: profileVM, isPro: false)
+                    //
+                    //                        } label: {
+                    //
+                    //                            Text("Utilisateur")
+                    //                                .bold()
+                    //                                .frame(width: 115, height: 50)
+                    //                        }.buttonStyle(.borderedProminent)
+                    //                            .tint(Color("Primaire"))
+                    //                            .padding(10)
+                    //
+                    //                    }
                     Spacer()
                 }
             }
@@ -192,27 +192,27 @@ struct ConnexionView: View {
     
     func validateFields() {
         isTextValid = isValidText(mdp)
-         isEmailValid = isValidEmail(email)
-     }
-
-     func isValidEmail(_ email: String) -> Bool {
-         return email.contains("@") && email.contains(".")
-     }
+        isEmailValid = isValidEmail(email)
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        return email.contains("@") && email.contains(".")
+    }
     
     func isValidText(_ mdp: String) -> Bool {
         
         return !mdp.isEmpty
     }
-
-     func isFormValid() -> Bool {
-         return isTextValid && isEmailValid
-     }
+    
+    func isFormValid() -> Bool {
+        return isTextValid && isEmailValid
+    }
     
 }
 
 struct ConnexionView_Previews: PreviewProvider {
     static var previews: some View {
-        ConnexionView()
+        ConnexionView().environmentObject(ListesDesProfiles())
     }
 }
 
