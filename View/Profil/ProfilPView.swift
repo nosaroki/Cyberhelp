@@ -145,7 +145,7 @@ struct ProfilPView: View {
             }
         }
         
-    }
+    
 
 
 struct ProfilPView_Previews: PreviewProvider {

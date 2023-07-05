@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class ChatViewModel: ObservableObject {
     
@@ -60,6 +61,11 @@ var conversationsUser : [Conversation] = [
         Message(chat: "J'ai été victime de Cyber-Harcèlement, pouvez-vous m'aider ?", destinataire: true, heure: Date.now)
     ], isRead: true),
 ]
+
+var emptyConversation : Conversation =
+Conversation(user: patapo, conversation: [
+Message(chat: "Je me sens très mal, je me fais harceler sur snapchat", destinataire: true, heure: date3)
+], isRead: false)
 
 
 
