@@ -31,7 +31,6 @@
 		8F4CFFD42A4C6A6B00EC4B13 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */; };
 		8F69B70F2A52C4BA00E24D50 /* CreationDeCompte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */; };
 		A7686A292A5403260013D8CF /* CloseButtonTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */; };
-		A79A0C412A4DC842004EDADE /* AddTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */; };
 		A79A0C432A4DD138004EDADE /* AddButtonTemoignageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */; };
 		A7D80BA72A45DE8C00339687 /* TopicOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D80BA62A45DE8C00339687 /* TopicOption.swift */; };
 		B82049E52A4D94390031425F /* ProfilPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82049E42A4D94390031425F /* ProfilPView.swift */; };
@@ -80,7 +79,6 @@
 		8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationDeCompte.swift; sourceTree = "<group>"; };
 		A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonTemoignageView.swift; sourceTree = "<group>"; };
-		A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemoignageView.swift; sourceTree = "<group>"; };
 		A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonTemoignageView.swift; sourceTree = "<group>"; };
 		A7D80BA62A45DE8C00339687 /* TopicOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicOption.swift; sourceTree = "<group>"; };
 		B82049E42A4D94390031425F /* ProfilPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilPView.swift; path = View/Profil/ProfilPView.swift; sourceTree = SOURCE_ROOT; };
@@ -138,7 +136,6 @@
 			children = (
 				B82049F32A4D96AA0031425F /* TabView */,
 				A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */,
-				A79A0C402A4DC842004EDADE /* AddTemoignageView.swift */,
 				B82049F52A4D972E0031425F /* Chat */,
 				B82049F42A4D96B60031425F /* Alerte */,
 				B82049F22A4D96A20031425F /* Profil */,
@@ -329,7 +326,6 @@
 				83BFF8732A43437000DF498E /* ConnexionView.swift in Sources */,
 				83BFF8522A43340700DF498E /* ChatDetailsView.swift in Sources */,
 				8F0427942A476F9500307426 /* Genre+Option.swift in Sources */,
-				A79A0C412A4DC842004EDADE /* AddTemoignageView.swift in Sources */,
 				8F0427842A475E5000307426 /* ListesDesProfiles.swift in Sources */,
 				A7686A292A5403260013D8CF /* CloseButtonTemoignageView.swift in Sources */,
 				83BFF8632A43375C00DF498E /* TabviewU.swift in Sources */,

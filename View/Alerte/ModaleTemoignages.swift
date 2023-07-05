@@ -62,9 +62,9 @@ struct ModaleTemoignages: View {
                         .foregroundColor(Color("DeepBlue"))
                     
                     TextField("Ecrire ici", text: $text2)
+                        .frame(height: 200, alignment: .top)
                         .font(.body)
-                    .padding()
-                        .frame(height: 200)
+                        .padding()
                         .foregroundColor(Color("DeepBlue"))
                         .background(Color.white)
                         .cornerRadius(8)
@@ -90,14 +90,15 @@ struct ModaleTemoignages: View {
                     Button {
                         } label: {
                         Text("Publier mon témoignage")
+//                                .padding()
                             .fontWeight(.bold)
-                            .frame(height: 44)
+                            .frame(width: 300, height: 44)
                     }
                     .buttonStyle(.borderedProminent).padding(22)
 //                    .frame(width: 250)
                     .tint(Color("Primaire"))
                     .zIndex(1)
-                    .padding(.leading, 50)
+//                    .padding(.leading, 50)
                     
                 }
                 .padding()
