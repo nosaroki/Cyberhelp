@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatView: View {
     @EnvironmentObject var chatVM: ChatViewModel
+//    @EnvironmentObject var profileVM : ListesDesProfiles    
     var body: some View {
         NavigationStack{
             ZStack {

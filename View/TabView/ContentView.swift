@@ -17,7 +17,7 @@ struct ContentView: View {
     @StateObject var profilVM = ListesDesProfiles()
     var body: some View {
         
-        TabviewU()
+        PageLogoView()
             .environmentObject(chatVM)
             .environmentObject(actuVM)
             .environmentObject(eventVM)
