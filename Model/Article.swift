@@ -12,6 +12,7 @@ struct Article: Identifiable {
     let id = UUID()
     let image : String
     let titre : String
+    let publication : String
     let content : LocalizedStringKey
 }
 
