@@ -26,13 +26,14 @@ struct Alerte: View {
                     .font(.body)
                     .fontWeight(.semibold)
                     HStack(alignment: .top){
-                        Text("\(signalementInView.nom): \(signalementInView.description)")
+                        Text("**\(signalementInView.nom)**: \(signalementInView.description)")
                             .font(.footnote)
                             .foregroundColor(Color("DeepBlue"))
                             .opacity(0.75)
                             .lineLimit(3)
                         Spacer()
                     }
+                    .padding(.top,4)
                 }
                 .padding(8)
                     Image (systemName: "exclamationmark.shield")
