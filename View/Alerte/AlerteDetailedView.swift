@@ -13,6 +13,8 @@ struct AlerteDetailedView: View {
     var body: some View {
         ZStack{
             Color("Neutre")
+                .edgesIgnoringSafeArea(.top)
+
             VStack{
                 VStack{
                     HStack{
