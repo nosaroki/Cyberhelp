@@ -120,7 +120,8 @@ struct SignalementView: View {
                         .foregroundColor(Color("DeepBlue"))
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 15.0)
-                        TextEditor(text: $description)
+                   
+                    TextEditor(text: $description)
                         .cornerRadius(7)
                         .scaledToFit()
                         .padding([.leading, .trailing], 25.0)

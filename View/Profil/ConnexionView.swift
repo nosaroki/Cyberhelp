@@ -49,7 +49,7 @@ struct ConnexionView: View {
                     //
                     ZStack {
                         Rectangle()
-                            .frame(width: 320, height: 280)
+                            .frame(width: 320, height: 320)
                             .foregroundColor(Color(hue: 0.544, saturation: 0.126, brightness: 0.982))
                             .cornerRadius(10)
                         VStack(alignment: .leading){
@@ -57,6 +57,8 @@ struct ConnexionView: View {
                             Text("Email")
                                 .foregroundColor(Color("DeepBlue"))
                                 .bold()
+                                
+                                .padding(.leading)
                             
                             Spacer()
                             TextField("", text: $email)
@@ -70,12 +72,14 @@ struct ConnexionView: View {
                                             .foregroundColor(.red.opacity(0.3))
                                         
                                     }
-                                }
+                                } .padding(.bottom)
+                                .padding(.leading)
                             
                             
                             Text("Mot de passe")
                                 .foregroundColor(Color("DeepBlue"))
                                 .bold()
+                                .padding(.leading)
                             
                             Spacer()
                             SecureField("", text: $mdp)
@@ -91,8 +95,8 @@ struct ConnexionView: View {
                                     }
                                 }
                                 .padding(.bottom)
-                            
-                            ZStack{
+                                .padding(.leading)
+                           
                                 
                                 
                                 //VOIR AVEC KELIAN
@@ -131,8 +135,22 @@ struct ConnexionView: View {
                                 }.buttonStyle(.borderedProminent)
                                     .tint(Color("Primaire"))
                                     .padding(.top)
+                                    .padding(.leading)
                                 
                                 
+                            
+                            
+                            HStack{
+                                Spacer()
+                                NavigationLink(destination: CreationDeCompte())
+                                {
+                                    Text("Créer un compte")
+                                        .frame(height: 50)
+                                        .foregroundColor(Color("DeepBlue"))
+                                        .multilineTextAlignment(.center)
+                                                                        
+                                }
+                                Spacer()
                             }
                         }.frame(width: 310, height: 160)
                     }
@@ -140,13 +158,7 @@ struct ConnexionView: View {
                     
                     Spacer()
                     
-                    
-                    NavigationLink(destination: CreationDeCompte())
-                    {
-                        Text("Cliquer ICI pour créer un compte")
-                            .foregroundColor(Color("DeepBlue"))
-                            .bold()
-                    }
+                  
                     //
                     //                    Text("Créer un compte")
                     //                        .foregroundColor(Color("Orange"))
