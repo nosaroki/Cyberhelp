@@ -36,10 +36,10 @@ struct Alerte: View {
                 }
                 .padding(8)
                     Image (systemName: "exclamationmark.shield")
-                        .padding(.leading)
+                    .padding(.trailing, 10)
                         .foregroundColor(Color("DeepBlue"))
-                        .opacity(0.75)
-                        .font(.system(size: 64))
+                        .opacity(0.55)
+                        .font(.system(size: 50))
             }
             .padding()
         }
@@ -47,12 +47,15 @@ struct Alerte: View {
         .background(Color(.orange).opacity(0.05))
         .overlay(
             Rectangle()
-                .frame(width: 4)
+                .frame(width: 6)
                 .padding(.trailing, 360.0)
                 .foregroundColor(.orange)
                 
+                
         )
-        .padding()
+        .cornerRadius(8)
+        .padding(.horizontal)
+        .padding(.top, 8)
         
     }
 }

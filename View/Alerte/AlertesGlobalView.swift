@@ -9,26 +9,32 @@ import SwiftUI
 
 struct AlertesGlobalView: View {
     @EnvironmentObject var alerteVM: AlertClass
-    
+  
     var body: some View {
         NavigationView{
             ZStack{
                 Color("Neutre")
                     .edgesIgnoringSafeArea(.top)
-
+                
                 NavigationLink( destination: AlerteDetailedView(),
                                 label:{
-                    VStack{
+                    VStack(){
+                        HStack{
+                            Text("Alertes")
+                                .foregroundColor(Color("DeepBlue"))
+                                .fontWeight(.bold)
+                                .font(.title)
+                            
+                        }
+                        .padding(.top, 8)
                         ScrollView{
                             ForEach(alerteVM.signalements) { alerte in
                                 Alerte(signalementInView: alerte)
                             }
+                            .multilineTextAlignment(.leading)
                         }
                     }
-                })
-                                    .navigationTitle("Alertes")
-                                    .navigationBarTitleDisplayMode(.inline)
-            }
+                })            }
         }
     }
 }
