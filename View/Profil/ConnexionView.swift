@@ -18,8 +18,8 @@ struct ConnexionView: View {
     
     @EnvironmentObject var profileVM: ListesDesProfiles
     
-    @State var email : String = "Marie@gmail.com"
-    @State var mdp : String = "Mdp"
+    @State var email : String = ""
+    @State var mdp : String = ""
     
     @State private var isTextValid: Bool = true
     @State private var isEmailValid: Bool = true

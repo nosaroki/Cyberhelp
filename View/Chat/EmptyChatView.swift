@@ -19,7 +19,7 @@ struct EmptyChatView: View {
             Color("Neutre")
                 .edgesIgnoringSafeArea(.top)
             VStack {
-                Text("Patapo")
+                Text("Jeanne")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("DeepBlue"))
