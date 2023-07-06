@@ -84,6 +84,7 @@
 		8F4CFFD32A4C6A6B00EC4B13 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8F69B70E2A52C4BA00E24D50 /* CreationDeCompte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationDeCompte.swift; sourceTree = "<group>"; };
 		A7686A282A5403260013D8CF /* CloseButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonTemoignageView.swift; sourceTree = "<group>"; };
+		A78D08F12A5725B10068F944 /* CyberHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CyberHelp.entitlements; path = CyberHelp/CyberHelp.entitlements; sourceTree = "<group>"; };
 		A79A0C422A4DD138004EDADE /* AddButtonTemoignageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonTemoignageView.swift; sourceTree = "<group>"; };
 		A7A4ECFD2A55B2D0004BAAAE /* AccueilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilView.swift; sourceTree = "<group>"; };
 		A7D80BA62A45DE8C00339687 /* TopicOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicOption.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		83BFF82B2A43322600DF498E = {
 			isa = PBXGroup;
 			children = (
+				A78D08F12A5725B10068F944 /* CyberHelp.entitlements */,
 				8357AEFF2A4DC87100DD2E1E /* PageLogoView.swift */,
 				B82049F12A4D964A0031425F /* App */,
 				B82049F02A4D95DC0031425F /* Model */,
@@ -499,8 +501,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CyberHelp/CyberHelp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9NC3FAK33U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
@@ -527,8 +531,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CyberHelp/CyberHelp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9NC3FAK33U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
