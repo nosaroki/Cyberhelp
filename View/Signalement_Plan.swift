@@ -34,7 +34,7 @@ struct Signalement_Plan: View {
                              //   .cornerRadius(10)
                                 .padding()
                             
-                            Text("Merci d’avoir partager ton expériences avec nous, vous serez contacté par un spécialiste dans les meilleures délais")
+                            Text("Merci d’avoir partagé ton expérience avec nous, tu seras contacté.e par un spécialiste dans les meilleurs délais")
                                 .font(.body)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 0.14, green: 0.202, blue: 0.327))
@@ -48,7 +48,7 @@ struct Signalement_Plan: View {
                                 .cornerRadius(10)
                                 .foregroundStyle(Color("Primaire"))
                             VStack{
-                                Text("Les spécialiste qui pourrons t’aider  prés de chez toi")
+                                Text("Les spécialistes qui pourront t’aider près de chez toi")
                                     .padding()
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)

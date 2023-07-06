@@ -41,7 +41,7 @@ struct SignalementProProfile2: View {
                                         .font(.footnote)
                                         .foregroundColor(Color.gray)
                                         .padding(.vertical, 1.0)
-                                    Text("Salut, je suis passionnée par mon métier. Je suis là pour t’écouter et t’aider. N’hésitez pas de me contacter.")
+                                    Text("Salut, je suis passionnée par mon métier. Je suis là pour t’écouter et t’aider. N’hésite pas à me contacter.")
                                         .font(.body)
                                         .foregroundColor(Color("DeepBlue"))
                                         .padding(.top, 1.0)

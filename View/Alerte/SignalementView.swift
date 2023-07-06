@@ -104,7 +104,7 @@ struct SignalementView: View {
                 }
                 
                 else if selectedType == "Grooming"{
-                    Type(description:"Manipulation et exploitation d’une personne vulnérable, souvent mineur, par un prédateur en ligne")
+                    Type(description:"Manipulation et exploitation d’une personne vulnérable, souvent mineure, par un prédateur en ligne")
                 }
                 
                 else {
